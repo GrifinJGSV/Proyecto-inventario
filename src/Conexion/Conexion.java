@@ -4,11 +4,31 @@
  */
 package Conexion;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+
 /**
  *
  * @author Josue
  */
-public class Conexion {
-    
+    public class Conexion {
+      public static Connection conection = null;
+    public Connection getConexion() {
+		try {
+			
+		//Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                      conection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventarioalcaldia", "root", "");
+                      return conection;
+                        
+                    } 
+                       catch (SQLException ex) {
+			return null;
+			
+		}
+
+	}
+
     
 }

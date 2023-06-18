@@ -4,7 +4,9 @@
  */
 package Principal;
 
-import Vistas.Proveedores;
+import Vistas.ProveedoresStore;
+import Conexion.Conexion;
+import Vistas.Vistaprincipal;
 
 /**
  *
@@ -13,8 +15,8 @@ import Vistas.Proveedores;
 public class Principal {
     
     public static void main (String [] args){
-        Proveedores proveedores = new Proveedores();
-        proveedores.setVisible(true);
+        Vistaprincipal vistaprincipal = new Vistaprincipal();
+        vistaprincipal.setVisible(true);
     }
     
 }
