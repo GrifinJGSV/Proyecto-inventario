@@ -34,7 +34,7 @@ public class CrearProductos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(60, 53, 65));
 
         jLabel2.setText("Nombre del Producto");
 
