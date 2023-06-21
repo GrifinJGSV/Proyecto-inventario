@@ -74,6 +74,11 @@ public class Vistaprincipal extends javax.swing.JFrame {
         });
 
         btnCompras.setText("Compras");
+        btnCompras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprasActionPerformed(evt);
+            }
+        });
 
         btnProductos.setText("Productos");
         btnProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -187,6 +192,12 @@ public class Vistaprincipal extends javax.swing.JFrame {
         LogoAlcaldiaPrincipal logoAlcaldia = new LogoAlcaldiaPrincipal();
         identificarVista(logoAlcaldia);
     }//GEN-LAST:event_btnInicioActionPerformed
+
+    private void btnComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprasActionPerformed
+        // TODO add your handling code here:
+        MostrarCompras mostrarCompras = new MostrarCompras();
+        identificarVista(mostrarCompras);
+    }//GEN-LAST:event_btnComprasActionPerformed
 
     /**
      * @param args the command line arguments
