@@ -58,3 +58,4 @@ public class QuerysProductos {
     // Consulta SQL para listar todos los productos de la base de datos
     public static String LISTARPRODUCTOS = "SELECT * FROM productos";
 }
+

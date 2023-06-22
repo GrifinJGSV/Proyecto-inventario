@@ -49,6 +49,8 @@ public class Proveedores {
             Statement st = conexion.createStatement();
             ResultSet rs = st.executeQuery(sql);
             
+           
+            
             while(rs.next()){
                 datos[0] = rs.getString("nombre");
                 datos[1] = rs.getString("empresa");
@@ -60,6 +62,7 @@ public class Proveedores {
                 tcr.setHorizontalAlignment(SwingConstants.RIGHT);
                 MostrarProveedores.tblMostrarProveedores.setModel(model);
                 //MostrarProveedores.tblMostrarProveedores.getColumnModel().getColumn(4).setCellRenderer(tcr);
+                
                 
                 
             }
