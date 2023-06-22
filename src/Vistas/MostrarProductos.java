@@ -76,14 +76,15 @@ public class MostrarProductos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        
+
         CrearProductos productos = new CrearProductos(); 
          productos.setVisible(true);
         
     }//GEN-LAST:event_btnNuevoActionPerformed
 
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNuevo;
     private javax.swing.JScrollPane jScrollPane1;

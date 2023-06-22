@@ -51,4 +51,5 @@ public static boolean Guardar(QuerysProductos qp) {
 //            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }
