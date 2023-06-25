@@ -4,21 +4,12 @@
  */
 package Vistas;
 
-import java.awt.BorderLayout;
-import javax.swing.JPanel;
 
-/**
- *
- * @author PC
- */
 public class MostrarCompras extends javax.swing.JPanel {
-
-    /**
-     * Creates new form MostrarProveedores
-     */
     public MostrarCompras() {
         initComponents();
-
+        tblMostrarCompras.getTableHeader().setReorderingAllowed(false);
+        Controlador.Compras.MostrarCompras("");
     }
     
     
@@ -34,11 +25,11 @@ public class MostrarCompras extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblMostrarCompras = new javax.swing.JTable();
         Imprimir = new javax.swing.JButton();
         AgregarCompra = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblMostrarCompras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -46,12 +37,14 @@ public class MostrarCompras extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "id", "N.Documento", "Tipo de compra", "Proveedor", "Fecha", "Cantidad", "Precio unitario", "Total"
+                "id", "Num.Factura", "RTN", "CAI", "Tipo de compra", "Proveedor", "Fecha", "Total"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(6).setResizable(false);
+        tblMostrarCompras.setToolTipText("");
+        tblMostrarCompras.setRowHeight(20);
+        jScrollPane1.setViewportView(tblMostrarCompras);
+        if (tblMostrarCompras.getColumnModel().getColumnCount() > 0) {
+            tblMostrarCompras.getColumnModel().getColumn(6).setResizable(false);
         }
 
         Imprimir.setText("Imprimir");
@@ -74,13 +67,13 @@ public class MostrarCompras extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(AgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Imprimir)))
-                .addGap(0, 28, Short.MAX_VALUE))
+                .addComponent(AgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Imprimir)
+                .addGap(96, 96, 96))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 904, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,8 +83,7 @@ public class MostrarCompras extends javax.swing.JPanel {
                     .addComponent(Imprimir)
                     .addComponent(AgregarCompra))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -111,7 +103,7 @@ public class MostrarCompras extends javax.swing.JPanel {
     private javax.swing.JButton AgregarCompra;
     private javax.swing.JButton Imprimir;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public static javax.swing.JTable tblMostrarCompras;
     // End of variables declaration//GEN-END:variables
 
 }
