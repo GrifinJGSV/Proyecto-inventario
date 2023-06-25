@@ -29,6 +29,51 @@ public class Productos {
     private static Conexion con = new Conexion();
     private static Connection conexion = con.getConexion();
     private static PreparedStatement ps = null;
+    
+    public static void MostrarProductos(String buscar){
+        DefaultTableModel model = (DefaultTableModel)MostrarProductos.tblMostrarProductos.getModel();
+        while (model.getRowCount() > 0 ){
+                model.removeRow(0);
+    }
+    
+            
+            String sql = "";
+            if(buscar.equals("")){
+                sql = QuerysProductos.LISTARPRODUCTOS;
+                
+            } 
+            
+        
+        String datos[] = new String[3];
+        
+        try{
+        
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+           
+            
+            while(rs.next()){
+                datos[0] = rs.getString("nombreProducto");
+                datos[1] = rs.getString("tipoInventario");
+                datos[2] = rs.getString("precio");
+                model.addRow(datos);
+                DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
+                tcr.setHorizontalAlignment(SwingConstants.RIGHT);
+                MostrarProductos.tblMostrarProductos.setModel(model);
+                //MostrarProductos.tblMostrarProductos.getColumnModel().getColumn(4).setCellRenderer(tcr);
+                
+                
+                
+            }
+           // MOSTRARCARGO.tblCa.setModel(modelo);//la tabla se actualiza. HacerCalculos(r);
+        }catch (SQLException ex){
+            Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        
+    }
+    
 
     /**
      
@@ -51,4 +96,5 @@ public static boolean Guardar(QuerysProductos qp) {
 //            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }
