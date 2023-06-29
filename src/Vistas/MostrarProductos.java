@@ -4,6 +4,18 @@
  */
 package Vistas;
 
+import java.awt.event.MouseAdapter;
+import javax.swing.JOptionPane;
+
+/*
+ *
+ * @author Alejandra
+ */
+
+import javax.swing.JOptionPane;
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alejandra
@@ -35,6 +47,7 @@ public class MostrarProductos extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        btnEditar = new javax.swing.JButton();
 
         btnNuevo.setText("+");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -47,15 +60,28 @@ public class MostrarProductos extends javax.swing.JPanel {
 
         tblMostrarProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nombre del Producto", "Tipo de inventario", "Precio"
+                "Nombre del Producto", "Tipo de inventario", "Precio", "Id"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblMostrarProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblMostrarProductosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblMostrarProductos);
 
         jButton1.setText("Imprimir");
@@ -86,6 +112,13 @@ public class MostrarProductos extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,7 +132,9 @@ public class MostrarProductos extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(209, 209, 209)
+                .addGap(116, 116, 116)
+                .addComponent(btnEditar)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
@@ -112,7 +147,8 @@ public class MostrarProductos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(btnEditar))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -128,21 +164,53 @@ public class MostrarProductos extends javax.swing.JPanel {
     
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
 
-        CrearProductos productos = new CrearProductos(); 
-         productos.setVisible(true);
+       //CrearProductos productos = new CrearProductos(); 
+         //productos.setVisible(true);
         
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        CrearProductos productos = new CrearProductos(); 
+         productos.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
- 
+    private void tblMostrarProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMostrarProductosMouseClicked
+        EditarProductos productos = new EditarProductos(); 
+          productos.setVisible(true);
+        int row = tblMostrarProductos.getSelectedRow() ;
+        EditarProductos.txtNombreProducto.setText(tblMostrarProductos.getValueAt(row, 0).toString());
+        EditarProductos.cbxTipoInventario.setSelectedItem(tblMostrarProductos.getValueAt(row, 1).toString());
+        EditarProductos.txtPrecio.setText(tblMostrarProductos.getValueAt(row, 2).toString());
+        EditarProductos.txtId.setText(tblMostrarProductos.getValueAt(row, 3).toString());
+        
+        
+    }//GEN-LAST:event_tblMostrarProductosMouseClicked
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        EditarProductos EProductos = new EditarProductos();
+              
+              
+        int fila = tblMostrarProductos.getSelectedRow();  
+        
+        if (fila>=0){
+        
+        EditarProductos.txtNombreProducto. setText(tblMostrarProductos.getValueAt(fila, 0).toString());
+        EditarProductos.cbxTipoInventario.setSelectedItem(tblMostrarProductos.getValueAt(fila, 1).toString());
+        EditarProductos.txtPrecio.setText(tblMostrarProductos.getValueAt(fila, 2).toString());
+        EditarProductos.txtId.setText(tblMostrarProductos.getValueAt(fila, 3).toString());
+       //ediFormProv.tfI.setText(tblMostrarProveedores.getValueAt(fila, 0).toString());
+       EProductos.setVisible(true);
+        } else {
+        JOptionPane.showMessageDialog(null,  " no hay fila");
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnEditar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
