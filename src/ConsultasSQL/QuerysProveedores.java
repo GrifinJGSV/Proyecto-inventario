@@ -73,4 +73,7 @@ public class QuerysProveedores {
     
     public static String LISTARPROVEEDORES = "SELECT * FROM proveedores";
     
+     public static String ACTUALIZARPROVEEDOR = "UPDATE proveedores SET nombre = ?,"
+            + " empresa = ?,"+" rtn = ?,"+" telefono = ?, "+" direccion =? WHERE id = ?";
+    
 }

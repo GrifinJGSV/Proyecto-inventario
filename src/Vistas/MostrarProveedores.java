@@ -4,6 +4,12 @@
  */
 package Vistas;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Josue
@@ -17,8 +23,26 @@ public class MostrarProveedores extends javax.swing.JPanel {
         initComponents();
         tblMostrarProveedores.getTableHeader().setReorderingAllowed(false);
         Controlador.Proveedores.MostrarProvedores("");
-    }
-
+        
+     tblMostrarProveedores.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+            
+            if (e.getClickCount() == 2) {
+                int fila = tblMostrarProveedores.getSelectedRow();
+                VerProvedor verProvedor = new VerProvedor();
+                verProvedor.lbId.setText(tblMostrarProveedores.getValueAt(fila, 0).toString());
+                verProvedor.lbNom.setText(tblMostrarProveedores.getValueAt(fila, 1).toString());
+                verProvedor.lbEmp.setText(tblMostrarProveedores.getValueAt(fila,2).toString());
+                verProvedor.lbRt.setText(tblMostrarProveedores.getValueAt(fila, 3).toString()); 
+                verProvedor.lbTel.setText(tblMostrarProveedores.getValueAt(fila, 4).toString());
+                verProvedor.txDes.setText(tblMostrarProveedores.getValueAt(fila, 5
+                ).toString());
+                
+                verProvedor.setVisible(true);
+            }
+        }
+             });
+ }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,18 +57,34 @@ public class MostrarProveedores extends javax.swing.JPanel {
         btnNuevo = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnEditar = new javax.swing.JButton();
 
+        tblMostrarProveedores = new JTable(){
+            public boolean isCellEditable(int row, int column){
+                for(int i=0; i< tblMostrarProveedores.getRowCount(); i++){
+                    if(row == i){
+                        return false;
+                    }
+                }
+                return true ;
+            }
+        };
         tblMostrarProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Empresa", "RTN", "Telefono", "Direccion"
+                "Id", "Nombre", "Empresa", "RTN", "Telefono", "Direccion"
             }
         ));
+        tblMostrarProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblMostrarProveedoresMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblMostrarProveedores);
 
         btnNuevo.setText("+");
@@ -59,6 +99,13 @@ public class MostrarProveedores extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Listado de provedores");
 
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,6 +116,8 @@ public class MostrarProveedores extends javax.swing.JPanel {
                         .addGap(284, 284, 284)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEditar)
+                        .addGap(27, 27, 27)
                         .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(btnImprimir))
@@ -81,12 +130,14 @@ public class MostrarProveedores extends javax.swing.JPanel {
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnImprimir)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGap(65, 65, 65))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -95,8 +146,31 @@ public class MostrarProveedores extends javax.swing.JPanel {
         proveedores.setVisible(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
+    private void tblMostrarProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMostrarProveedoresMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblMostrarProveedoresMouseClicked
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+       EditarProvedor editarProvedor = new EditarProvedor();       
+        int fila = tblMostrarProveedores.getSelectedRow();  
+        
+        if (fila>=0){
+        
+        editarProvedor.txt_nombre.setText(tblMostrarProveedores.getValueAt(fila, 1).toString());
+        editarProvedor.txt_empresa.setText(tblMostrarProveedores.getValueAt(fila, 2).toString());
+        editarProvedor.fmt_rtn.setText(tblMostrarProveedores.getValueAt(fila, 3).toString());
+        editarProvedor.fmt_telefono.setText(tblMostrarProveedores.getValueAt(fila, 4).toString());
+        editarProvedor.txta_direccion.setText(tblMostrarProveedores.getValueAt(fila, 5).toString());
+       //ediFormProv.tfI.setText(tblMostrarProveedores.getValueAt(fila, 0).toString());
+       editarProvedor.setVisible(true);
+        } else {
+        JOptionPane.showMessageDialog(null,  " no hay fila");
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JLabel jLabel1;

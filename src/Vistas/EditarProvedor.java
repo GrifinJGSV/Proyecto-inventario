@@ -4,21 +4,16 @@
  */
 package Vistas;
 
-import ConsultasSQL.QuerysProveedores;
-import javax.swing.JOptionPane;
-import Controlador.Proveedores;
-
-
 /**
  *
  * @author Josue
  */
-public class ProveedoresStore extends javax.swing.JFrame {
+public class EditarProvedor extends javax.swing.JFrame {
 
     /**
-     * Creates new form Proveedores
+     * Creates new form EditarProvedor
      */
-    public ProveedoresStore() {
+    public EditarProvedor() {
         initComponents();
     }
 
@@ -31,7 +26,6 @@ public class ProveedoresStore extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
@@ -41,16 +35,14 @@ public class ProveedoresStore extends javax.swing.JFrame {
         fmt_rtn = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         fmt_telefono = new javax.swing.JFormattedTextField();
-        btn_guardar = new javax.swing.JButton();
+        btn_actualizar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txta_direccion = new javax.swing.JTextArea();
 
-        jFormattedTextField1.setText("jFormattedTextField1");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Nombre");
 
@@ -77,10 +69,10 @@ public class ProveedoresStore extends javax.swing.JFrame {
             }
         });
 
-        btn_guardar.setText("Guardar");
-        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+        btn_actualizar.setText("Actualizar");
+        btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_guardarActionPerformed(evt);
+                btn_actualizarActionPerformed(evt);
             }
         });
 
@@ -91,7 +83,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Ingresar un nuevo proveedor");
+        jLabel5.setText("Editar Provedor");
 
         jLabel6.setText("Direccion");
 
@@ -109,7 +101,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
                         .addGap(83, 83, 83)
                         .addComponent(btn_cancelar)
                         .addGap(54, 54, 54)
-                        .addComponent(btn_guardar))
+                        .addComponent(btn_actualizar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,7 +149,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cancelar)
-                    .addComponent(btn_guardar))
+                    .addComponent(btn_actualizar))
                 .addGap(65, 65, 65))
         );
 
@@ -168,13 +160,13 @@ public class ProveedoresStore extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(0, 26, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,60 +176,9 @@ public class ProveedoresStore extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fmt_telefonoActionPerformed
 
-    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-         String nomProv = txt_nombre.getText().trim(); // Eliminar espacios en blanco al inicio y al final
-        if (nomProv.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de nombre del provedor");
-            return; // Salir del método si el campo está vacío
-        }
-        
-         String empProv = txt_empresa.getText().trim(); // Eliminar espacios en blanco al inicio y al final
-        if (nomProv.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de nombre de la empresa del provedor");
-            return; // Salir del método si el campo está vacío
-        }
-       
-        
-        String rtnPro = fmt_rtn.getText().trim(); // Eliminar espacios en blanco al inicio y al final
-        if (rtnPro.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "El campo de rtn está vacío");
-            return; // Salir del método si el campo está vacío
-        }
-        
-        
-        String telProv = fmt_telefono.getText().trim(); // Eliminar espacios en blanco al inicio y al final
-        if (telProv.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de telefono está vacío");
-            return; // Salir del método si el campo está vacío
-        }
-        
-         
-         
-         String desProv = txta_direccion.getText().trim(); // Eliminar espacios en blanco al inicio y al final
-        if (nomProv.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de direccion del provedor");
-            return; // Salir del método si el campo está vacío
-        }
-        
-        
-            // Crear una instancia de QuerysProductos
-            QuerysProveedores querys = new QuerysProveedores();
-            querys.setNombre(nomProv);
-            querys.setEmpresa(empProv);
-            querys.setRtn(rtnPro);
-            querys.setTelefono(telProv);
-            querys.setDireccion(desProv);
-
-            // Llamar al método Guardar de la clase Productos para guardar los datos
-            if (Proveedores.Guardar(querys)) {
-                JOptionPane.showMessageDialog(this, "Nuevo Provedor Ingresado Exitosamente");
-                Proveedores.MostrarProvedores("");
-                dispose();
-            } else {
-                JOptionPane.showMessageDialog(this, "Algo falló, consulte con el Administrador de sistema");
-            }
-       
-    }//GEN-LAST:event_btn_guardarActionPerformed
+    private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
+              
+    }//GEN-LAST:event_btn_actualizarActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         dispose();
@@ -260,30 +201,29 @@ public class ProveedoresStore extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Proveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarProvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Proveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarProvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Proveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarProvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Proveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarProvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProveedoresStore().setVisible(true);
+                new EditarProvedor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_actualizar;
     private javax.swing.JButton btn_cancelar;
-    private javax.swing.JButton btn_guardar;
-    private javax.swing.JFormattedTextField fmt_rtn;
-    private javax.swing.JFormattedTextField fmt_telefono;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    public static javax.swing.JFormattedTextField fmt_rtn;
+    public static javax.swing.JFormattedTextField fmt_telefono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -292,8 +232,8 @@ public class ProveedoresStore extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txt_empresa;
-    private javax.swing.JTextField txt_nombre;
-    private javax.swing.JTextArea txta_direccion;
+    public static javax.swing.JTextField txt_empresa;
+    public static javax.swing.JTextField txt_nombre;
+    public static javax.swing.JTextArea txta_direccion;
     // End of variables declaration//GEN-END:variables
 }
