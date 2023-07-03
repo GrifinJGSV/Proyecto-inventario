@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.table.DefaultTableModel;
 import Vistas.MostrarProveedores;
+import java.sql.SQLDataException;
 import java.sql.SQLException;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -46,6 +47,11 @@ public class Proveedores {
                 sql = QuerysProveedores.LISTARPROVEEDORES;
                 
             } 
+            if (buscar == null){
+                sql = QuerysProveedores.LISTARPROVEEDORES;
+            }else {
+                sql = "SELECT * FROM proveedores p WHERE UPPER(p.nombre) LIKE UPPER('%" + buscar + "%')";
+            }
             
         
         String datos[] = new String[6];
@@ -103,7 +109,7 @@ public class Proveedores {
     
     public static boolean Editar(QuerysProveedores qp){
     
-    String sql =QuerysProveedores.ACTUALIZARPROVEEDOR;
+    String sql = QuerysProveedores.ACTUALIZARPROVEEDOR;
             try{
              ps =conexion.prepareStatement(sql);
              ps.setInt(0, qp.getId());
