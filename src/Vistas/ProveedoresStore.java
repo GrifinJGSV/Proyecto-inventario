@@ -7,6 +7,7 @@ package Vistas;
 import ConsultasSQL.QuerysProveedores;
 import javax.swing.JOptionPane;
 import Controlador.Proveedores;
+import java.awt.event.KeyEvent;
 
 
 /**
@@ -20,6 +21,8 @@ public class ProveedoresStore extends javax.swing.JFrame {
      */
     public ProveedoresStore() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**
@@ -47,24 +50,61 @@ public class ProveedoresStore extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txta_direccion = new javax.swing.JTextArea();
+        jLabel7 = new javax.swing.JLabel();
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Nombre");
+        jPanel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Empresa");
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Nombre del representante");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 53, -1, -1));
 
+        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreActionPerformed(evt);
+            }
+        });
+        txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nombreKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 50, 240, -1));
+
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Nombre de la empresa");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 93, 138, -1));
+
+        txt_empresa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_empresaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txt_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 90, 240, -1));
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("RTN");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 133, 138, -1));
 
         try {
             fmt_rtn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####-######")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        fmt_rtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fmt_rtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fmt_rtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 130, 240, -1));
 
-        jLabel4.setText("Telefono");
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Teléfono");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 167, 138, -1));
 
         try {
             fmt_telefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
@@ -76,90 +116,43 @@ public class ProveedoresStore extends javax.swing.JFrame {
                 fmt_telefonoActionPerformed(evt);
             }
         });
+        jPanel1.add(fmt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 164, 240, -1));
 
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
         btn_guardar.setText("Guardar");
         btn_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_guardarActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 350, -1, -1));
 
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancelar.png"))); // NOI18N
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 351, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Ingresar un nuevo proveedor");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 6, 260, 32));
 
-        jLabel6.setText("Direccion");
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Dirección");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 204, -1, -1));
 
         txta_direccion.setColumns(20);
         txta_direccion.setRows(5);
         jScrollPane1.setViewportView(txta_direccion);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(btn_cancelar)
-                        .addGap(54, 54, 54)
-                        .addComponent(btn_guardar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel6))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nombre)
-                            .addComponent(txt_empresa)
-                            .addComponent(fmt_rtn)
-                            .addComponent(fmt_telefono)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(fmt_rtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(fmt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cancelar)
-                    .addComponent(btn_guardar))
-                .addGap(65, 65, 65))
-        );
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 204, 242, 109));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LOGOI.png"))); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -3, -1, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,13 +161,13 @@ public class ProveedoresStore extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -187,21 +180,32 @@ public class ProveedoresStore extends javax.swing.JFrame {
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
          String nomProv = txt_nombre.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (nomProv.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de nombre del provedor");
+            JOptionPane.showMessageDialog(this, "El nombre del representante no puede estar vacio");
             return; // Salir del método si el campo está vacío
+        }
+        if (!nomProv.matches("[a-zA-Záéíóúñ][a-zA-Z áéíóúñ]+")) {
+            JOptionPane.showMessageDialog(this, "El nombre del provedor solo puede contener letras");
+            return; // Salir del método si el nombre contiene caracteres no válidos
         }
         
          String empProv = txt_empresa.getText().trim(); // Eliminar espacios en blanco al inicio y al final
-        if (nomProv.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de nombre de la empresa del provedor");
+        if (empProv.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El nombre de la empresa no puede estar vacio");
             return; // Salir del método si el campo está vacío
         }
+        if (!empProv.matches("[a-zA-Záéíóúñ.][a-zA-Z 0-9.]+")) {
+            JOptionPane.showMessageDialog(this, "El nombre de la empres solo puede contener letras y numeros");
+            return; // Salir del método si el nombre contiene caracteres no válidos
+        }
        
-        
         String rtnPro = fmt_rtn.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (rtnPro.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "El campo de rtn está vacío");
+            JOptionPane.showMessageDialog(null, "El rtn está vacío");
             return; // Salir del método si el campo está vacío
+        }
+         if (!rtnPro.matches("[0-9][-0-9]+")) {
+            JOptionPane.showMessageDialog(this, "El rtn deve contener 14 numeros");
+            return; // Salir del método si el nombre contiene caracteres no válidos
         }
         
         
@@ -210,13 +214,21 @@ public class ProveedoresStore extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El campo de telefono está vacío");
             return; // Salir del método si el campo está vacío
         }
+         if (!telProv.matches("[0-9][-0-9]+")) {
+            JOptionPane.showMessageDialog(this, "El telefono deve contener 8 numeros");
+            return; // Salir del método si el nombre contiene caracteres no válidos
+        }
+        
         
          
-         
          String desProv = txta_direccion.getText().trim(); // Eliminar espacios en blanco al inicio y al final
-        if (nomProv.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de direccion del provedor");
+        if (desProv.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "La direccion es requerida ");
             return; // Salir del método si el campo está vacío
+        }
+        if (!desProv.matches("[a-zA-Záéíóúñ][a-zA-Z 0-9]+")) {
+            JOptionPane.showMessageDialog(this, "La direccion solo puede contener letras y numeros");
+            return; // Salir del método si el nombre contiene caracteres no válidos
         }
         
         
@@ -242,6 +254,52 @@ public class ProveedoresStore extends javax.swing.JFrame {
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         dispose();
     }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void fmt_rtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmt_rtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fmt_rtnActionPerformed
+
+    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
+             
+    
+
+    }//GEN-LAST:event_txt_nombreActionPerformed
+
+    private void txt_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyTyped
+          String Valor =txt_nombre.getText();
+        
+        if (!Valor.isEmpty()) {// que la primera letra sea mayuscula
+        char primeraLetra = Character.toUpperCase(Valor.charAt(0));
+         txt_nombre.setText(primeraLetra + Valor.substring(1));
+        }
+         
+        
+       if (Valor.startsWith(" ")){
+             JOptionPane.showMessageDialog(this, "el nombre no puede iniciar con espacios ");// no puede iniciar con  espacios
+          txt_nombre.setText(Valor);
+          return;
+        }
+       if(Valor.length()>=40){
+       JOptionPane.showMessageDialog(this, "el nombre no puede contener mas de 40 letras");}
+
+    }//GEN-LAST:event_txt_nombreKeyTyped
+
+    private void txt_empresaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_empresaKeyTyped
+      String Valor =txt_empresa.getText();
+        
+        if (!Valor.isEmpty()) {// que la primera letra sea mayuscula
+        char primeraLetra = Character.toUpperCase(Valor.charAt(0));
+         txt_empresa.setText(primeraLetra + Valor.substring(1));
+        }
+               
+       if (Valor.startsWith(" ")){
+             JOptionPane.showMessageDialog(this, "el nombre de empresa no puede iniciar con espacios ");// no puede iniciar con  espacios
+          txt_empresa.setText(Valor);
+          return;
+        }
+       if(Valor.length()>=40){
+       JOptionPane.showMessageDialog(this, "el nombre no puede contener mas de 40 letras");}
+    }//GEN-LAST:event_txt_empresaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -290,6 +348,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txt_empresa;
