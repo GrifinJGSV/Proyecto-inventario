@@ -5,17 +5,10 @@
 package Vistas;
 
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
-
-/*
- *
- * @author Alejandra
- */
-
-import javax.swing.JOptionPane;
-
-import javax.swing.JOptionPane;
-
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Alejandra
@@ -26,9 +19,25 @@ public class MostrarProductos extends javax.swing.JPanel {
      * Creates new form MostrarProductos
      */
     public MostrarProductos() {
-        initComponents();
-        tblMostrarProductos.getTableHeader().setReorderingAllowed( false);
-        Controlador.Productos.MostrarProductos("");
+      initComponents();
+      tblMostrarProductos.getTableHeader().setReorderingAllowed(false);
+      Controlador.Productos.MostrarProductos("");
+      
+      tblMostrarProductos.addMouseListener(new MouseAdapter(){
+          
+          public void mouseClicked(MouseEvent e){
+             if (e.getClickCount() == 2){
+            int fila = tblMostrarProductos.getSelectedRow();
+            VerProductos verProductos = new VerProductos();
+            
+            verProductos.lblNombre.setText(tblMostrarProductos.getValueAt(fila, 0).toString());
+            verProductos.lblTipoinventario.setText(tblMostrarProductos.getValueAt(fila, 1).toString());
+            verProductos.lblprecio.setText(tblMostrarProductos.getValueAt(fila, 2).toString());
+            verProductos.setVisible(true);
+          }
+          }
+      });
+        
     }
 
     /**
@@ -75,11 +84,6 @@ public class MostrarProductos extends javax.swing.JPanel {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
-            }
-        });
-        tblMostrarProductos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblMostrarProductosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblMostrarProductos);
@@ -164,8 +168,8 @@ public class MostrarProductos extends javax.swing.JPanel {
     
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
 
-       //CrearProductos productos = new CrearProductos(); 
-         //productos.setVisible(true);
+        CrearProductos productos = new CrearProductos(); 
+         productos.setVisible(true);
         
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -178,18 +182,6 @@ public class MostrarProductos extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void tblMostrarProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMostrarProductosMouseClicked
-        EditarProductos productos = new EditarProductos(); 
-          productos.setVisible(true);
-        int row = tblMostrarProductos.getSelectedRow() ;
-        EditarProductos.txtNombreProducto.setText(tblMostrarProductos.getValueAt(row, 0).toString());
-        EditarProductos.cbxTipoInventario.setSelectedItem(tblMostrarProductos.getValueAt(row, 1).toString());
-        EditarProductos.txtPrecio.setText(tblMostrarProductos.getValueAt(row, 2).toString());
-        EditarProductos.txtId.setText(tblMostrarProductos.getValueAt(row, 3).toString());
-        
-        
-    }//GEN-LAST:event_tblMostrarProductosMouseClicked
-
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         EditarProductos EProductos = new EditarProductos();
               
@@ -198,19 +190,18 @@ public class MostrarProductos extends javax.swing.JPanel {
         
         if (fila>=0){
         
-        EditarProductos.txtNombreProducto. setText(tblMostrarProductos.getValueAt(fila, 0).toString());
+        EditarProductos.txtNombreProducto.setText(tblMostrarProductos.getValueAt(fila, 0).toString());
         EditarProductos.cbxTipoInventario.setSelectedItem(tblMostrarProductos.getValueAt(fila, 1).toString());
         EditarProductos.txtPrecio.setText(tblMostrarProductos.getValueAt(fila, 2).toString());
         EditarProductos.txtId.setText(tblMostrarProductos.getValueAt(fila, 3).toString());
        //ediFormProv.tfI.setText(tblMostrarProveedores.getValueAt(fila, 0).toString());
        EProductos.setVisible(true);
         } else {
-        JOptionPane.showMessageDialog(null,  " no hay fila");
+        JOptionPane.showMessageDialog(null,  " no hay fila");
     }//GEN-LAST:event_btnEditarActionPerformed
-
-}
+ }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
