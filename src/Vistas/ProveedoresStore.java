@@ -100,6 +100,11 @@ public class ProveedoresStore extends javax.swing.JFrame {
                 fmt_rtnActionPerformed(evt);
             }
         });
+        fmt_rtn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fmt_rtnKeyTyped(evt);
+            }
+        });
         jPanel1.add(fmt_rtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 130, 240, -1));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -114,6 +119,11 @@ public class ProveedoresStore extends javax.swing.JFrame {
         fmt_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fmt_telefonoActionPerformed(evt);
+            }
+        });
+        fmt_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fmt_telefonoKeyTyped(evt);
             }
         });
         jPanel1.add(fmt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 164, 240, -1));
@@ -147,6 +157,11 @@ public class ProveedoresStore extends javax.swing.JFrame {
 
         txta_direccion.setColumns(20);
         txta_direccion.setRows(5);
+        txta_direccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txta_direccionKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(txta_direccion);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 204, 242, 109));
@@ -218,9 +233,17 @@ public class ProveedoresStore extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El telefono deve contener 8 numeros");
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
-        
-        
-         
+          try {
+              
+            if (telProv.equals("0000-0000")) {
+            JOptionPane.showMessageDialog(this, "El teléfono no debe ser cero");
+             return; // Salir del método si el teléfono no es válido
+         }
+            if(rtnPro.equals("0000-0000-000000")){
+                JOptionPane.showMessageDialog(this,"El rtn no puede ser cero");
+                        return;
+            }
+                  
          String desProv = txta_direccion.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (desProv.isEmpty()) {
             JOptionPane.showMessageDialog(this, "La direccion es requerida ");
@@ -248,7 +271,9 @@ public class ProveedoresStore extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Algo falló, consulte con el Administrador de sistema");
             }
-       
+             } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El telefono o rtn no puede ser 0");
+             }
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
@@ -298,8 +323,43 @@ public class ProveedoresStore extends javax.swing.JFrame {
           return;
         }
        if(Valor.length()>=40){
-       JOptionPane.showMessageDialog(this, "el nombre no puede contener mas de 40 letras");}
+       JOptionPane.showMessageDialog(this, "el nombre de empresa no puede contener mas de 40 letras");}
     }//GEN-LAST:event_txt_empresaKeyTyped
+
+    private void fmt_rtnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_rtnKeyTyped
+       String Valor = fmt_rtn.getText();
+       
+      if(fmt_rtn.getText().equals("0000-0000-000000")){
+          JOptionPane.showMessageDialog(this, "No se acepta el rtn 0000-0000-00000");
+          
+      }
+    }//GEN-LAST:event_fmt_rtnKeyTyped
+
+    private void fmt_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_telefonoKeyTyped
+        String Valor = fmt_telefono.getText();
+        
+        if(fmt_telefono.getText().equals("0000-0000")){
+            JOptionPane.showMessageDialog(this, "No se acepta el telefono 0000-0000");
+        }
+    }//GEN-LAST:event_fmt_telefonoKeyTyped
+
+    private void txta_direccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txta_direccionKeyTyped
+         String Valor =txta_direccion.getText();
+        
+        if (!Valor.isEmpty()) {// que la primera letra sea mayuscula
+        char primeraLetra = Character.toUpperCase(Valor.charAt(0));
+         txta_direccion.setText(primeraLetra + Valor.substring(1));
+        }
+               
+       if (Valor.startsWith(" ")){
+             JOptionPane.showMessageDialog(this, "La direccion no puede iniciar con un espacio ");// no puede iniciar con  espacios
+          txt_empresa.setText(Valor);
+          return;
+        }
+       if(Valor.length()>=60){
+       JOptionPane.showMessageDialog(this, "La direccion no puede contener mas de 60 letras");}
+    
+    }//GEN-LAST:event_txta_direccionKeyTyped
 
     /**
      * @param args the command line arguments

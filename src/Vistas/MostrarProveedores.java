@@ -4,10 +4,13 @@
  */
 package Vistas;
 
+import java.awt.Color;
+import java.awt.TextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -125,12 +128,23 @@ public class MostrarProveedores extends javax.swing.JPanel {
         add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 120, 40));
 
         txtBusqueda.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        txtBusqueda.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtBusquedaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBusquedaFocusLost(evt);
+            }
+        });
         txtBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBusquedaActionPerformed(evt);
             }
         });
         txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusquedaKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBusquedaKeyTyped(evt);
             }
@@ -190,6 +204,32 @@ public class MostrarProveedores extends javax.swing.JPanel {
     private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusquedaActionPerformed
+
+    private void txtBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusquedaKeyReleased
+
+    private void txtBusquedaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBusquedaFocusGained
+        JTextField texField = (JTextField) evt.getSource();
+        String placeholder = "Bucar por nombre";
+        
+        if(texField.getText().equals(placeholder)){
+            texField.setText("");
+            texField.setForeground(Color.red);
+        }
+       
+    }//GEN-LAST:event_txtBusquedaFocusGained
+
+    private void txtBusquedaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBusquedaFocusLost
+        // TODO add your handling code here:
+        JTextField texField = (JTextField) evt.getSource();
+        String placeholder = "Bucar por nombre";
+        
+        if(texField.getText().isEmpty()){
+            texField.setText(placeholder);
+            texField.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_txtBusquedaFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
