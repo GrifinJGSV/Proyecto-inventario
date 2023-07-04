@@ -149,7 +149,7 @@ public class EditarProductos extends javax.swing.JFrame {
         // Obtener el nombre del producto del campo de texto txtNombreProducto
         String nombreProducto = txtNombreProducto.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (nombreProducto.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de nombre de producto está vacío");
+            JOptionPane.showMessageDialog(this, "El espacio de nombre de producto está vacío");
             return; // Salir del método si el campo está vacío
         }
         if (!nombreProducto.matches("[a-zA-Z]+")) {
@@ -163,7 +163,7 @@ public class EditarProductos extends javax.swing.JFrame {
         // Obtener el precio del campo de texto txtPrecio y validar que sea un número válido
         String precioText = txtPrecio.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (precioText.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de precio está vacío");
+            JOptionPane.showMessageDialog(this, "El espacio de precio está vacío");
             return; // Salir del método si el campo está vacío
         }
         try {
