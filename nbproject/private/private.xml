@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/family6571/Documents/NetBeansProjects/Proyecto-inventario/src/Vistas/MostrarCompras.java</file>
             <file>file:/C:/Users/family6571/Documents/NetBeansProjects/Proyecto-inventario/src/Vistas/IngresarCompra.java</file>
+=======
+            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/src/Vistas/CrearProductos.java</file>
+            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/src/Vistas/ProveedoresStore.java</file>
+            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/src/Vistas/MostrarProveedores.java</file>
+            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/src/ConsultasSQL/QuerysProveedores.java</file>
+>>>>>>> 03a7036c2bb01b5be3d88a25a006472eb19ec6b7
         </group>
     </open-files>
 </project-private>

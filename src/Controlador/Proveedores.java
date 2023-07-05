@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.table.DefaultTableModel;
 import Vistas.MostrarProveedores;
+import java.sql.SQLDataException;
 import java.sql.SQLException;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -33,16 +34,27 @@ public class Proveedores {
         while(model.getRowCount() > 0 ){
                 model.removeRow(0);
                 
-            }
+                
+               /* 
+                MostrarProveedores.tblMostrarProveedores.getColumnModel().getColumn(0).setMaxWidth(0);
+                MostrarProveedores.tblMostrarProveedores.getColumnModel().getColumn(0).setMinWidth(0);
+                MostrarProveedores.tblMostrarProveedores.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+                MostrarProveedores.tblMostrarProveedores.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+          */ }
             
             String sql = "";
             if(buscar.equals("")){
                 sql = QuerysProveedores.LISTARPROVEEDORES;
                 
             } 
+            if (buscar == null){
+                sql = QuerysProveedores.LISTARPROVEEDORES;
+            }else {
+                sql = "SELECT * FROM proveedores WHERE nombre LIKE ('%" + buscar + "%') or empresa LIKE ('%" + buscar + "%') ";
+            }
             
         
-        String datos[] = new String[5];
+        String datos[] = new String[6];
         
         try{
         
@@ -50,18 +62,20 @@ public class Proveedores {
             ResultSet rs = st.executeQuery(sql);
             
            
-            
+            int count = 1;
             while(rs.next()){
-                datos[0] = rs.getString("nombre");
-                datos[1] = rs.getString("empresa");
-                datos[2] = rs.getString("rtn");
-                datos[3] = rs.getString("telefono");
-                datos[4] = rs.getString("direccion");
+                datos[0] = count+"";
+                datos[1] = rs.getString("nombre");
+                datos[2] = rs.getString("empresa");
+                datos[3] = rs.getString("rtn");
+                datos[4] = rs.getString("telefono");
+                datos[5] = rs.getString("direccion");
                 model.addRow(datos);
                 DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
                 tcr.setHorizontalAlignment(SwingConstants.RIGHT);
                 MostrarProveedores.tblMostrarProveedores.setModel(model);
                 //MostrarProveedores.tblMostrarProveedores.getColumnModel().getColumn(4).setCellRenderer(tcr);
+                count++;
                 
                 
                 
@@ -92,5 +106,26 @@ public class Proveedores {
             return false;
 //            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static boolean Editar(QuerysProveedores qp){
+    
+    String sql = QuerysProveedores.ACTUALIZARPROVEEDOR;
+            try{
+             ps =conexion.prepareStatement(sql);
+             ps.setInt(0, qp.getId());
+             ps.setString(1, qp.getNombre());
+             ps.setString(2, qp.getEmpresa());
+             ps.setString(3, qp.getRtn());
+             ps.setString(4, qp.getTelefono());
+             ps.setString(5, qp.getDireccion());
+             
+             ps.executeUpdate();
+            }catch(SQLException ex){
+            return true;
+            }
+        return false;
+        
+    
     }
 }
