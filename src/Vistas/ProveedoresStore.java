@@ -322,7 +322,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
           txt_empresa.setText(Valor);
           return;
         }
-       if(Valor.length()>=){
+       if(Valor.length()>=40){
        JOptionPane.showMessageDialog(this, "el nombre de empresa no puede contener mas de 40 letras");}
     }//GEN-LAST:event_txt_empresaKeyTyped
 
