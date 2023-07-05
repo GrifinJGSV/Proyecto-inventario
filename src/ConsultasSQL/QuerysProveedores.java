@@ -78,7 +78,7 @@ public class QuerysProveedores {
             + " empresa = ?,"+" rtn = ?,"+" telefono = ?, "+" direccion =? WHERE id = ?";
      
     public String Buscar(String textBusqueda){
-        String query= "SELECT * FROM proveedores p WHERE p.nombreProdectos LIKE '%" + textBusqueda+ "%";
+        String query= "SELECT * FROM proveedores p WHERE p.nombre or p.empresa LIKE '%" + textBusqueda+ "%";
         return query;
     }
     

@@ -219,7 +219,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
             return; // Salir del método si el campo está vacío
         }
          if (!rtnPro.matches("[0-9][-0-9]+")) {
-            JOptionPane.showMessageDialog(this, "El rtn deve contener 14 numeros");
+            JOptionPane.showMessageDialog(this, "El rtn debe contener 14 numeros");
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
         
@@ -230,7 +230,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
             return; // Salir del método si el campo está vacío
         }
          if (!telProv.matches("[0-9][-0-9]+")) {
-            JOptionPane.showMessageDialog(this, "El telefono deve contener 8 numeros");
+            JOptionPane.showMessageDialog(this, "El telefono debe contener 8 numeros");
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
           try {
@@ -322,7 +322,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
           txt_empresa.setText(Valor);
           return;
         }
-       if(Valor.length()>=40){
+       if(Valor.length()>=){
        JOptionPane.showMessageDialog(this, "el nombre de empresa no puede contener mas de 40 letras");}
     }//GEN-LAST:event_txt_empresaKeyTyped
 
