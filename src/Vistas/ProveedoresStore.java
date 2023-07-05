@@ -59,9 +59,19 @@ public class ProveedoresStore extends javax.swing.JFrame {
         jPanel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+<<<<<<< HEAD
+        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Empresa");
+=======
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre del representante");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 53, -1, -1));
+>>>>>>> 03a7036c2bb01b5be3d88a25a006472eb19ec6b7
 
         txt_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,11 +111,20 @@ public class ProveedoresStore extends javax.swing.JFrame {
             }
         });
         fmt_rtn.addKeyListener(new java.awt.event.KeyAdapter() {
+<<<<<<< HEAD
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fmt_rtnKeyPressed(evt);
+            }
+=======
+>>>>>>> 03a7036c2bb01b5be3d88a25a006472eb19ec6b7
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fmt_rtnKeyTyped(evt);
             }
         });
+<<<<<<< HEAD
+=======
         jPanel1.add(fmt_rtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 130, 240, -1));
+>>>>>>> 03a7036c2bb01b5be3d88a25a006472eb19ec6b7
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Teléfono");
@@ -276,14 +295,31 @@ public class ProveedoresStore extends javax.swing.JFrame {
              }
     }//GEN-LAST:event_btn_guardarActionPerformed
 
+<<<<<<< HEAD
+=======
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         dispose();
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
+>>>>>>> 03a7036c2bb01b5be3d88a25a006472eb19ec6b7
     private void fmt_rtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmt_rtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fmt_rtnActionPerformed
 
+<<<<<<< HEAD
+    private void fmt_rtnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_rtnKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fmt_rtnKeyTyped
+
+    private void fmt_rtnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_rtnKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fmt_rtnKeyPressed
+
+    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreActionPerformed
+
+=======
     private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
              
     
@@ -361,6 +397,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
     
     }//GEN-LAST:event_txta_direccionKeyTyped
 
+>>>>>>> 03a7036c2bb01b5be3d88a25a006472eb19ec6b7
     /**
      * @param args the command line arguments
      */
