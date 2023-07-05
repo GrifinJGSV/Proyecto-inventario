@@ -12,6 +12,14 @@ import java.sql.SQLException;
  * @author Josue
  */
     public class Conexion {
+
+    public static Connection getConection() {
+        return conection;
+    }
+
+    public static void setConection(Connection conection) {
+        Conexion.conection = conection;
+    }
       public static Connection conection = null;
     public Connection getConexion() {
 		try {
@@ -22,11 +30,11 @@ import java.sql.SQLException;
                         
                     } 
                        catch (SQLException ex) {
-			return null;
+			return conection;
 			
 		}
 
-	}
-
-    
+	}   
 }
+
+

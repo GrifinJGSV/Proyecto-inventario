@@ -51,6 +51,12 @@ public class ProveedoresStore extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre");
 
+        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Empresa");
 
         jLabel3.setText("RTN");
@@ -60,6 +66,19 @@ public class ProveedoresStore extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        fmt_rtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fmt_rtnActionPerformed(evt);
+            }
+        });
+        fmt_rtn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fmt_rtnKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fmt_rtnKeyTyped(evt);
+            }
+        });
 
         jLabel4.setText("Telefono");
 
@@ -199,6 +218,22 @@ public class ProveedoresStore extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No se guardaron los datos");
         }
     }//GEN-LAST:event_btn_guardarActionPerformed
+
+    private void fmt_rtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmt_rtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fmt_rtnActionPerformed
+
+    private void fmt_rtnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_rtnKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fmt_rtnKeyTyped
+
+    private void fmt_rtnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_rtnKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fmt_rtnKeyPressed
+
+    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreActionPerformed
 
     /**
      * @param args the command line arguments
