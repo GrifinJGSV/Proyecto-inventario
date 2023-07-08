@@ -14,12 +14,12 @@ import java.awt.event.KeyEvent;
  *
  * @author Josue
  */
-public class ProveedoresStore extends javax.swing.JFrame {
+public class ProvedoresStore extends javax.swing.JFrame {
 
     /**
      * Creates new form Proveedores
      */
-    public ProveedoresStore() {
+    public ProvedoresStore() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -59,25 +59,10 @@ public class ProveedoresStore extends javax.swing.JFrame {
         jPanel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-<<<<<<< HEAD
-        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nombreActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Empresa");
-=======
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre del representante");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 53, -1, -1));
->>>>>>> 03a7036c2bb01b5be3d88a25a006472eb19ec6b7
 
-        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nombreActionPerformed(evt);
-            }
-        });
         txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_nombreKeyTyped(evt);
@@ -110,21 +95,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
                 fmt_rtnActionPerformed(evt);
             }
         });
-        fmt_rtn.addKeyListener(new java.awt.event.KeyAdapter() {
-<<<<<<< HEAD
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                fmt_rtnKeyPressed(evt);
-            }
-=======
->>>>>>> 03a7036c2bb01b5be3d88a25a006472eb19ec6b7
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                fmt_rtnKeyTyped(evt);
-            }
-        });
-<<<<<<< HEAD
-=======
         jPanel1.add(fmt_rtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 130, 240, -1));
->>>>>>> 03a7036c2bb01b5be3d88a25a006472eb19ec6b7
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Teléfono");
@@ -186,7 +157,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 204, 242, 109));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LOGOI.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -3, -1, 460));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -10, -1, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -237,10 +208,14 @@ public class ProveedoresStore extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El rtn está vacío");
             return; // Salir del método si el campo está vacío
         }
-         if (!rtnPro.matches("[0-9][-0-9]+")) {
+        /* if (!rtnPro.matches("[0-9][-0-9]+")) {
             JOptionPane.showMessageDialog(this, "El rtn debe contener 14 numeros");
             return; // Salir del método si el nombre contiene caracteres no válidos
-        }
+        }*/
+        if(rtnPro.equals("0000-0000-000000")){
+                JOptionPane.showMessageDialog(this,"El rtn no puede ser cero");
+                        return;
+            }
         
         
         String telProv = fmt_telefono.getText().trim(); // Eliminar espacios en blanco al inicio y al final
@@ -248,27 +223,25 @@ public class ProveedoresStore extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El campo de telefono está vacío");
             return; // Salir del método si el campo está vacío
         }
-         if (!telProv.matches("[0-9][-0-9]+")) {
+       /*  if (!telProv.matches("[0-9][-0-9]+")) {
             JOptionPane.showMessageDialog(this, "El telefono debe contener 8 numeros");
             return; // Salir del método si el nombre contiene caracteres no válidos
-        }
-          try {
-              
-            if (telProv.equals("0000-0000")) {
+        }*/
+       
+       if (telProv.equals("0000-0000")) {
             JOptionPane.showMessageDialog(this, "El teléfono no debe ser cero");
              return; // Salir del método si el teléfono no es válido
          }
-            if(rtnPro.equals("0000-0000-000000")){
-                JOptionPane.showMessageDialog(this,"El rtn no puede ser cero");
-                        return;
-            }
+              
+            
+            
                   
          String desProv = txta_direccion.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (desProv.isEmpty()) {
             JOptionPane.showMessageDialog(this, "La direccion es requerida ");
             return; // Salir del método si el campo está vacío
         }
-        if (!desProv.matches("[a-zA-Záéíóúñ][a-zA-Z 0-9]+")) {
+        if (!desProv.matches("[a-zA-Záéíóúñ][a-zA-Záéíóúñ 0-9]+")) {
             JOptionPane.showMessageDialog(this, "La direccion solo puede contener letras y numeros");
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
@@ -288,43 +261,29 @@ public class ProveedoresStore extends javax.swing.JFrame {
                 Proveedores.MostrarProvedores("");
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "Algo falló, consulte con el Administrador de sistema");
+                JOptionPane.showMessageDialog(this, "El Telefono o el RTN ya estan ingresados");
             }
-             } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El telefono o rtn no puede ser 0");
-             }
+    
+
     }//GEN-LAST:event_btn_guardarActionPerformed
 
-<<<<<<< HEAD
-=======
+
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         dispose();
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
->>>>>>> 03a7036c2bb01b5be3d88a25a006472eb19ec6b7
-    private void fmt_rtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmt_rtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fmt_rtnActionPerformed
 
-<<<<<<< HEAD
-    private void fmt_rtnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_rtnKeyTyped
+
+    private void fmt_rtnKeyTyped(java.awt.event.KeyEvent evt) {                                 
         // TODO add your handling code here:
-    }//GEN-LAST:event_fmt_rtnKeyTyped
+    }                                
 
     private void fmt_rtnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_rtnKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_fmt_rtnKeyPressed
+   
 
-    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nombreActionPerformed
 
-=======
-    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
-             
-    
-
-    }//GEN-LAST:event_txt_nombreActionPerformed
 
     private void txt_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyTyped
           String Valor =txt_nombre.getText();
@@ -341,8 +300,10 @@ public class ProveedoresStore extends javax.swing.JFrame {
           return;
         }
        if(Valor.length()>=40){
-       JOptionPane.showMessageDialog(this, "el nombre no puede contener mas de 40 letras");}
-
+      // JOptionPane.showMessageDialog(this, "el nombre no puede contener mas de 40 letras");
+      evt.consume();
+       }
+      
     }//GEN-LAST:event_txt_nombreKeyTyped
 
     private void txt_empresaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_empresaKeyTyped
@@ -358,18 +319,11 @@ public class ProveedoresStore extends javax.swing.JFrame {
           txt_empresa.setText(Valor);
           return;
         }
-       if(Valor.length()>=40){
-       JOptionPane.showMessageDialog(this, "el nombre de empresa no puede contener mas de 40 letras");}
+       if(Valor.length()>=80){
+      // JOptionPane.showMessageDialog(this, "el nombre de empresa no puede contener mas de 40 letras");
+       evt.consume();
+       }
     }//GEN-LAST:event_txt_empresaKeyTyped
-
-    private void fmt_rtnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_rtnKeyTyped
-       String Valor = fmt_rtn.getText();
-       
-      if(fmt_rtn.getText().equals("0000-0000-000000")){
-          JOptionPane.showMessageDialog(this, "No se acepta el rtn 0000-0000-00000");
-          
-      }
-    }//GEN-LAST:event_fmt_rtnKeyTyped
 
     private void fmt_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_telefonoKeyTyped
         String Valor = fmt_telefono.getText();
@@ -392,12 +346,17 @@ public class ProveedoresStore extends javax.swing.JFrame {
           txt_empresa.setText(Valor);
           return;
         }
-       if(Valor.length()>=60){
-       JOptionPane.showMessageDialog(this, "La direccion no puede contener mas de 60 letras");}
+       if(Valor.length()>=120){
+       //JOptionPane.showMessageDialog(this, "La direccion no puede contener mas de 60 letras");
+       evt.consume();
+       }
     
     }//GEN-LAST:event_txta_direccionKeyTyped
 
->>>>>>> 03a7036c2bb01b5be3d88a25a006472eb19ec6b7
+    private void fmt_rtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmt_rtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fmt_rtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -428,7 +387,7 @@ public class ProveedoresStore extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProveedoresStore().setVisible(true);
+                new ProvedoresStore().setVisible(true);
             }
         });
     }

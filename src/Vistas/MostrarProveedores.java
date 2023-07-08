@@ -158,7 +158,7 @@ public class MostrarProveedores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        ProveedoresStore proveedores = new ProveedoresStore();
+        ProvedoresStore proveedores = new ProvedoresStore();
         proveedores.setVisible(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
