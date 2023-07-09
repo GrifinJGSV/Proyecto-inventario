@@ -58,6 +58,11 @@ public class QuerysProductos {
     // Consulta SQL para listar todos los productos de la base de datos
     public static String LISTARPRODUCTOS = "SELECT * FROM productos";
     
+    public String Busqueda(String textBusqueda) {
+        String query = "SELECT * FROM productos p WHERE p.nombreProducto LIKE '%" + textBusqueda + "%'";
+        return query;
+    }
+    
     // Consulta SQL para actualizar un producto en la base de datos
     public static String ACTUALIZARPRODUCTO = "UPDATE productos SET nombreProducto = ?,"
             + " tipoInventario = ?, precio = ? WHERE id = ?";
