@@ -50,25 +50,26 @@ public class VerProductos extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jLabel1.setText("Nombre del Producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, 24));
+        jLabel1.setText("Nombre del producto :");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, 24));
 
         jLabel3.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jLabel3.setText("Tipo de Inventario");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 26));
+        jLabel3.setText("Tipo de inventario :");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, 26));
 
         jLabel4.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jLabel4.setText("Precio");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 45, 25));
+        jLabel4.setText("Precio  :  lps.");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 110, 25));
 
-        lblNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 230, 30));
+        lblNombre.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblNombre.setText("fhrrrrrrrrrrrrrrrrr");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 78, 230, -1));
 
-        lblTipoinventario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lblTipoinventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 230, 30));
+        lblTipoinventario.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        jPanel1.add(lblTipoinventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 230, 30));
 
-        lblprecio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lblprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 185, 240, 30));
+        lblprecio.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        jPanel1.add(lblprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 140, 20));
 
         btnVolver.setBackground(new java.awt.Color(249, 253, 250));
         btnVolver.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -79,7 +80,7 @@ public class VerProductos extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 272, -1, 50));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel10.setText("Detalles de producto");
