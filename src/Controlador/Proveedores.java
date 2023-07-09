@@ -35,12 +35,12 @@ public class Proveedores {
                 model.removeRow(0);
                 
                 
-                
+               /* 
                 MostrarProveedores.tblMostrarProveedores.getColumnModel().getColumn(0).setMaxWidth(0);
                 MostrarProveedores.tblMostrarProveedores.getColumnModel().getColumn(0).setMinWidth(0);
                 MostrarProveedores.tblMostrarProveedores.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
                 MostrarProveedores.tblMostrarProveedores.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
-           }
+          */ }
             
             String sql = "";
             if(buscar.equals("")){
@@ -50,7 +50,7 @@ public class Proveedores {
             if (buscar == null){
                 sql = QuerysProveedores.LISTARPROVEEDORES;
             }else {
-                sql = "SELECT * FROM proveedores p WHERE UPPER(p.nombre) LIKE UPPER('%" + buscar + "%')";
+                sql = "SELECT * FROM proveedores WHERE nombre LIKE ('%" + buscar + "%') or empresa LIKE ('%" + buscar + "%') ";
             }
             
         
@@ -62,9 +62,9 @@ public class Proveedores {
             ResultSet rs = st.executeQuery(sql);
             
            
-            
+            int count = 1;
             while(rs.next()){
-                datos[0] = rs.getString("id");
+                datos[0] = count+"";
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("empresa");
                 datos[3] = rs.getString("rtn");
@@ -75,6 +75,7 @@ public class Proveedores {
                 tcr.setHorizontalAlignment(SwingConstants.RIGHT);
                 MostrarProveedores.tblMostrarProveedores.setModel(model);
                 //MostrarProveedores.tblMostrarProveedores.getColumnModel().getColumn(4).setCellRenderer(tcr);
+                count++;
                 
                 
                 

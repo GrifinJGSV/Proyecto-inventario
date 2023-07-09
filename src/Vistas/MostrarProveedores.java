@@ -4,10 +4,13 @@
  */
 package Vistas;
 
+import java.awt.Color;
+import java.awt.TextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -59,7 +62,6 @@ public class MostrarProveedores extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         txtBusqueda = new javax.swing.JTextField();
-        btBusqueda = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -77,7 +79,7 @@ public class MostrarProveedores extends javax.swing.JPanel {
                 return true ;
             }
         };
-        tblMostrarProveedores.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        tblMostrarProveedores.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         tblMostrarProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -86,9 +88,10 @@ public class MostrarProveedores extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nombre", "Empresa", "RTN", "Telefono", "Direccion"
+                "N°", "Nombre", "Empresa", "RTN", "Telefono", "Direccion"
             }
         ));
+        tblMostrarProveedores.setSelectionForeground(new java.awt.Color(153, 255, 255));
         tblMostrarProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblMostrarProveedoresMouseClicked(evt);
@@ -96,20 +99,20 @@ public class MostrarProveedores extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblMostrarProveedores);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 87, 820, 350));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 820, 350));
 
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/crear.png"))); // NOI18N
-        btnNuevo.setText("+");
+        btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
             }
         });
-        add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 60, 40));
+        add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 110, 40));
 
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprimir.png"))); // NOI18N
         btnImprimir.setText("Imprimir");
-        add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 130, 40));
+        add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 50, 130, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Listado de provedores");
@@ -122,28 +125,31 @@ public class MostrarProveedores extends javax.swing.JPanel {
                 btnEditarActionPerformed(evt);
             }
         });
-        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 120, 40));
+        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 120, 40));
 
         txtBusqueda.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        txtBusqueda.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtBusquedaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBusquedaFocusLost(evt);
+            }
+        });
         txtBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBusquedaActionPerformed(evt);
             }
         });
         txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusquedaKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBusquedaKeyTyped(evt);
             }
         });
         add(txtBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 142, -1));
-
-        btBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa.jpg"))); // NOI18N
-        btBusqueda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBusquedaActionPerformed(evt);
-            }
-        });
-        add(btBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
@@ -152,7 +158,7 @@ public class MostrarProveedores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        ProveedoresStore proveedores = new ProveedoresStore();
+        ProvedoresStore proveedores = new ProvedoresStore();
         proveedores.setVisible(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -179,21 +185,38 @@ public class MostrarProveedores extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void txtBusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyTyped
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtBusquedaKeyTyped
-
-    private void btBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBusquedaActionPerformed
-        String textoBusqueda = txtBusqueda.getText();
-        Controlador.Proveedores.MostrarProvedores(textoBusqueda);
-    }//GEN-LAST:event_btBusquedaActionPerformed
 
     private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusquedaActionPerformed
 
+    private void txtBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyReleased
+        String textoBusqueda = txtBusqueda.getText();
+        String placeholder = "Buscar por nombre";
+        Controlador.Proveedores.MostrarProvedores(textoBusqueda);
+    
+    }//GEN-LAST:event_txtBusquedaKeyReleased
+
+    private void txtBusquedaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBusquedaFocusGained
+        
+       
+    }//GEN-LAST:event_txtBusquedaFocusGained
+
+    private void txtBusquedaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBusquedaFocusLost
+        // TODO add your handling code here:
+        JTextField texField = (JTextField) evt.getSource();
+        String placeholder = "Bucar por nombre";
+        
+        if(texField.getText().isEmpty()){
+            texField.setText(placeholder);
+            texField.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_txtBusquedaFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btBusqueda;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnNuevo;

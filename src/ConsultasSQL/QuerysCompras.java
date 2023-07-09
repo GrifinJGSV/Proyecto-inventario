@@ -9,6 +9,10 @@ package ConsultasSQL;
  * @author PC
  */
 public class QuerysCompras {
+
+    public static Object getItemAt(int selectedIndex) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     private int id;
     private String numeroDocumento;
     private String rtn;
@@ -82,7 +86,7 @@ public class QuerysCompras {
     public void setTotal(double total) {
         this.total = total;
     }
+   
     
     public static String LISTARCOMPRAS = "SELECT * FROM compras";
-    
 }

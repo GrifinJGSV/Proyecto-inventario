@@ -133,6 +133,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreProductoActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="CrearProductos_txtNombreProducto"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbxTipoInventario">
           <Properties>
