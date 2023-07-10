@@ -4,7 +4,7 @@
  */
 package Principal;
 
-import Vistas.ProveedoresStore;
+import Vistas.ProvedoresStore;
 import Conexion.Conexion;
 import Vistas.Vistaprincipal;
 

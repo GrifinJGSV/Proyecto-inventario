@@ -74,4 +74,12 @@ public class QuerysProveedores {
     
     public static String LISTARPROVEEDORES = "SELECT * FROM proveedores";
     
+     public static String ACTUALIZARPROVEEDOR = "UPDATE proveedores SET nombre = ?,"
+            + " empresa = ?,"+" rtn = ?,"+" telefono = ?, "+" direccion =? WHERE id = ?";
+     
+    public String Buscar(String textBusqueda){
+        String query= "SELECT * FROM proveedores p WHERE p.nombre or p.empresa LIKE '%" + textBusqueda+ "%";
+        return query;
+    }
+    
 }

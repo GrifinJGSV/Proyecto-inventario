@@ -33,10 +33,9 @@ public class MostrarProductos extends javax.swing.JPanel {
             verProductos.lblNombre.setText(tblMostrarProductos.getValueAt(fila, 0).toString());
             verProductos.lblTipoinventario.setText(tblMostrarProductos.getValueAt(fila, 1).toString());
             verProductos.lblprecio.setText(tblMostrarProductos.getValueAt(fila, 2).toString());
-            verProductos.lblid.setText(tblMostrarProductos.getValueAt(fila, 3).toString());
             verProductos.setVisible(true);
           }
-          }   
+          }
       });
         
     }
@@ -184,23 +183,23 @@ public class MostrarProductos extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-      EditarProductos EProductos = new EditarProductos();
+        EditarProductos EProductos = new EditarProductos();
               
               
         int fila = tblMostrarProductos.getSelectedRow();  
         
         if (fila>=0){
-            EditarProductos.txtNombreProducto.setText(tblMostrarProductos.getValueAt(fila, 0).toString());
-            EditarProductos.cbxTipoInventario.setSelectedItem(tblMostrarProductos.getValueAt(fila, 1).toString());
-            EditarProductos.txtPrecio.setText(tblMostrarProductos.getValueAt(fila, 2).toString());
-            EditarProductos.txtId.setText(tblMostrarProductos.getValueAt(fila, 3).toString());
-           //ediFormProv.tfI.setText(tblMostrarProveedores.getValueAt(fila, 0).toString());
-            EProductos.setVisible(true);
+        
+        EditarProductos.txtNombreProducto.setText(tblMostrarProductos.getValueAt(fila, 0).toString());
+        EditarProductos.cbxTipoInventario.setSelectedItem(tblMostrarProductos.getValueAt(fila, 1).toString());
+        EditarProductos.txtPrecio.setText(tblMostrarProductos.getValueAt(fila, 2).toString());
+        EditarProductos.txtId.setText(tblMostrarProductos.getValueAt(fila, 3).toString());
+       //ediFormProv.tfI.setText(tblMostrarProveedores.getValueAt(fila, 0).toString());
+       EProductos.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(null,  " no hay fila");
-            
+        JOptionPane.showMessageDialog(null,  " no hay fila");
     }//GEN-LAST:event_btnEditarActionPerformed
-    }
+ }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnNuevo;

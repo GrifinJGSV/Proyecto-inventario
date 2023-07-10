@@ -4,6 +4,15 @@
  */
 package Vistas;
 
+import javax.swing.table.DefaultTableModel;
+import Conexion.Conexion;
+import com.mysql.cj.x.protobuf.MysqlxExpr;
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class MostrarCompras extends javax.swing.JPanel {
     public MostrarCompras() {
@@ -12,6 +21,41 @@ public class MostrarCompras extends javax.swing.JPanel {
         Controlador.Compras.MostrarCompras("");
     }
     
+    
+    public void filtrarDatos(String valor){
+        String[] titulos = {"<html><b>Num.Factura</b></html>","<html><b>RTN</b></html>","<html><b>CAI</b></html>",
+            "<html><b>Tipo de compra</b></html>","<html><b>Fecha</b></html>","<html><b>Total</b></html>"};
+        String[] registros = new String[7];
+        
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        String SQL = "select * from compras WHERE numeroDocumento like '%"+valor+"%' or "
+                + "rtn like '%"+valor+"%' or cai like '%"+valor+"%' or tipoCompra like '%"+valor+"%'"
+                + "or fecha like '%"+valor+"%'";
+        
+        
+        
+        try {
+            Statement st=(Statement) Conexion.getConection().createStatement();
+            ResultSet rs= st.executeQuery(SQL);
+            
+            while(rs.next()){
+                registros[0]=rs.getString("numeroDocumento");
+                registros[1]=rs.getString("rtn");
+                registros[2]=rs.getString("cai");
+                registros[3]=rs.getString("tipoCompra");
+                //registros[4]=rs.getString("fk_proveedor");
+                registros[4]=rs.getString("fecha");
+                registros[5]=rs.getString("total");
+                
+                modelo.addRow(registros);
+                
+            }
+            
+            MostrarCompras.tblMostrarCompras.setModel(modelo);
+            
+        } catch (Exception e) {
+        }
+    }
     
     
 
@@ -26,38 +70,81 @@ public class MostrarCompras extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMostrarCompras = new javax.swing.JTable();
-        Imprimir = new javax.swing.JButton();
         AgregarCompra = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        CuadroBusqueda = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(0, 153, 153));
 
         tblMostrarCompras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "id", "Num.Factura", "RTN", "CAI", "Tipo de compra", "Proveedor", "Fecha", "Total"
+
             }
         ));
+        //hacer que la tabla no sea editabe
+        tblMostrarCompras.setFocusable(false);
+        tblMostrarCompras = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tblMostrarCompras.setToolTipText("");
-        tblMostrarCompras.setRowHeight(20);
+        tblMostrarCompras.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tblMostrarComprasKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblMostrarCompras);
         if (tblMostrarCompras.getColumnModel().getColumnCount() > 0) {
             tblMostrarCompras.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        Imprimir.setText("Imprimir");
-        Imprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ImprimirActionPerformed(evt);
+        AgregarCompra.setBackground(new java.awt.Color(0, 153, 153));
+        AgregarCompra.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        AgregarCompra.setForeground(new java.awt.Color(255, 255, 255));
+        AgregarCompra.setIcon(new javax.swing.ImageIcon("C:\\Users\\family6571\\Downloads\\imagenes\\agregar.png")); // NOI18N
+        AgregarCompra.setBorder(null);
+        AgregarCompra.setOpaque(true);
+        AgregarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AgregarCompraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AgregarCompraMouseExited(evt);
             }
         });
-
-        AgregarCompra.setText("+");
         AgregarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarCompraActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Listado de  facturas de Compras");
+
+        CuadroBusqueda.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                CuadroBusquedaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                CuadroBusquedaFocusLost(evt);
+            }
+        });
+        CuadroBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CuadroBusquedaActionPerformed(evt);
+            }
+        });
+        CuadroBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CuadroBusquedaKeyReleased(evt);
             }
         });
 
@@ -67,29 +154,35 @@ public class MostrarCompras extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Imprimir)
-                .addGap(96, 96, 96))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CuadroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 904, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 889, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Imprimir)
-                    .addComponent(AgregarCompra))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CuadroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(AgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ImprimirActionPerformed
 
     private void AgregarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCompraActionPerformed
         // TODO add your handling code here:
@@ -98,10 +191,64 @@ public class MostrarCompras extends javax.swing.JPanel {
         compras.setLocationRelativeTo(null);
     }//GEN-LAST:event_AgregarCompraActionPerformed
 
+    private void CuadroBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuadroBusquedaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_CuadroBusquedaActionPerformed
+
+    private void CuadroBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CuadroBusquedaKeyReleased
+        // TODO add your handling code here:
+        //codigo para el cuadro de busqueda en el JTextfield
+        filtrarDatos(CuadroBusqueda.getText());
+        
+    }//GEN-LAST:event_CuadroBusquedaKeyReleased
+
+    private void CuadroBusquedaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CuadroBusquedaFocusGained
+        // TODO add your handling code here:
+        //placeholder para notificar como realizar la busqueda
+        JTextField textField = (JTextField) evt.getSource();
+        String placeholder = "Busqueda por todos los campos excepto total";
+
+        if (textField.getText().equals(placeholder)) {
+            textField.setText("");
+            textField.setForeground(Color.BLACK); // Establece el color de fuente adecuado
+        }
+    }//GEN-LAST:event_CuadroBusquedaFocusGained
+
+    private void CuadroBusquedaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CuadroBusquedaFocusLost
+        // TODO add your handling code here:
+        //placeholder para notificar como realizar la busqueda
+          JTextField textField = (JTextField) evt.getSource();
+          String placeholder = "Busqueda por todos los campos excepto total";
+
+          if (textField.getText().isEmpty()) {
+            textField.setText(placeholder);
+            textField.setForeground(Color.GRAY); // Establece el color de fuente del placeholder
+          }
+    }//GEN-LAST:event_CuadroBusquedaFocusLost
+
+    private void AgregarCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCompraMouseEntered
+        // TODO add your handling code here:
+        //cambiar el color del boton cuando el mouse entra
+        //AgregarCompra.setBackground(new Color(42, 126, 126));
+        
+    }//GEN-LAST:event_AgregarCompraMouseEntered
+
+    private void AgregarCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCompraMouseExited
+        // TODO add your handling code here:
+        //cambiar el color cuando el mouse salga del boton
+        //AgregarCompra.setBackground(new Color(204,204,204));
+    }//GEN-LAST:event_AgregarCompraMouseExited
+
+    private void tblMostrarComprasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblMostrarComprasKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblMostrarComprasKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarCompra;
-    private javax.swing.JButton Imprimir;
+    private javax.swing.JTextField CuadroBusqueda;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable tblMostrarCompras;
     // End of variables declaration//GEN-END:variables

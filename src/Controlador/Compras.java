@@ -27,7 +27,9 @@ public class Compras {
     
     
     public static void MostrarCompras(String buscar){
-        DefaultTableModel model = (DefaultTableModel)MostrarCompras.tblMostrarCompras.getModel();
+        String[] titulos = {"<html><b>Num.Factura</b></html>","<html><b>RTN</b></html>","<html><b>CAI</b></html>",
+            "<html><b>Tipo de compra</b></html>","<html><b>Fecha</b></html>","<html><b>Total</b></html>"};
+        DefaultTableModel model = new DefaultTableModel(null,titulos);
         
         while(model.getRowCount() > 0 ){
             model.removeRow(0);
@@ -46,14 +48,14 @@ public class Compras {
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
-                datos[0] = rs.getString("id");
-                datos[1] = rs.getString("numeroDocumento");
-                datos[2] = rs.getString("rtn");
-                datos[3] = rs.getString("CAI");
-                datos[4] = rs.getString("tipoCompra");
-                datos[5] = rs.getString("fk_proveedor");
-                datos[6] = rs.getString("fecha");
-                datos[7] = rs.getString("total");
+                
+                datos[0] = rs.getString("numeroDocumento");
+                datos[1] = rs.getString("rtn");
+                datos[2] = rs.getString("cai");
+                datos[3] = rs.getString("tipoCompra");
+                //datos[4] = rs.getString("fk_proveedor");
+                datos[4] = rs.getString("fecha");
+                datos[5] = rs.getString("total");
                 model.addRow(datos);
                 DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
                 tcr.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -69,4 +71,10 @@ public class Compras {
         }
             
     }
+
+    public static Object getItemAt(int selectedIndex) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+
 }

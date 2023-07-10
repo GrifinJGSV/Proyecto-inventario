@@ -12,21 +12,29 @@ import java.sql.SQLException;
  * @author Josue
  */
     public class Conexion {
+
+    public static Connection getConection() {
+        return conection;
+    }
+
+    public static void setConection(Connection conection) {
+        Conexion.conection = conection;
+    }
       public static Connection conection = null;
     public Connection getConexion() {
 		try {
 			
 		//Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                      conection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventarioalcaldia", "root", "mendozaarturo1");
+                      conection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventarioalcaldia", "root", "nicol2022");
                       return conection;
                         
                     } 
                        catch (SQLException ex) {
-			return null;
+			return conection;
 			
 		}
 
-	}
-
-    
+	}   
 }
+
+
