@@ -61,29 +61,29 @@ public class ProvedoresStore extends javax.swing.JFrame {
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre del representante");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 53, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_nombreKeyTyped(evt);
             }
         });
-        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 50, 240, -1));
+        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 50, 230, -1));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre de la empresa");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 93, 138, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 138, -1));
 
         txt_empresa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_empresaKeyTyped(evt);
             }
         });
-        jPanel1.add(txt_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 90, 240, -1));
+        jPanel1.add(txt_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 90, 230, -1));
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("RTN");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 133, 138, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 138, -1));
 
         try {
             fmt_rtn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####-######")));
@@ -95,11 +95,11 @@ public class ProvedoresStore extends javax.swing.JFrame {
                 fmt_rtnActionPerformed(evt);
             }
         });
-        jPanel1.add(fmt_rtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 130, 240, -1));
+        jPanel1.add(fmt_rtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 130, 230, -1));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Teléfono");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 167, 138, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 138, -1));
 
         try {
             fmt_telefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
@@ -116,7 +116,7 @@ public class ProvedoresStore extends javax.swing.JFrame {
                 fmt_telefonoKeyTyped(evt);
             }
         });
-        jPanel1.add(fmt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 164, 240, -1));
+        jPanel1.add(fmt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 164, 230, -1));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
         btn_guardar.setText("Guardar");
@@ -125,7 +125,7 @@ public class ProvedoresStore extends javax.swing.JFrame {
                 btn_guardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 350, -1, -1));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancelar.png"))); // NOI18N
         btn_cancelar.setText("Cancelar");
@@ -134,7 +134,7 @@ public class ProvedoresStore extends javax.swing.JFrame {
                 btn_cancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 351, -1, -1));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -143,7 +143,7 @@ public class ProvedoresStore extends javax.swing.JFrame {
 
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Dirección");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 204, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         txta_direccion.setColumns(20);
         txta_direccion.setRows(5);
@@ -154,10 +154,10 @@ public class ProvedoresStore extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(txta_direccion);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 204, 242, 109));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 204, 240, 109));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LOGOI.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -10, -1, 470));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.jpg"))); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -220,7 +220,7 @@ public class ProvedoresStore extends javax.swing.JFrame {
         
         String telProv = fmt_telefono.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (telProv.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de telefono está vacío");
+            JOptionPane.showMessageDialog(this, "El campo de teléfono está vacío");
             return; // Salir del método si el campo está vacío
         }
        /*  if (!telProv.matches("[0-9][-0-9]+")) {
@@ -238,11 +238,11 @@ public class ProvedoresStore extends javax.swing.JFrame {
                   
          String desProv = txta_direccion.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (desProv.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "La direccion es requerida ");
+            JOptionPane.showMessageDialog(this, "La dirección es requerida ");
             return; // Salir del método si el campo está vacío
         }
         if (!desProv.matches("[a-zA-Záéíóúñ][a-zA-Záéíóúñ 0-9]+")) {
-            JOptionPane.showMessageDialog(this, "La direccion solo puede contener letras y numeros");
+            JOptionPane.showMessageDialog(this, "La dirección solo puede contener letras y numeros");
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
         

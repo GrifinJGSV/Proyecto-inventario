@@ -143,7 +143,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
         jLabel5.setText("Ingresar un nuevo empleado");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 260, 32));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LOGOI.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alcaldiaDepto.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -10, -1, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
