@@ -343,9 +343,9 @@ public class IngresarCompra extends javax.swing.JFrame {
             }
             
         } catch (Exception e) {
-             //JOptionPane.showMessageDialog(null,"error al registrar la factura"
-                     //+ "\nYa existe una factura con estos datos","No se guardo la factura",
-                    //JOptionPane.WARNING_MESSAGE);
+             JOptionPane.showMessageDialog(null,"error al registrar la factura"+e
+                     + "\nYa existe una factura con estos datos","No se guardo la factura",
+                    JOptionPane.WARNING_MESSAGE);
         }
         //Validacion para que los datos no vayan vacios
         
