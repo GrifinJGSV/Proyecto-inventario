@@ -203,30 +203,30 @@ public class ProvedoresStore extends javax.swing.JFrame {
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
        
-        String rtnPro = fmt_rtn.getText().trim(); // Eliminar espacios en blanco al inicio y al final
+        String rtnPro = fmt_rtn.getText(); // Eliminar espacios en blanco al inicio y al final
         if (rtnPro.isEmpty()) {
             JOptionPane.showMessageDialog(null, "El rtn está vacío");
             return; // Salir del método si el campo está vacío
         }
-        /* if (!rtnPro.matches("[0-9][-0-9]+")) {
-            JOptionPane.showMessageDialog(this, "El rtn debe contener 14 numeros");
+        if (!rtnPro.matches("[0-9][-0-9]+")) {
+            JOptionPane.showMessageDialog(this, "El rtn etsa vacio");
             return; // Salir del método si el nombre contiene caracteres no válidos
-        }*/
+        }
         if(rtnPro.equals("0000-0000-000000")){
                 JOptionPane.showMessageDialog(this,"El rtn no puede ser cero");
                         return;
             }
         
         
-        String telProv = fmt_telefono.getText().trim(); // Eliminar espacios en blanco al inicio y al final
+        String telProv = fmt_telefono.getText(); // Eliminar espacios en blanco al inicio y al final
         if (telProv.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El campo de teléfono está vacío");
             return; // Salir del método si el campo está vacío
         }
-       /*  if (!telProv.matches("[0-9][-0-9]+")) {
-            JOptionPane.showMessageDialog(this, "El telefono debe contener 8 numeros");
+         if (!telProv.matches("[0-9][-0-9]+")) {
+            JOptionPane.showMessageDialog(this, "El telefono no puede estar vacio");
             return; // Salir del método si el nombre contiene caracteres no válidos
-        }*/
+        }
        
        if (telProv.equals("0000-0000")) {
             JOptionPane.showMessageDialog(this, "El teléfono no debe ser cero");

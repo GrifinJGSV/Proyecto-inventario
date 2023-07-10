@@ -74,18 +74,18 @@ public class EmpleadosStore extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Apellido");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 138, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 138, -1));
 
         txt_apellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_apellidoKeyTyped(evt);
             }
         });
-        jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 240, -1));
+        jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 240, -1));
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Identidad");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 138, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 138, -1));
 
         try {
             fmt_identidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####-#####")));
@@ -97,11 +97,11 @@ public class EmpleadosStore extends javax.swing.JFrame {
                 fmt_identidadActionPerformed(evt);
             }
         });
-        jPanel1.add(fmt_identidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 240, -1));
+        jPanel1.add(fmt_identidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 240, -1));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Teléfono");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 138, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 138, -1));
 
         try {
             fmt_telefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
@@ -118,7 +118,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
                 fmt_telefonoKeyTyped(evt);
             }
         });
-        jPanel1.add(fmt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 240, -1));
+        jPanel1.add(fmt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 240, -1));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
         btn_guardar.setText("Guardar");
