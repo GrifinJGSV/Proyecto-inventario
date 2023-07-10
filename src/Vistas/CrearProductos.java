@@ -6,6 +6,10 @@ package Vistas;
 
 import ConsultasSQL.QuerysProductos;
 import Controlador.Productos;//llamado a la clase producto que está dentro del paquete Controlador
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+//import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,14 +17,20 @@ import javax.swing.JOptionPane;
  * @author Andrea
  */
 public class CrearProductos extends javax.swing.JFrame {
+    
     public CrearProductos() {
+        
+      //  this.setContentPane(fondo);
+        
         initComponents();
+        setResizable(false);//deshabilitael boton maximizar
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -31,122 +41,110 @@ public class CrearProductos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.jpg"))); // NOI18N
+        jLabel6.setText("LPS");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(60, 53, 65));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Nombre del Producto");
+        jLabel2.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        jLabel2.setText("Nombre del producto");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
-        jLabel3.setText("Tipo de Inventario");
+        jLabel3.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        jLabel3.setText("Tipo de inventario");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         jLabel4.setText("Precio");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
 
+        txtNombreProducto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtNombreProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreProductoActionPerformed(evt);
             }
         });
+        txtNombreProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreProductoKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 188, 37));
 
+        cbxTipoInventario.setBackground(new java.awt.Color(249, 253, 250));
+        cbxTipoInventario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cbxTipoInventario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bienes consumible", "Equipo de oficina", "Equipo de cómputo", "Maquinaria", "Terrenos" }));
+        jPanel1.add(cbxTipoInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 188, 45));
 
+        txtPrecio.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPrecioActionPerformed(evt);
             }
         });
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 188, 42));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cbxTipoInventario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNombreProducto)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(cbxTipoInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(69, Short.MAX_VALUE))
-        );
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
         jLabel1.setText("Nuevo producto");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
+        btnCancelar.setBackground(new java.awt.Color(249, 253, 250));
+        btnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancelar.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 160, 60));
 
+        btnGuardar.setBackground(new java.awt.Color(249, 253, 250));
+        btnGuardar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 150, 61));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel7.setText("Lps");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 270, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.jpg"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(btnCancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGuardar)
-                .addGap(60, 60, 60))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(75, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnGuardar))
-                .addContainerGap(18, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreProductoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtNombreProductoActionPerformed
 
     private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
@@ -160,13 +158,16 @@ public class CrearProductos extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
             // Obtener el nombre del producto del campo de texto txtNombreProducto
-        String nombreProducto = txtNombreProducto.getText().trim(); // Eliminar espacios en blanco al inicio y al final
-        if (nombreProducto.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de nombre de producto está vacío");
+        String nombreProducto = txtNombreProducto.getText(); // asignamos una variable que obtiene el valor almacenado en el txtfield txtNombreProducto
+        if (nombreProducto.isEmpty()) {//si el nombre del producto está vacío se mostrará el siguiente mensaje
+            JOptionPane.showMessageDialog(null, "El nombre de producto está vacío","Error al guardar",
+                    JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
-        if (!nombreProducto.matches("[a-zA-Z]+")) {
-            JOptionPane.showMessageDialog(this, "El nombre de producto solo puede contener letras");
+        if (!nombreProducto.matches("[a-zA-ZáéíóúñÁÉÍÓÚÑ][a-zA-Z0-9 áéíóúñÁÉÍÓÚÑ.:]+")) {//si el nombre del producto contiene caracteres diferentes se muestra el siguiente mensaje
+            //mensaje de error 
+            JOptionPane.showMessageDialog(null, "alguno de los caracteres que ingresó no es valido", "Error al guardar", 
+                    JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
 
@@ -174,9 +175,10 @@ public class CrearProductos extends javax.swing.JFrame {
         String tipoInventario = cbxTipoInventario.getSelectedItem().toString();
 
         // Obtener el precio del campo de texto txtPrecio y validar que sea un número válido
-        String precioText = txtPrecio.getText().trim(); // Eliminar espacios en blanco al inicio y al final
+        String precioText = txtPrecio.getText().trim(); // El metodo trim se utiliza para eliminar espacios en blanco
         if (precioText.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de precio está vacío");
+            JOptionPane.showMessageDialog(null, "El precio está vacío","Error al guardar", 
+                    JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
         try {
@@ -193,18 +195,40 @@ public class CrearProductos extends javax.swing.JFrame {
 
             // Llamar al método Guardar de la clase Productos para guardar los datos
             if (Productos.Guardar(querys)) {
-                JOptionPane.showMessageDialog(this, "Nuevo Produto Ingresado Exitosamente");
+                JOptionPane.showMessageDialog(null, "Nuevo produto ingresado exitosamente","Error al guardar", 
+                    JOptionPane.WARNING_MESSAGE);
                 //Productos.MostrarProductos("");
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "Algo falló, consulte con el Administrador de sistema");
+                JOptionPane.showMessageDialog(null, "Algo falló, consulte con el administrador de sistema", "Error al guardar", 
+                    JOptionPane.WARNING_MESSAGE);
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El valor del precio no es válido");
+            JOptionPane.showMessageDialog(null, "El valor del precio no es válido", "Error al guardar", 
+                    JOptionPane.WARNING_MESSAGE);
         }
                                                
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtNombreProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreProductoKeyTyped
+        //String valor = txtNombreProducto.getText();
+        if(txtNombreProducto.getText().length() >=45){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNombreProductoKeyTyped
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane,"Ingresar solo números");
+        }
+        
+        if(txtPrecio.getText().length() >=7){
+            evt.consume();  
+        }
+    }//GEN-LAST:event_txtPrecioKeyTyped
 
     /**
      * @param args the command line arguments
@@ -226,6 +250,9 @@ public class CrearProductos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtNombreProducto;
     private javax.swing.JTextField txtPrecio;
