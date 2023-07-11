@@ -27,6 +27,50 @@ public class Empleados {
     private static Connection conexion = con.getConexion();
     private static PreparedStatement ps = null;
     
+    
+     public static boolean ValidarIdentidad(String buscar){
+            String sql = ""; 
+            sql = "SELECT * FROM empleados WHERE identidad=?";
+        
+        try{
+             Statement st = conexion.createStatement();
+            
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, buscar);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (SQLException ex){
+            Logger.getLogger(Empleados.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        
+    }
+    
+      public static boolean ValidarTelefono(String buscar){
+            String sql = ""; 
+            sql = "SELECT * FROM empleados WHERE telefono=?";
+        
+        try{
+             Statement st = conexion.createStatement();
+            
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, buscar);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (SQLException ex){
+            Logger.getLogger(Empleados.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        
+    }
    
     
     public static boolean Guardar(QuerysEmpleados qp){

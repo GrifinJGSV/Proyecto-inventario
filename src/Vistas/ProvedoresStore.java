@@ -188,6 +188,10 @@ public class ProvedoresStore extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El telefono ingresado ya existe.");
             return;
         }
+         if (Proveedores.ValidarRtn(fmt_rtn.getText())) {
+            JOptionPane.showMessageDialog(this, "El rtn ingresado ya existe.");
+            return;
+        }
         if (nomProv.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre del representante no puede estar vacio");
             return; // Salir del método si el campo está vacío
@@ -265,7 +269,7 @@ public class ProvedoresStore extends javax.swing.JFrame {
                 Proveedores.MostrarProvedores("");
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "El Telefono o el RTN ya estan ingresados");
+                JOptionPane.showMessageDialog(this, "Algo falló, consulte con el administrador de sistema");
             }
     
 

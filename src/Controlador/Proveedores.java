@@ -91,22 +91,43 @@ public class Proveedores {
     
     
     public static boolean ValidarTelefon(String buscar){
-            JOptionPane.showMessageDialog(null, buscar);
             String sql = ""; 
-                sql = "SELECT * FROM proveedores WHERE telefono = ' " + buscar + " '  ";
-                        //LIKE ('%" + buscar + "%') or empresa LIKE ('%" + buscar + "%') ";
+            sql = "SELECT * FROM proveedores WHERE telefono=?";
         
         try{
-            Statement st = conexion.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            JOptionPane.showMessageDialog(null, rs.next());
+             Statement st = conexion.createStatement();
+            
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, buscar);
+            ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return true;
             } else {
                 return false;
             }
-           
-           // MOSTRARCARGO.tblCa.setModel(modelo);//la tabla se actualiza. HacerCalculos(r);
+        }catch (SQLException ex){
+            Logger.getLogger(Proveedores.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        
+    }
+    
+    
+    public static boolean ValidarRtn(String buscar){
+            String sql = ""; 
+            sql = "SELECT * FROM proveedores WHERE rtn=?";
+        
+        try{
+             Statement st = conexion.createStatement();
+            
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, buscar);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
         }catch (SQLException ex){
             Logger.getLogger(Proveedores.class.getName()).log(Level.SEVERE, null, ex);
             return false;
