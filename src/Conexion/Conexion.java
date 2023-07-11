@@ -25,7 +25,7 @@ import java.sql.SQLException;
 		try {
 			
 		//Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                      conection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventarioalcaldia", "root", "");
+                      conection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventarioalcaldia", "root", "alejandra");
                       return conection;
                         
                     } 
