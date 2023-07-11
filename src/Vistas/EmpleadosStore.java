@@ -225,17 +225,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
     }//GEN-LAST:event_fmt_telefonoEmergenciaActionPerformed
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-         String nomEmp = txt_nombre.getText().trim();
-         
-          if (Empleados.ValidarIdentidad(fmt_identidad.getText())) {
-            JOptionPane.showMessageDialog(this, "La identidad ingresado ya existe.");
-            return;
-        }
-          
-          if (Empleados.ValidarTelefono(fmt_telefono.getText())) {
-            JOptionPane.showMessageDialog(this, "El telefono ingresado ya existe.");
-            return;
-        }
+         String nomEmp = txt_nombre.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (nomEmp.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre del empleado no puede estar vacio");
             return; // Salir del método si el campo está vacío
@@ -268,7 +258,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"La identidad no puede ser cero");
                         return;
             }
-                  
+           
         String telEmp = fmt_telefonoEmergencia.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (telEmp.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El campo de telefono está vacío");
@@ -283,7 +273,8 @@ public class EmpleadosStore extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El teléfono no debe ser cero");
              return; // Salir del método si el teléfono no es válido
          }
-       String nomEme = txt_NomEme.getText().trim(); // Eliminar espacios en blanco al inicio y al final
+       
+         String nomEme = txt_NomEme.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (nomEme.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre de contacto de emergencia del empleado no puede estar vacio");
             return; // Salir del método si el campo está vacío
@@ -456,7 +447,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
           tex_direccion.setText(Valor);
           return;
         }
-       if(Valor.length()>=80){
+       if(Valor.length()>=120){
        //JOptionPane.showMessageDialog(this, "La direccion no puede contener mas de 60 letras");
        evt.consume();
        }

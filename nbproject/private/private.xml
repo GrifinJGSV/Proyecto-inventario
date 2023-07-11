@@ -3,29 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/MostrarProductos.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/ProvedoresStore.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/MostrarCompras.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/ProductoParaCompra.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/MostrarEmpleados.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/EditarProductos.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Controlador/Empleados.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/EmpleadosStore.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/EditarProvedor.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/ConsultasSQL/QuerysEmpleados.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/ConsultasSQL/QuerysDepartamentos.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/LogoAlcaldiaPrincipal.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/VerProductos.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/VerProvedor.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/Vistaprincipal.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/MostrarDepartamentos.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/EditarEmpleado.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/CrearProductos.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/MostrarProveedores.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/ConsultasSQL/QuerysProveedores.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/VerEmpleado.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/CrearDepartamento.java</file>
-            <file>file:/C:/Users/Josue/Documents/NetBeansProjects/ProgramaInventario/ProgramaInventario/src/Vistas/IngresarCompra.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/Proyecto-inventario/src/Controlador/Empleados.java</file>
         </group>
     </open-files>
 </project-private>

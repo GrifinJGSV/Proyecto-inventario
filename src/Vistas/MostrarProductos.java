@@ -36,9 +36,9 @@ public class MostrarProductos extends javax.swing.JPanel {
             int fila = tblMostrarProductos.getSelectedRow();
             VerProductos verProductos = new VerProductos();
             
-            verProductos.lblNombre.setText(tblMostrarProductos.getValueAt(fila, 0).toString());
-            verProductos.lblTipoinventario.setText(tblMostrarProductos.getValueAt(fila, 1).toString());
-            verProductos.lblprecio.setText(tblMostrarProductos.getValueAt(fila, 2).toString());
+            verProductos.lblNombre.setText(tblMostrarProductos.getValueAt(fila, 1).toString());
+            verProductos.lblTipoinventario.setText(tblMostrarProductos.getValueAt(fila, 2).toString());
+            verProductos.lblprecio.setText(tblMostrarProductos.getValueAt(fila, 3).toString());
             //verProductos.lblid.setText(tblMostrarProductos.getValueAt(fila, 3).toString());
             verProductos.setVisible(true);
           }
