@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+
 import Conexion.Conexion;
 import java.sql.Connection;
 import java.util.logging.Level;
@@ -12,6 +13,7 @@ import ConsultasSQL.QuerysDepartamentos;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.Connection;
+import Vistas.MostrarDepartamentos;
 import java.sql.PreparedStatement;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
@@ -27,6 +29,65 @@ public class Departamentos {
     private static Conexion con = new Conexion();
     private static Connection conexion = con.getConexion();
     private static PreparedStatement ps = null;
+    
+    public static void MostrarDepartamentos(String buscar){
+        DefaultTableModel model = (DefaultTableModel)MostrarDepartamentos.tblMostrarDepartamentos.getModel();
+        while (model.getRowCount() > 0 ){
+                model.removeRow(0);
+                MostrarDepartamentos.tblMostrarDepartamentos.getColumnModel().getColumn(4).setMaxWidth(0);
+                MostrarDepartamentos.tblMostrarDepartamentos.getColumnModel().getColumn(4).setMinWidth(0);
+                MostrarDepartamentos.tblMostrarDepartamentos.getTableHeader().getColumnModel().getColumn(4).setMaxWidth(0);
+                MostrarDepartamentos.tblMostrarDepartamentos.getTableHeader().getColumnModel().getColumn(4).setMinWidth(0);
+    }
+    
+            
+            String sql = "";
+            if(buscar.equals("")){
+                sql = QuerysDepartamentos.LISTARDEPARTAMENTOS;
+                
+            }
+            if (buscar == null){
+                 sql = QuerysDepartamentos.LISTARDEPARTAMENTOS;
+            } else {
+                sql = "select * from departamentos  WHERE nombreDepartamento like '%"+buscar+"%' or "
+                + "prefijo like '%"+buscar+"%'";
+                //"SELECT * FROM departamentos p WHERE UPPER(p.nombreDepartamento) LIKE UPPER('%" + buscar + "%')"
+            }
+            
+        
+        String datos[] = new String[5];
+        
+        try{
+        
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+           
+            int count = 1;
+            while(rs.next()){
+                datos[0] = count+"";
+                datos[1] = rs.getString("nombreDepartamento");
+                datos[2] = rs.getString("prefijo");
+                datos[3] = rs.getString("ubicacion");
+                datos[4] = rs.getString( "Id");
+                model.addRow(datos);
+                
+                DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
+                tcr.setHorizontalAlignment(SwingConstants.RIGHT);
+                MostrarDepartamentos.tblMostrarDepartamentos.setModel(model);
+                //MostrarDepartamentos.tblMostrarDepartamentos.getColumnModel().getColumn(4).setCellRenderer(tcr);
+                count++;
+              
+                
+            }
+           // MOSTRARCARGO.tblCa.setModel(modelo);//la tabla se actualiza. HacerCalculos(r);
+        }catch (SQLException ex){
+            Logger.getLogger(Departamentos.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        
+    }
+    
     
     //guardar departamento
     public static boolean Guardar(QuerysDepartamentos qp){

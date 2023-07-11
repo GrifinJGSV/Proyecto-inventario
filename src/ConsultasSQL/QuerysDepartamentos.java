@@ -51,4 +51,16 @@ public class QuerysDepartamentos {
     public static String RegistraDepartamento = "INSERT INTO departamentos("
             + "nombreDepartamento," + "prefijo," + "ubicacion)"
             + "VALUES(?,?,?)";
+    
+    // Consulta SQL para listar todos los productos de la base de datos
+    public static String LISTARDEPARTAMENTOS = "SELECT * FROM departamento";
+    
+    public String Busqueda(String textBusqueda) {
+        String query = "SELECT * FROM departamento p WHERE p.nombreDepartamento LIKE '%" + textBusqueda + "%'";
+        return query;
+    }
+    
+    // Consulta SQL para actualizar un producto en la base de datos
+    public static String ACTUALIZARDEPARTAMENTOS = "UPDATE departamento SET nombreDepartamento = ?,"
+            + " prefijo = ?, ubicacion = ? WHERE id = ?";
 }
