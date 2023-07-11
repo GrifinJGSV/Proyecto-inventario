@@ -7,6 +7,7 @@ package Vistas;
 import com.mysql.cj.x.protobuf.MysqlxExpr;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 import javax.swing.text.PlainDocument;
 import org.jdesktop.swingx.prompt.PromptSupport;
 import org.tinygroup.placeholder.PlaceholderMainClass;
@@ -134,6 +135,11 @@ public class MostrarEmpleados extends javax.swing.JPanel {
         btnEditar.setBackground(new java.awt.Color(253, 253, 252));
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Editar.png"))); // NOI18N
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo Listados.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -153,9 +159,7 @@ public class MostrarEmpleados extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(42, 42, 42)
                                     .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnEditar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,6 +216,30 @@ public class MostrarEmpleados extends javax.swing.JPanel {
          String textoBusqueda = txtBusqueda.getText();
           Controlador.Empleados.MostrarEmpleados(textoBusqueda);
     }//GEN-LAST:event_txtBusquedaKeyReleased
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+                  EditarEmpleados EditarEmpleados = new EditarEmpleados();
+              
+              
+        int fila = tblMostrarEmpleados.getSelectedRow();  
+        
+        if (fila>=0){
+            EditarEmpleados.txt_nombre.setText(tblMostrarEmpleados.getValueAt(fila, 1).toString());
+            EditarEmpleados.txt_apellido.setText(tblMostrarEmpleados.getValueAt(fila, 2).toString());
+            EditarEmpleados.fmt_identidad.setText(tblMostrarEmpleados.getValueAt(fila, 3).toString());
+            EditarEmpleados.fmt_telefono.setText(tblMostrarEmpleados.getValueAt(fila, 4).toString());
+            EditarEmpleados.txt_NomEme.setText(tblMostrarEmpleados.getValueAt(fila, 5).toString());
+            EditarEmpleados.fmt_telefonoEmergencia.setText(tblMostrarEmpleados.getValueAt(fila,6).toString());
+            EditarEmpleados.cbxEstado.setSelectedItem(tblMostrarEmpleados.getValueAt(fila, 8).toString());
+            EditarEmpleados.tex_direccion.setText(tblMostrarEmpleados.getValueAt(fila, 7).toString());
+            EditarEmpleados.txt_Id.setText(tblMostrarEmpleados.getValueAt(fila, 0).toString());
+           //ediFormProv.tfI.setText(tblMostrarProveedores.getValueAt(fila, 0).toString());
+            EditarEmpleados.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null,  " no hay fila");
+            
+    }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

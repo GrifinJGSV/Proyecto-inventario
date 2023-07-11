@@ -159,6 +159,28 @@ public class Empleados {
 //            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+     public static boolean Editar(QuerysEmpleados qp){
+        String sql = QuerysEmpleados.ACTUALIZEmpleado;
+        
+        try{
+        ps = conexion.prepareStatement(sql);
+        ps.setString(1, qp.getNombre());
+        ps.setString(2, qp.getApellido());
+        ps.setString(3, qp.getIdentidad());
+        ps.setString(4, qp.getTelefono());
+        ps.setString(5, qp.getNombreEmergencia());
+        ps.setString(6, qp.getTelefonoemergencia());
+        ps.setString(7, qp.getDireccion());
+        ps.setString(8, qp.getEstado());
+        ps.setInt(9, qp.getId());
+        
+        ps.executeUpdate();
+        return true;
+        } catch (SQLException ex){
+            return false;
+//            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     
            
