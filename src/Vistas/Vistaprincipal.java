@@ -96,11 +96,6 @@ public class Vistaprincipal extends javax.swing.JFrame {
         });
 
         btnDepartamentos.setText("Departamentos");
-        btnDepartamentos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDepartamentosActionPerformed(evt);
-            }
-        });
 
         btnInventario1.setText("Inventario");
 
@@ -159,7 +154,7 @@ public class Vistaprincipal extends javax.swing.JFrame {
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 964, Short.MAX_VALUE)
+            .addGap(0, 958, Short.MAX_VALUE)
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,8 +168,8 @@ public class Vistaprincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, 958, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -219,12 +214,6 @@ public class Vistaprincipal extends javax.swing.JFrame {
         MostrarEmpleados mostrarEmpleados = new MostrarEmpleados();
         identificarVista(mostrarEmpleados);
     }//GEN-LAST:event_btnEmpleadosActionPerformed
-
-    private void btnDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepartamentosActionPerformed
-        MostrarDepartamentos mostrarDepartamentos = new MostrarDepartamentos();
-        identificarVista(mostrarDepartamentos);
-        
-    }//GEN-LAST:event_btnDepartamentosActionPerformed
 
     /**
      * @param args the command line arguments

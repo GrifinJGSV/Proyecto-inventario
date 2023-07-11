@@ -110,5 +110,23 @@ public static boolean Guardar(QuerysProductos qp) {
 //            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+public static boolean Editar(QuerysProductos qp) {
+    String sql = QuerysProductos.ACTUALIZARPRODUCTO; // Obtener la consulta SQL para actualizar un producto desde QuerysProductos
+
+        try {
+            ps = conexion.prepareStatement(sql); // Preparar la sentencia SQL
+            
+            ps.setString(1, qp.getNombreProducto()); // Establecer el nombre del producto en la consulta
+            ps.setString(2, qp.getTipoInventario()); // Establecer el tipo de inventario en la consulta
+            ps.setDouble(3, qp.getPrecio()); // Establecer el precio en la consulta
+            ps.setInt(4,qp.getId());// Establecer el precio en la consulta
+
+            ps.executeUpdate(); // Ejecutar la consulta de inserción en la base de datos* actualiza la información de la base de datos
+            return true; // Indicar que el guardado fue exitoso
+        } catch (SQLException ex) {
+            return false; // Indicar que ocurrió un error durante el guardado
+//            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

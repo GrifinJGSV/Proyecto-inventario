@@ -40,25 +40,32 @@ public class EditarProductos extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         jLabel2.setText("Nombre del Producto");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         jLabel3.setText("Tipo de Inventario");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         jLabel4.setText("Precio");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         txtNombreProducto.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         txtNombreProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -71,11 +78,11 @@ public class EditarProductos extends javax.swing.JFrame {
                 txtNombreProductoKeyTyped(evt);
             }
         });
-        jPanel1.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 250, -1));
+        jPanel1.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 200, 40));
 
         cbxTipoInventario.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         cbxTipoInventario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bienes consumible", "Equipo de oficina", "Equipo de cómputo", "Maquinaria", "Terrenos" }));
-        jPanel1.add(cbxTipoInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
+        jPanel1.add(cbxTipoInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, 40));
 
         txtPrecio.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         txtPrecio.addActionListener(new java.awt.event.ActionListener() {
@@ -88,34 +95,38 @@ public class EditarProductos extends javax.swing.JFrame {
                 txtPrecioKeyTyped(evt);
             }
         });
-        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 88, 40));
+        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 200, 40));
 
         btnCancelar.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes para el proyecto alcaldia/cancelar.png"))); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancelar.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 160, 60));
 
         btnActualizar.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes para el proyecto alcaldia/Editar.png"))); // NOI18N
-        btnActualizar.setText("Editar");
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Editar.png"))); // NOI18N
+        btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 170, 60));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
         jLabel1.setText("Editar Producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 0, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes para el proyecto alcaldia/Imagen1.jpg"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 380));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel7.setText("Lps");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.jpg"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,7 +163,7 @@ public class EditarProductos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El espacio de nombre de producto está vacío");
             return; // Salir del método si el campo está vacío
         }
-        if (!nombreProducto.matches("[a-zA-Z]+")) {
+        if (!nombreProducto.matches("[a-zA-Z0-9 ]+")) {
             JOptionPane.showMessageDialog(this, "El nombre de producto solo puede contener letras");
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
@@ -199,34 +210,35 @@ public class EditarProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtNombreProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreProductoKeyTyped
-        String valor = txtNombreProducto.getText();
-        char validar = evt.getKeyChar();
-        if(Character.isDigit(validar)){
-            getToolkit().beep();
-            
+          //String valor = txtNombreProducto.getText();
+         char character = evt.getKeyChar();
+                if (!Character.isLetterOrDigit(character) && character != ' ') {
+                    evt.consume(); // Ignorar el evento de tecla
+                     getToolkit().beep();
+                }
+        if(txtNombreProducto.getText().length() >=45){
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane,"Ingresar solo letras");
-        }
-        if(valor.length() >=45){
-            JOptionPane.showMessageDialog(this, "El máximo de letras es de 45");
+             getToolkit().beep();
         }
     }//GEN-LAST:event_txtNombreProductoKeyTyped
 
     private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
-        String caracter = txtPrecio.getText();
-        char validar = evt.getKeyChar();
-        if(Character.isLetter(validar)){
-            getToolkit().beep();
-            
-            evt.consume();
-            JOptionPane.showMessageDialog(rootPane,"Ingresar solo números");
-        }
-        
-        
-        if(caracter.length() >=10){
-            JOptionPane.showMessageDialog(this, "No ingrese mas de 10 dígitos");
+                char validar = evt.getKeyChar();
+     if (Character.isLetter(validar) || !Character.isDigit(validar)) {
+         getToolkit().beep();
+         evt.consume();
+        // JOptionPane.showMessageDialog(rootPane, "Ingresar solo números");
+     }
+
+        if(txtPrecio.getText().length() >=7){
+            evt.consume();  
+             getToolkit().beep();
         }
     }//GEN-LAST:event_txtPrecioKeyTyped
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,6 +266,9 @@ public class EditarProductos extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(EditarProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -271,18 +286,12 @@ public class EditarProductos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JTextField txtId;
     public static javax.swing.JTextField txtNombreProducto;
     public static javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 
-    private static class KeyEvent {
-
-        private static char VK_SPACE;
-
-        public KeyEvent() {
-        }
-    }
 }

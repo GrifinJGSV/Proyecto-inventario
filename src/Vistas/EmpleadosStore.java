@@ -54,7 +54,8 @@ public class EmpleadosStore extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tex_direccion = new javax.swing.JTextArea();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        combo_estado = new javax.swing.JComboBox<>();
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
@@ -134,7 +135,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
                 btn_guardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, -1, -1));
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancelar.png"))); // NOI18N
         btn_cancelar.setText("Cancelar");
@@ -143,7 +144,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
                 btn_cancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 480, -1, -1));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 510, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -185,7 +186,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
 
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Dirección");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         tex_direccion.setColumns(20);
         tex_direccion.setRows(5);
@@ -196,10 +197,14 @@ public class EmpleadosStore extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tex_direccion);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, -1, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.jpg"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Estado");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+
+        combo_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Desactivado" }));
+        jPanel1.add(combo_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,7 +219,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 55, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -225,22 +230,23 @@ public class EmpleadosStore extends javax.swing.JFrame {
     }//GEN-LAST:event_fmt_telefonoEmergenciaActionPerformed
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-         String nomEmp = txt_nombre.getText().trim();
-         
-          if (Empleados.ValidarIdentidad(fmt_identidad.getText())) {
-            JOptionPane.showMessageDialog(this, "La identidad ingresado ya existe.");
-            return;
-        }
-          
-          if (Empleados.ValidarTelefono(fmt_telefono.getText())) {
+         String nomEmp = txt_nombre.getText().trim(); // Eliminar espacios en blanco al inicio y al final
+       
+          if (Empleados.ValidarTelefon(fmt_telefono.getText())) {
             JOptionPane.showMessageDialog(this, "El telefono ingresado ya existe.");
             return;
         }
-        if (nomEmp.isEmpty()) {
+         if (Empleados.ValidarIdentidad(fmt_identidad.getText())) {
+            JOptionPane.showMessageDialog(this, " la identidad ingresado ya existe.");
+            return;
+        }
+         
+         
+         if (nomEmp.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre del empleado no puede estar vacio");
             return; // Salir del método si el campo está vacío
         }
-        if (!nomEmp.matches("[a-zA-Záéíóúñ][a-zA-Z áéíóúñ]+")) {
+        if (!nomEmp.matches("[a-zA-ZáéíóúñÁÉÍÓÚÑ][a-zA-Z áéíóúñÁÉÍÓÚÑ]+")) {
             JOptionPane.showMessageDialog(this, "El nombre del empleado solo puede contener letras");
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
@@ -268,8 +274,8 @@ public class EmpleadosStore extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"La identidad no puede ser cero");
                         return;
             }
-                  
-        String telEmp = fmt_telefonoEmergencia.getText().trim(); // Eliminar espacios en blanco al inicio y al final
+           
+        String telEmp = fmt_telefono.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (telEmp.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El campo de telefono está vacío");
             return; // Salir del método si el campo está vacío
@@ -283,7 +289,8 @@ public class EmpleadosStore extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El teléfono no debe ser cero");
              return; // Salir del método si el teléfono no es válido
          }
-       String nomEme = txt_NomEme.getText().trim(); // Eliminar espacios en blanco al inicio y al final
+       
+         String nomEme = txt_NomEme.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (nomEme.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre de contacto de emergencia del empleado no puede estar vacio");
             return; // Salir del método si el campo está vacío
@@ -299,7 +306,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
             return; // Salir del método si el campo está vacío
         }
          if (!telEme.matches("[0-9][-0-9]+")) {
-            JOptionPane.showMessageDialog(this, "El telefono no debe estar vacio");
+            JOptionPane.showMessageDialog(this, "El telefono no puede ser cero");
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
        
@@ -307,6 +314,8 @@ public class EmpleadosStore extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El teléfono no debe ser cero");
              return; // Salir del método si el teléfono no es válido
          }
+       
+       String estaEmp = combo_estado.getSelectedItem().toString();
        
         String texdire = tex_direccion.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (texdire.isEmpty()) {
@@ -327,16 +336,17 @@ public class EmpleadosStore extends javax.swing.JFrame {
             querys.setNombreEmergencia(nomEme);
             querys.setTelefonoemergencia(telEme);
             querys.setDireccion(texdire);
+            querys.setEstado(estaEmp);
             
 
             // Llamar al método Guardar de la clase Productos para guardar los datos
             if (Empleados.Guardar(querys)) {
                 JOptionPane.showMessageDialog(this, "Nuevo Empleado Ingresado Exitosamente");
-                
+                Empleados.MostrarEmpleados("");
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "El Telefono o la identidad ya estan ingresados");
-            }
+                JOptionPane.showMessageDialog(null, "Algo falló, consulte con el administrador de sistema", "Error al guardar", 
+                    JOptionPane.OK_OPTION); }
     
 
     }//GEN-LAST:event_btn_guardarActionPerformed
@@ -456,7 +466,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
           tex_direccion.setText(Valor);
           return;
         }
-       if(Valor.length()>=80){
+       if(Valor.length()>=120){
        //JOptionPane.showMessageDialog(this, "La direccion no puede contener mas de 60 letras");
        evt.consume();
        }
@@ -500,11 +510,13 @@ public class EmpleadosStore extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_guardar;
+    private javax.swing.JComboBox<String> combo_estado;
     private javax.swing.JFormattedTextField fmt_identidad;
     private javax.swing.JFormattedTextField fmt_telefono;
     private javax.swing.JFormattedTextField fmt_telefonoEmergencia;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -512,7 +524,6 @@ public class EmpleadosStore extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea tex_direccion;

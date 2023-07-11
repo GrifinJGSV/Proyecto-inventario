@@ -64,8 +64,7 @@ public class QuerysProductos {
     }
     
     // Consulta SQL para actualizar un producto en la base de datos
-    public static String ACTUALIZARPRODUCTO = "UPDATE productos SET nombreProducto = ?,"
-            + " tipoInventario = ?, precio = ? WHERE id = ?";
+    public static String ACTUALIZARPRODUCTO = "UPDATE productos SET nombreProducto = ?, tipoInventario = ?, precio = ? WHERE id = ?";
 }
 
 

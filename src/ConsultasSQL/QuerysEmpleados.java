@@ -17,6 +17,7 @@ public class QuerysEmpleados {
     private String nombreEmergencia;
     private String telefonoemergencia;
     private String direccion;
+    private String estado;
 
     public int getId() {
         return id;
@@ -81,11 +82,32 @@ public class QuerysEmpleados {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
     
     
    
      public static String RegistraEmpleado = "INSERT INTO empleados("
-            +"nombre,"+"apellido,"+"identidad,"+"telefono,"+"nombreEmergencia,"+"telefonoemergencia,"+"direccion)"
-            +"VALUES(?,?,?,?,?,?,?)";
+            +"nombre,"+"apellido,"+"identidad,"+"telefono,"+"nombreEmergencia,"+"telefonoemergencia,"+"estado,"+"direccion)"
+            +"VALUES(?,?,?,?,?,?,?,?)";
+     
+     // Consulta SQL para listar todos los empleados de la base de datos
+    public static String LISTAREMPLEADOS = "SELECT * FROM empleados where Estado = 'Activo'";
     
+    public String Busqueda(String textBusqueda) {
+        String query = "SELECT * FROM empleados p WHERE p.nombre LIKE '%" + textBusqueda + "%'";
+        return query;
+    }
+    
+    // Consulta SQL para actualizar un empleado en la base de datos
+    public static String ACTUALIZEmpleado = "UPDATE empleados SET nombre = ?, apellido = ?, identidad = ?, telefono = ?, nombreEmergencia = ?, telefonoemergencia = ?, direccion = ?, estado = ? WHERE id = ?";
 }
+    
+
