@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import Controlador.Empleados;
 /**
  *
  * @author Admin
@@ -15,6 +16,7 @@ public class VerEmpleado extends javax.swing.JFrame {
      */
     public VerEmpleado() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -26,8 +28,9 @@ public class VerEmpleado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -36,28 +39,32 @@ public class VerEmpleado extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
+        lblnumeroidentidad = new javax.swing.JLabel();
+        lblTeléfono = new javax.swing.JLabel();
+        lblDirección = new javax.swing.JLabel();
+        lblnombreemergencia = new javax.swing.JLabel();
+        lblteléfonoemergencia = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lblEstado = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel9.setText("jLabel9");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/volver.png"))); // NOI18N
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/volver.png"))); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 130, 60));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 130, 60));
 
         jLabel1.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
         jLabel1.setText("                  Datos del  Empleado");
@@ -91,37 +98,45 @@ public class VerEmpleado extends javax.swing.JFrame {
         jLabel6.setText("Nombre del contacto de emergencia :");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jLabel9.setText("jLabel9");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 260, 30));
+        lblNombre.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblNombre.setText("jLabel9");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 260, 30));
+
+        lblApellido.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblApellido.setText("jLabel10");
+        jPanel1.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 210, 30));
+
+        lblnumeroidentidad.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblnumeroidentidad.setText("jLabel11");
+        jPanel1.add(lblnumeroidentidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 230, 30));
+
+        lblTeléfono.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblTeléfono.setText("jLabel12");
+        jPanel1.add(lblTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 230, -1));
+
+        lblDirección.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblDirección.setText("jLabel13");
+        jPanel1.add(lblDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 240, -1));
+
+        lblnombreemergencia.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblnombreemergencia.setText("jLabel14");
+        jPanel1.add(lblnombreemergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 200, -1));
+
+        lblteléfonoemergencia.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblteléfonoemergencia.setText("jLabel15");
+        jPanel1.add(lblteléfonoemergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 250, -1));
 
         jLabel10.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jLabel10.setText("jLabel10");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 210, 30));
+        jLabel10.setText("Estado:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 60, 40));
 
-        jLabel11.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jLabel11.setText("jLabel11");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 230, 30));
-
-        jLabel12.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jLabel12.setText("jLabel12");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 230, -1));
-
-        jLabel13.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jLabel13.setText("jLabel13");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 240, -1));
-
-        jLabel14.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jLabel14.setText("jLabel14");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 200, -1));
-
-        jLabel15.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jLabel15.setText("jLabel15");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 250, -1));
+        lblEstado.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblEstado.setText("jLabel11");
+        jPanel1.add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, 60));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alcaldiaDepto.png"))); // NOI18N
         jLabel17.setText("jLabel17");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 520));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 520));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,15 +149,15 @@ public class VerEmpleado extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,14 +195,9 @@ public class VerEmpleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -198,5 +208,13 @@ public class VerEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    public static javax.swing.JLabel lblApellido;
+    public static javax.swing.JLabel lblDirección;
+    public static javax.swing.JLabel lblEstado;
+    public transient javax.swing.JLabel lblNombre;
+    public static javax.swing.JLabel lblTeléfono;
+    public static javax.swing.JLabel lblnombreemergencia;
+    public static javax.swing.JLabel lblnumeroidentidad;
+    public static javax.swing.JLabel lblteléfonoemergencia;
     // End of variables declaration//GEN-END:variables
 }
