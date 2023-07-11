@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import Vistas.MostrarProveedores;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 /**
@@ -84,6 +85,31 @@ public class Proveedores {
         }catch (SQLException ex){
             Logger.getLogger(Proveedores.class.getName()).log(Level.SEVERE, null, ex);
             
+        }
+        
+    }
+    
+    
+    public static boolean ValidarTelefon(String buscar){
+            JOptionPane.showMessageDialog(null, buscar);
+            String sql = ""; 
+                sql = "SELECT * FROM proveedores WHERE telefono = ' " + buscar + " '  ";
+                        //LIKE ('%" + buscar + "%') or empresa LIKE ('%" + buscar + "%') ";
+        
+        try{
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            JOptionPane.showMessageDialog(null, rs.next());
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+           
+           // MOSTRARCARGO.tblCa.setModel(modelo);//la tabla se actualiza. HacerCalculos(r);
+        }catch (SQLException ex){
+            Logger.getLogger(Proveedores.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
         
     }

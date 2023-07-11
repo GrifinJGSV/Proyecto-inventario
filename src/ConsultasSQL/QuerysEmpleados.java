@@ -14,6 +14,9 @@ public class QuerysEmpleados {
     private String apellido;
     private String identidad;
     private String telefono;
+    private String nombreEmergencia;
+    private String telefonoemergencia;
+    private String direccion;
 
     public int getId() {
         return id;
@@ -54,9 +57,35 @@ public class QuerysEmpleados {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+    public String getNombreEmergencia() {
+        return nombreEmergencia;
+    }
+
+    public void setNombreEmergencia(String nombreEmergencia) {
+        this.nombreEmergencia = nombreEmergencia;
+    }
+
+    public String getTelefonoemergencia() {
+        return telefonoemergencia;
+    }
+
+    public void setTelefonoemergencia(String telefonoEmergencia) {
+        this.telefonoemergencia = telefonoEmergencia;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    
+    
    
      public static String RegistraEmpleado = "INSERT INTO empleados("
-            +"nombre,"+"apellido,"+"identidad,"+"telefono)"
-            +"VALUES(?,?,?,?)";
+            +"nombre,"+"apellido,"+"identidad,"+"telefono,"+"nombreEmergencia,"+"telefonoemergencia,"+"direccion)"
+            +"VALUES(?,?,?,?,?,?,?)";
     
 }

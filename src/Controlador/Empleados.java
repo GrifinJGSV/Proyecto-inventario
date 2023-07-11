@@ -38,6 +38,9 @@ public class Empleados {
         ps.setString(2, qp.getApellido());
         ps.setString(3, qp.getIdentidad());
         ps.setString(4, qp.getTelefono());
+        ps.setString(5, qp.getNombreEmergencia());
+        ps.setString(6, qp.getTelefonoemergencia());
+        ps.setString(7, qp.getDireccion());
         
         
         ps.executeUpdate();

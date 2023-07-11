@@ -184,6 +184,10 @@ public class ProvedoresStore extends javax.swing.JFrame {
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
          String nomProv = txt_nombre.getText().trim(); // Eliminar espacios en blanco al inicio y al final
+         if (Proveedores.ValidarTelefon(fmt_telefono.getText())) {
+            JOptionPane.showMessageDialog(this, "El telefono ingresado ya existe.");
+            return;
+        }
         if (nomProv.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre del representante no puede estar vacio");
             return; // Salir del método si el campo está vacío
@@ -198,7 +202,7 @@ public class ProvedoresStore extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El nombre de la empresa no puede estar vacio");
             return; // Salir del método si el campo está vacío
         }
-        if (!empProv.matches("[a-zA-Záéíóúñ.][a-zA-Z 0-9.]+")) {
+        if (!empProv.matches("[a-zA-Záéíóúñ.][a-zA-Záéíóúñ 0-9.]+")) {
             JOptionPane.showMessageDialog(this, "El nombre de la empres solo puede contener letras y numeros");
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
