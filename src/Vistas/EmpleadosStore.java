@@ -231,11 +231,22 @@ public class EmpleadosStore extends javax.swing.JFrame {
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
          String nomEmp = txt_nombre.getText().trim(); // Eliminar espacios en blanco al inicio y al final
-        if (nomEmp.isEmpty()) {
+       
+          if (Empleados.ValidarTelefon(fmt_telefono.getText())) {
+            JOptionPane.showMessageDialog(this, "El telefono ingresado ya existe.");
+            return;
+        }
+         if (Empleados.ValidarIdentidad(fmt_identidad.getText())) {
+            JOptionPane.showMessageDialog(this, " la identidad ingresado ya existe.");
+            return;
+        }
+         
+         
+         if (nomEmp.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre del empleado no puede estar vacio");
             return; // Salir del método si el campo está vacío
         }
-        if (!nomEmp.matches("[a-zA-Záéíóúñ][a-zA-Z áéíóúñ]+")) {
+        if (!nomEmp.matches("[a-zA-ZáéíóúñÁÉÍÓÚÑ][a-zA-Z áéíóúñÁÉÍÓÚÑ]+")) {
             JOptionPane.showMessageDialog(this, "El nombre del empleado solo puede contener letras");
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
@@ -264,7 +275,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
                         return;
             }
            
-        String telEmp = fmt_telefonoEmergencia.getText().trim(); // Eliminar espacios en blanco al inicio y al final
+        String telEmp = fmt_telefono.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (telEmp.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El campo de telefono está vacío");
             return; // Salir del método si el campo está vacío
@@ -295,7 +306,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
             return; // Salir del método si el campo está vacío
         }
          if (!telEme.matches("[0-9][-0-9]+")) {
-            JOptionPane.showMessageDialog(this, "El telefono no debe estar vacio");
+            JOptionPane.showMessageDialog(this, "El telefono no puede ser cero");
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
        
@@ -331,7 +342,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
             // Llamar al método Guardar de la clase Productos para guardar los datos
             if (Empleados.Guardar(querys)) {
                 JOptionPane.showMessageDialog(this, "Nuevo Empleado Ingresado Exitosamente");
-                
+                Empleados.MostrarEmpleados("");
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Algo falló, consulte con el administrador de sistema", "Error al guardar", 
