@@ -96,6 +96,11 @@ public class Vistaprincipal extends javax.swing.JFrame {
         });
 
         btnDepartamentos.setText("Departamentos");
+        btnDepartamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDepartamentosActionPerformed(evt);
+            }
+        });
 
         btnInventario1.setText("Inventario");
 
@@ -214,6 +219,12 @@ public class Vistaprincipal extends javax.swing.JFrame {
         MostrarEmpleados mostrarEmpleados = new MostrarEmpleados();
         identificarVista(mostrarEmpleados);
     }//GEN-LAST:event_btnEmpleadosActionPerformed
+
+    private void btnDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepartamentosActionPerformed
+        MostrarDepartamentos mostrarDepartamentos = new MostrarDepartamentos();
+        identificarVista(mostrarDepartamentos);
+        
+    }//GEN-LAST:event_btnDepartamentosActionPerformed
 
     /**
      * @param args the command line arguments
