@@ -44,7 +44,8 @@ public class MostrarEmpleados extends javax.swing.JPanel {
                     verEmpleado.lblnombreemergencia.setText(tblMostrarEmpleados.getValueAt(fila, 6).toString());
                     verEmpleado.lblteléfonoemergencia.setText(tblMostrarEmpleados.getValueAt(fila, 7).toString());
                     verEmpleado.lblEstado.setText(tblMostrarEmpleados.getValueAt(fila, 8).toString());
-                     verEmpleado.setVisible(true);
+                     
+                    verEmpleado.setVisible(true);
                 }
             }
         });
@@ -199,7 +200,8 @@ public class MostrarEmpleados extends javax.swing.JPanel {
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        // TODO add your handling code here:
+    EmpleadosStore empleados = new EmpleadosStore();
+        empleados.setVisible(true);     
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed

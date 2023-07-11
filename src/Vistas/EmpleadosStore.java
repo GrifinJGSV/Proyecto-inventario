@@ -54,7 +54,8 @@ public class EmpleadosStore extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tex_direccion = new javax.swing.JTextArea();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        combo_estado = new javax.swing.JComboBox<>();
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
@@ -134,7 +135,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
                 btn_guardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, -1, -1));
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancelar.png"))); // NOI18N
         btn_cancelar.setText("Cancelar");
@@ -143,7 +144,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
                 btn_cancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 480, -1, -1));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 510, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -185,7 +186,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
 
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Dirección");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         tex_direccion.setColumns(20);
         tex_direccion.setRows(5);
@@ -196,10 +197,14 @@ public class EmpleadosStore extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tex_direccion);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, -1, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.jpg"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Estado");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+
+        combo_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Desactivado" }));
+        jPanel1.add(combo_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,7 +219,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 55, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -299,6 +304,8 @@ public class EmpleadosStore extends javax.swing.JFrame {
              return; // Salir del método si el teléfono no es válido
          }
        
+       String estaEmp = combo_estado.getSelectedItem().toString();
+       
         String texdire = tex_direccion.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (texdire.isEmpty()) {
             JOptionPane.showMessageDialog(this, "La dirección es requerida ");
@@ -318,6 +325,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
             querys.setNombreEmergencia(nomEme);
             querys.setTelefonoemergencia(telEme);
             querys.setDireccion(texdire);
+            querys.setEstado(estaEmp);
             
 
             // Llamar al método Guardar de la clase Productos para guardar los datos
@@ -326,8 +334,8 @@ public class EmpleadosStore extends javax.swing.JFrame {
                 
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "El Telefono o la identidad ya estan ingresados");
-            }
+                JOptionPane.showMessageDialog(null, "Algo falló, consulte con el administrador de sistema", "Error al guardar", 
+                    JOptionPane.OK_OPTION); }
     
 
     }//GEN-LAST:event_btn_guardarActionPerformed
@@ -491,11 +499,13 @@ public class EmpleadosStore extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_guardar;
+    private javax.swing.JComboBox<String> combo_estado;
     private javax.swing.JFormattedTextField fmt_identidad;
     private javax.swing.JFormattedTextField fmt_telefono;
     private javax.swing.JFormattedTextField fmt_telefonoEmergencia;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -503,7 +513,6 @@ public class EmpleadosStore extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea tex_direccion;

@@ -91,11 +91,6 @@ public class Empleados {
     }
     
         
-        
-        
-        
-      
-        
  
     public static boolean Guardar(QuerysEmpleados qp){
         String sql = QuerysEmpleados.RegistraEmpleado;
@@ -108,7 +103,8 @@ public class Empleados {
         ps.setString(4, qp.getTelefono());
         ps.setString(5, qp.getNombreEmergencia());
         ps.setString(6, qp.getTelefonoemergencia());
-        ps.setString(7, qp.getDireccion());
+        ps.setString(7, qp.getEstado());
+        ps.setString(8, qp.getDireccion());
         
         
         ps.executeUpdate();

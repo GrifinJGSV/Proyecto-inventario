@@ -33,10 +33,7 @@
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                   <Component id="btnImprimir" min="-2" pref="140" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnEditar" min="-2" pref="140" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="btnEditar" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                           </Group>
                           <Component id="btnNuevo" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
