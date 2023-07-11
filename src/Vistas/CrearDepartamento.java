@@ -188,7 +188,7 @@ public class CrearDepartamento extends javax.swing.JFrame {
          
          if (Departamentos.Guardar(querys)){
              JOptionPane.showMessageDialog(this, "Nuevo departamento ingresado exitosamente");
-                //Departamentos.MostrarDepartamentos("");
+                Departamentos.MostrarDepartamentos("");
                 dispose();
          }else {
                 JOptionPane.showMessageDialog(null, "Algo falló, consulte con el administrador de sistema", "Error al guardar", 

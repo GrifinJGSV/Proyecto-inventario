@@ -104,7 +104,7 @@ public class MostrarProveedores extends javax.swing.JPanel {
 
         btnNuevo.setBackground(new java.awt.Color(255, 255, 255));
         btnNuevo.setForeground(new java.awt.Color(0, 0, 0));
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/crear.png"))); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nuevo.png"))); // NOI18N
         btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +117,7 @@ public class MostrarProveedores extends javax.swing.JPanel {
         btnImprimir.setForeground(new java.awt.Color(0, 0, 0));
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprimir.png"))); // NOI18N
         btnImprimir.setText("Imprimir");
-        add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 130, 50));
+        add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, 130, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Listado de provedores");
@@ -132,7 +132,7 @@ public class MostrarProveedores extends javax.swing.JPanel {
                 btnEditarActionPerformed(evt);
             }
         });
-        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(711, 150, 120, 50));
+        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 130, 50));
 
         txtBusqueda.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         txtBusqueda.addFocusListener(new java.awt.event.FocusAdapter() {

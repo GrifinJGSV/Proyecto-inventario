@@ -27,7 +27,7 @@ public class MostrarDepartamentos extends javax.swing.JPanel {
         
         
         PromptSupport.setPrompt("Buscar por nombre de departamento y prefijo", txtSearch);
-        
+       /* 
         tblMostrarDepartamentos.addMouseListener(new MouseAdapter(){
           
           public void mouseClicked(MouseEvent e){
@@ -42,7 +42,7 @@ public class MostrarDepartamentos extends javax.swing.JPanel {
             verDepartamentos.setVisible(true);
           }
           }
-      });
+      });   */
     }
 
 
@@ -188,11 +188,12 @@ public class MostrarDepartamentos extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+         CrearDepartamento departamento = new CrearDepartamento();
+        departamento.setVisible(true);     
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

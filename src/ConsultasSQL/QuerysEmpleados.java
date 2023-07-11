@@ -107,7 +107,8 @@ public class QuerysEmpleados {
     }
     
     // Consulta SQL para actualizar un empleado en la base de datos
-    public static String ACTUALIZEmpleado = "UPDATE empleados SET nombre = ?, apellido = ?, identidad = ?, telefono = ?, nombreEmergencia = ?, telefonoemergencia = ?, direccion = ?, estado = ? WHERE id = ?";
+    public static String ACTUALIZEmpleado = "UPDATE empleados SET nombre = ?, apellido = ?, identidad = ?, telefono = ?,"
+            + " nombreEmergencia = ?, telefonoemergencia = ?, direccion = ?, estado = ? WHERE id = ?";
 }
     
 

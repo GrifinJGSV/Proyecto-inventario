@@ -370,7 +370,8 @@ public class EditarEmpleados extends javax.swing.JFrame {
             // Llamar al método Guardar de la clase Productos para guardar los datos
             if (Empleados.Editar(querys)) {
                 JOptionPane.showMessageDialog(this, "Empleado editado exitosamente");
-                
+                Empleados.MostrarEmpleados("");
+
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "El Telefono o la identidad ya estan ingresados");
