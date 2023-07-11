@@ -195,13 +195,12 @@ public class CrearProductos extends javax.swing.JFrame {
 
             // Llamar al método Guardar de la clase Productos para guardar los datos
             if (Productos.Guardar(querys)) {
-                JOptionPane.showMessageDialog(null, "Nuevo produto ingresado exitosamente","Error al guardar", 
-                    JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Nuevo producto ingresado exitosamente");
                 //Productos.MostrarProductos("");
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Algo falló, consulte con el administrador de sistema", "Error al guardar", 
-                    JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.OK_OPTION);
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "El valor del precio no es válido", "Error al guardar", 
