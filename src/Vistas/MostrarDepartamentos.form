@@ -54,7 +54,7 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnImprimir" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnNuevo" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
+                      <Component id="btnNuevoDepto" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
                   </Group>
                   <Component id="btnEditar" min="-2" pref="122" max="-2" attributes="0"/>
               </Group>
@@ -68,7 +68,7 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnImprimir" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-              <Component id="btnNuevo" min="-2" max="-2" attributes="0"/>
+              <Component id="btnNuevoDepto" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Component id="btnEditar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
@@ -187,7 +187,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImprimirActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnNuevo">
+    <Component class="javax.swing.JButton" name="btnNuevoDepto">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f8" green="ff" red="ff" type="rgb"/>
@@ -198,7 +198,7 @@
         <Property name="text" type="java.lang.String" value="Nuevo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoDeptoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnEditar">

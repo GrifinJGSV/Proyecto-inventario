@@ -26,13 +26,12 @@ public class MostrarDepartamentos extends javax.swing.JPanel {
         Controlador.Departamentos.MostrarDepartamentos("");
         
         
-<<<<<<< HEAD
-        PromptSupport.setPrompt("Buscar por nombre de departamento y prefijo", txtSearch);
-       /* 
-=======
+
+       // PromptSupport.setPrompt("Buscar por nombre de departamento y prefijo", txtSearch );
+    
         PromptSupport.setPrompt("Buscar por nombre de departamento y prefijo", txtBusqueda);
         
->>>>>>> f82aaf8f33179d93ea2bad4fc44840a4da905cbf
+
         tblMostrarDepartamentos.addMouseListener(new MouseAdapter(){
           
           public void mouseClicked(MouseEvent e){
@@ -47,7 +46,7 @@ public class MostrarDepartamentos extends javax.swing.JPanel {
             verDepartamentos.setVisible(true);
           }
           }
-      });   */
+      });   
     }
 
 
@@ -66,7 +65,7 @@ public class MostrarDepartamentos extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnImprimir = new javax.swing.JButton();
-        btnNuevo = new javax.swing.JButton();
+        btnNuevoDepto = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         txtBusqueda = new javax.swing.JTextField();
 
@@ -110,12 +109,12 @@ public class MostrarDepartamentos extends javax.swing.JPanel {
             }
         });
 
-        btnNuevo.setBackground(new java.awt.Color(255, 255, 248));
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nuevo.png"))); // NOI18N
-        btnNuevo.setText("Nuevo");
-        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+        btnNuevoDepto.setBackground(new java.awt.Color(255, 255, 248));
+        btnNuevoDepto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nuevo.png"))); // NOI18N
+        btnNuevoDepto.setText("Nuevo");
+        btnNuevoDepto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoActionPerformed(evt);
+                btnNuevoDeptoActionPerformed(evt);
             }
         });
 
@@ -163,7 +162,7 @@ public class MostrarDepartamentos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnImprimir)
-                        .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnNuevoDepto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
         );
@@ -173,7 +172,7 @@ public class MostrarDepartamentos extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnImprimir)
                 .addGap(51, 51, 51)
-                .addComponent(btnNuevo)
+                .addComponent(btnNuevoDepto)
                 .addGap(41, 41, 41)
                 .addComponent(btnEditar)
                 .addGap(119, 119, 119))
@@ -201,20 +200,22 @@ public class MostrarDepartamentos extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnImprimirActionPerformed
 
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+    private void btnNuevoDeptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoDeptoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNuevoActionPerformed
+        CrearDepartamento departamento = new CrearDepartamento();
+        departamento.setVisible(true);
+        departamento.setLocationRelativeTo(null);
 
-<<<<<<< HEAD
+    }//GEN-LAST:event_btnNuevoDeptoActionPerformed
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         CrearDepartamento departamento = new CrearDepartamento();
-        departamento.setVisible(true);     
+        //     
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         
     }//GEN-LAST:event_jButton4ActionPerformed
-=======
+
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -228,13 +229,13 @@ public class MostrarDepartamentos extends javax.swing.JPanel {
         String textoBusqueda = txtBusqueda.getText();
         Controlador.Departamentos.MostrarDepartamentos(textoBusqueda);
     }//GEN-LAST:event_txtBusquedaKeyReleased
->>>>>>> f82aaf8f33179d93ea2bad4fc44840a4da905cbf
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnImprimir;
-    private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btnNuevoDepto;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

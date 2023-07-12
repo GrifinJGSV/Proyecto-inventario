@@ -3,10 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Conexion;
+/*import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+*/
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 /**
  *
  * @author Josue
@@ -25,7 +29,7 @@ import java.sql.SQLException;
 		try {
 			
 		//Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                      conection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventarioalcaldia", "root", "alejandra");
+                      conection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventarioalcaldia", "root", "");
                       return conection;
                         
                     } 

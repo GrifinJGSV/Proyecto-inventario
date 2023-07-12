@@ -203,7 +203,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
         jLabel10.setText("Estado");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
-        combo_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Desactivado" }));
+        combo_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "activo", "inactivo" }));
         jPanel1.add(combo_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
