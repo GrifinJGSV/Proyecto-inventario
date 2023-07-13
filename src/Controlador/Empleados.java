@@ -34,10 +34,7 @@ public class Empleados {
         DefaultTableModel model = (DefaultTableModel)MostrarEmpleados.tblMostrarEmpleados.getModel();
         while (model.getRowCount() > 0 ){
                 model.removeRow(0);
-                MostrarEmpleados.tblMostrarEmpleados.getColumnModel().getColumn(0).setMaxWidth(0);
-                MostrarEmpleados.tblMostrarEmpleados.getColumnModel().getColumn(0).setMinWidth(0);
-                MostrarEmpleados.tblMostrarEmpleados.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
-                MostrarEmpleados.tblMostrarEmpleados.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+               
     }
     
     
