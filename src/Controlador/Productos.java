@@ -46,13 +46,6 @@ public class Productos {
                 sql = QuerysProductos.LISTARPRODUCTOS;
                 
             }
-            if (buscar == null){
-                 sql = QuerysProductos.LISTARPRODUCTOS;
-            } else {
-                sql = "select * from productos  WHERE nombreProducto like '%"+buscar+"%' or "
-                + "tipoInventario like '%"+buscar+"%'";
-                //"SELECT * FROM productos p WHERE UPPER(p.nombreProducto) LIKE UPPER('%" + buscar + "%')"
-            }
             
         
         String datos[] = new String[5];
@@ -82,7 +75,7 @@ public class Productos {
             }
            // MOSTRARCARGO.tblCa.setModel(modelo);//la tabla se actualiza. HacerCalculos(r);
         }catch (SQLException ex){
-            Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(Productos.class.getName()).log(Level.SEVERE,null, ex);
             
         }
         

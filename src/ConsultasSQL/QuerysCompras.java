@@ -20,7 +20,7 @@ public class QuerysCompras {
     private String tipoCompra;
     private int fk_proveedor;
     private String fecha;
-    private double total;
+    public double total;
 
     public int getId() {
         return id;

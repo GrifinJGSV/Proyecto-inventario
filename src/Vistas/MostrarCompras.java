@@ -6,19 +6,42 @@ package Vistas;
 
 import javax.swing.table.DefaultTableModel;
 import Conexion.Conexion;
-import com.mysql.cj.x.protobuf.MysqlxExpr;
+
 import java.awt.Color;
-import java.sql.Connection;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import static Vistas.IngresarCompra.proveedorSeleccionadoNombre;
 
 public class MostrarCompras extends javax.swing.JPanel {
     public MostrarCompras() {
         initComponents();
         tblMostrarCompras.getTableHeader().setReorderingAllowed(false);
         Controlador.Compras.MostrarCompras("");
+        
+        
+        tblMostrarCompras.addMouseListener(new MouseAdapter(){
+          
+            public void mouseClicked(MouseEvent e){
+                if (e.getClickCount() == 2){
+                    int fila = tblMostrarCompras.getSelectedRow();
+                    VerCompras vercompras = new VerCompras();
+                    vercompras.nFact.setText(tblMostrarCompras.getValueAt(fila, 0).toString());
+                    vercompras.nRtn.setText(tblMostrarCompras.getValueAt(fila, 1).toString());
+                    vercompras.nCai.setText(tblMostrarCompras.getValueAt(fila, 2).toString());
+                    vercompras.ntCompra.setText(tblMostrarCompras.getValueAt(fila, 3).toString());
+                    vercompras.nProv.setText(proveedorSeleccionadoNombre);
+                    vercompras.nFecha.setText(tblMostrarCompras.getValueAt(fila, 4).toString());
+                    vercompras.ntotFact.setText("Lps."+tblMostrarCompras.getValueAt(fila, 5).toString());
+            
+                    vercompras.setVisible(true);
+                    vercompras.setLocationRelativeTo(null);
+                }
+            }
+        });
+        
     }
     
     
@@ -73,8 +96,7 @@ public class MostrarCompras extends javax.swing.JPanel {
         AgregarCompra = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         CuadroBusqueda = new javax.swing.JTextField();
-
-        setBackground(new java.awt.Color(0, 153, 153));
+        jLabel2 = new javax.swing.JLabel();
 
         tblMostrarCompras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,10 +127,10 @@ public class MostrarCompras extends javax.swing.JPanel {
             tblMostrarCompras.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        AgregarCompra.setBackground(new java.awt.Color(0, 153, 153));
-        AgregarCompra.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        AgregarCompra.setForeground(new java.awt.Color(255, 255, 255));
-        AgregarCompra.setIcon(new javax.swing.ImageIcon("C:\\Users\\family6571\\Downloads\\imagenes\\agregar.png")); // NOI18N
+        AgregarCompra.setBackground(new java.awt.Color(253, 253, 253));
+        AgregarCompra.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        AgregarCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nuevo.png"))); // NOI18N
+        AgregarCompra.setText("Nuevo");
         AgregarCompra.setBorder(null);
         AgregarCompra.setOpaque(true);
         AgregarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -125,8 +147,8 @@ public class MostrarCompras extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Listado de  facturas de Compras");
 
         CuadroBusqueda.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -148,39 +170,50 @@ public class MostrarCompras extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo Listados.jpg"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CuadroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 889, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 903, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(19, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CuadroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(AgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(86, 86, 86))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(167, 167, 167)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CuadroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(AgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
-                .addGap(36, 36, 36))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CuadroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(AgregarCompra)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addGap(53, 53, 53))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -249,6 +282,7 @@ public class MostrarCompras extends javax.swing.JPanel {
     private javax.swing.JButton AgregarCompra;
     private javax.swing.JTextField CuadroBusqueda;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable tblMostrarCompras;
     // End of variables declaration//GEN-END:variables
