@@ -4,22 +4,20 @@
  */
 package Vistas;
 
-import Clases.Proveedor;
 import Conexion.Conexion;
 import Conexion.ModeloProveedores;
 import java.util.ArrayList;
-
-import ConsultasSQL.QuerysCompras;
-import com.mysql.cj.jdbc.PreparedStatementWrapper;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import Clases.Proveedor;
 import Controlador.Compras;
-import java.awt.Color;
 import javax.swing.JTextField;
-import java.util.Calendar;
 import java.util.Date;
+//import static Vistas.ProductoParaCompra.suma;
+import static Vistas.ProductoParaCompra.totalFactura;
+
+
 
 
 /**
@@ -29,6 +27,11 @@ import java.util.Date;
 public class IngresarCompra extends javax.swing.JFrame {
     Conexion enlace = new Conexion();
     Connection conection = enlace.getConexion();
+    
+    //Variables para calcular el total de la factura
+    //para poner publico el nombre del proveedor
+    static  String proveedorSeleccionadoNombre;
+    
 
 
    
@@ -37,17 +40,22 @@ public class IngresarCompra extends javax.swing.JFrame {
         //para llenar el id y el nombre del proveedor al boton de seleccion desplegable
         llenarProveedor();
         
-        //para que la fecha no sea mayor a la actual
-        
+        //para que la fecha no sea mayor a la actual y menor que la actual
         Fecha.setMaxSelectableDate(new Date());
+        Fecha.setMinSelectableDate(new Date());
         
+        //Inicializando la variable para calcular el total de la factura
+        //totalFactura = 0.0;     
     }  
- 
     
-    private void llenarProveedor(){
+    
+ 
+    //metodo para poder traer el id y el nombre del proveedor
+    public void llenarProveedor(){
         ModeloProveedores modProv = new ModeloProveedores();
         ArrayList<Proveedor> listaProveedores = modProv.getProveedor();
         int proveedorSeleccionadoId = 0;
+        proveedorSeleccionadoNombre = "Nose";
         
         Proveedores.removeAllItems();
         
@@ -60,10 +68,9 @@ public class IngresarCompra extends javax.swing.JFrame {
             if (indiceSeleccionado == i) {
                 // Guardar el ID del proveedor seleccionado
                 proveedorSeleccionadoId = listaProveedores.get(i).getId();
+                proveedorSeleccionadoNombre = listaProveedores.get(i).getNombre();
             }
-        }
-        
-        
+        }    
     }
     
 
@@ -103,6 +110,8 @@ public class IngresarCompra extends javax.swing.JFrame {
         RTN = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        btnEliminarP = new javax.swing.JButton();
+        imgInC = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,7 +181,8 @@ public class IngresarCompra extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 34, 390, 10));
 
-        btnAgregar.setIcon(new javax.swing.ImageIcon("C:\\Users\\family6571\\Downloads\\imagenes\\añadir.png")); // NOI18N
+        btnAgregar.setBackground(new java.awt.Color(253, 253, 253));
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/añadir.png"))); // NOI18N
         btnAgregar.setText("Agregar producto");
         btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -192,18 +202,23 @@ public class IngresarCompra extends javax.swing.JFrame {
 
         tblProductosCompras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "id_producto", "nombre_producto", "cantidad", "precio_unitario", "total"
+                "nombre_producto", "cantidad", "precio_unitario", "total"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(tblProductosCompras);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 308, 392, 178));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 308, 410, 178));
 
         Fecha.setToolTipText("");
         Fecha.setDateFormatString("yyyy/MM/dd");
@@ -217,7 +232,8 @@ public class IngresarCompra extends javax.swing.JFrame {
         jLabel8.setText("RTN:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 81, -1, -1));
 
-        btnGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\family6571\\Downloads\\imagenes\\salvar.png")); // NOI18N
+        btnGuardar.setBackground(new java.awt.Color(253, 253, 253));
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salvar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -229,16 +245,17 @@ public class IngresarCompra extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 504, 110, 30));
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 110, 30));
 
-        btncancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\family6571\\Downloads\\imagenes\\cancelar.png")); // NOI18N
+        btncancelar.setBackground(new java.awt.Color(253, 253, 253));
+        btncancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancelarr.png"))); // NOI18N
         btncancelar.setText("Cancelar");
         btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 504, -1, 30));
+        getContentPane().add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 500, 120, 30));
 
         try {
             numeroDocumento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-###-##-###")));
@@ -287,9 +304,18 @@ public class IngresarCompra extends javax.swing.JFrame {
         });
         getContentPane().add(RTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 78, 177, -1));
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 191, -1, -1));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\family6571\\Downloads\\imagenes\\LOGOI.png")); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, -180, 520, -1));
+
+        btnEliminarP.setText("Eliminar producto");
+        btnEliminarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEliminarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, -1));
+
+        imgInC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alcaldiaDepto.png"))); // NOI18N
+        getContentPane().add(imgInC, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 0, 480, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -313,9 +339,12 @@ public class IngresarCompra extends javax.swing.JFrame {
         //Guardar factura en la base de datos
         //variable que guarda la fecha
         String fcha = ((JTextField)Fecha.getDateEditor().getUiComponent()).getText();
+        
+            
+        
         try {
             PreparedStatement guardar = conection.prepareStatement("INSERT INTO compras(numeroDocumento,"
-                    + "rtn,cai,tipoCompra, fk_proveedor,fecha)VALUES(?,?,?,?,?,?)");
+                    + "rtn,cai,tipoCompra, fk_proveedor,fecha,total)VALUES(?,?,?,?,?,?,?)");
             
             guardar.setString(1,numeroDocumento.getText());
             guardar.setString(2,RTN.getText());
@@ -323,10 +352,12 @@ public class IngresarCompra extends javax.swing.JFrame {
             guardar.setString(4,tipoCompra.getSelectedItem().toString());
             guardar.setInt(5, Proveedores.getSelectedIndex());
             guardar.setString(6, fcha);
+            guardar.setDouble(7,totalFactura);
             
             //validaciones
             if(numeroDocumento.getText().equals("   -   -  -   ") || RTN.getText().equals("              ")
-               || CAI.getText().equals("      -      -      -      -      -  " )||Fecha.getDate()==(null)){
+               || CAI.getText().equals("      -      -      -      -      -  " )||Fecha.getDate()==(null)
+                    || tblProductosCompras.getRowCount() == 0){
                 JOptionPane.showMessageDialog(null,"Hay datos vacios"
                 ,"Error al guardar factura",JOptionPane.WARNING_MESSAGE);   
             }
@@ -335,6 +366,7 @@ public class IngresarCompra extends javax.swing.JFrame {
                 ,"Error al guardar factura",JOptionPane.WARNING_MESSAGE);
             }
             else{
+                
             guardar.executeUpdate();
             this.dispose();
             Compras.MostrarCompras("");
@@ -343,11 +375,10 @@ public class IngresarCompra extends javax.swing.JFrame {
             }
             
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null,"error al registrar la factura"+e
-                     + "\nYa existe una factura con estos datos","No se guardo la factura",
+             JOptionPane.showMessageDialog(null,"error al registrar la factura"
+                     + "\nYa existe una factura con estos datos"+e,"No se guardo la factura",
                     JOptionPane.WARNING_MESSAGE);
         }
-        //Validacion para que los datos no vayan vacios
         
         
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -411,6 +442,12 @@ public class IngresarCompra extends javax.swing.JFrame {
         //btnGuardar.setBackground(new Color(135, 206, 235));
     }//GEN-LAST:event_btnGuardarMouseEntered
 
+    private void btnEliminarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPActionPerformed
+        // TODO add your handling code here:
+        //codigo para eliminar filas de las tablas 
+        
+    }//GEN-LAST:event_btnEliminarPActionPerformed
+
     /** 
      * @param args the command line arguments
      */
@@ -452,8 +489,10 @@ public class IngresarCompra extends javax.swing.JFrame {
     private javax.swing.JComboBox Proveedores;
     private javax.swing.JFormattedTextField RTN;
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnEliminarP;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btncancelar;
+    private javax.swing.JLabel imgInC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -472,7 +511,7 @@ public class IngresarCompra extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JFormattedTextField numeroDocumento;
-    private javax.swing.JTable tblProductosCompras;
+    public static javax.swing.JTable tblProductosCompras;
     private javax.swing.JComboBox<String> tipoCompra;
     // End of variables declaration//GEN-END:variables
 
