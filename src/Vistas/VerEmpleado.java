@@ -56,9 +56,11 @@ public class VerEmpleado extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnVolver.setBackground(new java.awt.Color(255, 255, 248));
         btnVolver.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/volver.png"))); // NOI18N
         btnVolver.setText("Volver");
+        btnVolver.setBorder(null);
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
@@ -116,15 +118,15 @@ public class VerEmpleado extends javax.swing.JFrame {
 
         lblDirección.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         lblDirección.setText("jLabel13");
-        jPanel1.add(lblDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 240, -1));
+        jPanel1.add(lblDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 240, -1));
 
         lblnombreemergencia.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         lblnombreemergencia.setText("jLabel14");
-        jPanel1.add(lblnombreemergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 200, -1));
+        jPanel1.add(lblnombreemergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 200, -1));
 
         lblteléfonoemergencia.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         lblteléfonoemergencia.setText("jLabel15");
-        jPanel1.add(lblteléfonoemergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 250, -1));
+        jPanel1.add(lblteléfonoemergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 250, -1));
 
         jLabel10.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         jLabel10.setText("Estado:");

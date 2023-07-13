@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Conexion;
+/*import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+*/
 
 import java.sql.Connection;
 import java.sql.DriverManager;

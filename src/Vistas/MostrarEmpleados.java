@@ -7,6 +7,7 @@ package Vistas;
 import com.mysql.cj.x.protobuf.MysqlxExpr;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 import javax.swing.text.PlainDocument;
 import org.jdesktop.swingx.prompt.PromptSupport;
 import org.tinygroup.placeholder.PlaceholderMainClass;
@@ -44,7 +45,8 @@ public class MostrarEmpleados extends javax.swing.JPanel {
                     verEmpleado.lblnombreemergencia.setText(tblMostrarEmpleados.getValueAt(fila, 6).toString());
                     verEmpleado.lblteléfonoemergencia.setText(tblMostrarEmpleados.getValueAt(fila, 7).toString());
                     verEmpleado.lblEstado.setText(tblMostrarEmpleados.getValueAt(fila, 8).toString());
-                     verEmpleado.setVisible(true);
+                     
+                    verEmpleado.setVisible(true);
                 }
             }
         });
@@ -133,6 +135,11 @@ public class MostrarEmpleados extends javax.swing.JPanel {
         btnEditar.setBackground(new java.awt.Color(253, 253, 252));
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Editar.png"))); // NOI18N
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo Listados.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -146,16 +153,12 @@ public class MostrarEmpleados extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
-                        .addGap(9, 9, 9)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(42, 42, 42)
-                                    .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(112, 112, 112))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -165,19 +168,18 @@ public class MostrarEmpleados extends javax.swing.JPanel {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(203, 203, 203)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(79, 79, 79))
+                        .addGap(0, 601, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(139, 139, 139)
+                .addGap(185, 185, 185)
                 .addComponent(btnImprimir)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(btnNuevo)
                 .addGap(28, 28, 28)
                 .addComponent(btnEditar)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -190,7 +192,7 @@ public class MostrarEmpleados extends javax.swing.JPanel {
                 .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 65, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -199,7 +201,8 @@ public class MostrarEmpleados extends javax.swing.JPanel {
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        // TODO add your handling code here:
+    EmpleadosStore empleados = new EmpleadosStore();
+        empleados.setVisible(true);     
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed
@@ -210,6 +213,30 @@ public class MostrarEmpleados extends javax.swing.JPanel {
          String textoBusqueda = txtBusqueda.getText();
           Controlador.Empleados.MostrarEmpleados(textoBusqueda);
     }//GEN-LAST:event_txtBusquedaKeyReleased
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+                  EditarEmpleados EditarEmpleados = new EditarEmpleados();
+              
+              
+        int fila = tblMostrarEmpleados.getSelectedRow();  
+        
+        if (fila>=0){
+            EditarEmpleados.txt_nombre.setText(tblMostrarEmpleados.getValueAt(fila, 1).toString());
+            EditarEmpleados.txt_apellido.setText(tblMostrarEmpleados.getValueAt(fila, 2).toString());
+            EditarEmpleados.fmt_identidad.setText(tblMostrarEmpleados.getValueAt(fila, 3).toString());
+            EditarEmpleados.fmt_telefono.setText(tblMostrarEmpleados.getValueAt(fila, 4).toString());
+            EditarEmpleados.txt_NomEme.setText(tblMostrarEmpleados.getValueAt(fila, 5).toString());
+            EditarEmpleados.fmt_telefonoEmergencia.setText(tblMostrarEmpleados.getValueAt(fila,6).toString());
+            EditarEmpleados.cbxEstado.setSelectedItem(tblMostrarEmpleados.getValueAt(fila, 8).toString());
+            EditarEmpleados.tex_direccion.setText(tblMostrarEmpleados.getValueAt(fila, 7).toString());
+            EditarEmpleados.txt_Id.setText(tblMostrarEmpleados.getValueAt(fila, 0).toString());
+           //ediFormProv.tfI.setText(tblMostrarProveedores.getValueAt(fila, 0).toString());
+            EditarEmpleados.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null,  " no hay fila");
+            
+    }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,6 +7,7 @@ package Vistas;
 import com.mysql.cj.x.protobuf.MysqlxExpr;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 import javax.swing.text.PlainDocument;
 import org.jdesktop.swingx.prompt.PromptSupport;
 import org.tinygroup.placeholder.PlaceholderMainClass;
@@ -132,6 +133,11 @@ public class MostrarProductos extends javax.swing.JPanel {
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Editar.png"))); // NOI18N
         jButton2.setText("Editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 252, 252));
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -163,12 +169,12 @@ public class MostrarProductos extends javax.swing.JPanel {
                                 .addComponent(jLabel1)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 802, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCrear)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,11 +186,12 @@ public class MostrarProductos extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addGap(2, 2, 2)
                         .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
                         .addComponent(jButton3)
                         .addGap(42, 42, 42)
                         .addComponent(btnCrear)
@@ -228,6 +235,25 @@ public class MostrarProductos extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+          EditarProductos editarProductos = new EditarProductos();
+              
+              
+        int fila = tblMostrarProductos.getSelectedRow();  
+        
+        if (fila>=0){
+            EditarProductos.txtNombreProducto.setText(tblMostrarProductos.getValueAt(fila, 1).toString());
+            EditarProductos.cbxTipoInventario.setSelectedItem(tblMostrarProductos.getValueAt(fila, 2).toString());
+            EditarProductos.txtPrecio.setText(tblMostrarProductos.getValueAt(fila, 3).toString());
+            EditarProductos.txtId.setText(tblMostrarProductos.getValueAt(fila, 0).toString());
+           //ediFormProv.tfI.setText(tblMostrarProveedores.getValueAt(fila, 0).toString());
+            editarProductos.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null,  " no hay fila");
+            
+    }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrear;
@@ -240,14 +266,4 @@ public class MostrarProductos extends javax.swing.JPanel {
     public static javax.swing.JTable tblMostrarProductos;
     public static javax.swing.JTextField txtBusqueda;
     // End of variables declaration//GEN-END:variables
-
-    public static class tblProductosParafactura {
-
-        public static Object getColumnModel() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        public tblProductosParafactura() {
-        }
-    }
 }

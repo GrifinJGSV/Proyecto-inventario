@@ -196,7 +196,7 @@ public class CrearProductos extends javax.swing.JFrame {
             // Llamar al método Guardar de la clase Productos para guardar los datos
             if (Productos.Guardar(querys)) {
                 JOptionPane.showMessageDialog(null, "Nuevo producto ingresado exitosamente");
-                //Productos.MostrarProductos("");
+                Productos.MostrarProductos("");
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Algo falló, consulte con el administrador de sistema", "Error al guardar", 
@@ -212,20 +212,28 @@ public class CrearProductos extends javax.swing.JFrame {
 
     private void txtNombreProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreProductoKeyTyped
         //String valor = txtNombreProducto.getText();
+         char character = evt.getKeyChar();
+                if (!Character.isLetterOrDigit(character) && character != ' ') {
+                    evt.consume(); // Ignorar el evento de tecla
+                     getToolkit().beep();
+                }
         if(txtNombreProducto.getText().length() >=45){
             evt.consume();
+             getToolkit().beep();
         }
     }//GEN-LAST:event_txtNombreProductoKeyTyped
 
     private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
         char validar = evt.getKeyChar();
-        if(Character.isLetter(validar)){
-            getToolkit().beep();
-            JOptionPane.showMessageDialog(rootPane,"Ingresar solo números");
-        }
-        
+     if (Character.isLetter(validar) || !Character.isDigit(validar)) {
+         getToolkit().beep();
+         evt.consume();
+        // JOptionPane.showMessageDialog(rootPane, "Ingresar solo números");
+     }
+
         if(txtPrecio.getText().length() >=7){
             evt.consume();  
+             getToolkit().beep();
         }
     }//GEN-LAST:event_txtPrecioKeyTyped
 

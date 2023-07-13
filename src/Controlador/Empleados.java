@@ -90,11 +90,51 @@ public class Empleados {
         
     }
     
+    public static boolean ValidarTelefon(String buscar){
+            String sql = ""; 
+            sql = "SELECT * FROM empleados WHERE telefono=?";
         
+        try{
+             Statement st = conexion.createStatement();
+            
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, buscar);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (SQLException ex){
+            Logger.getLogger(Empleados.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
         
+    }
+    
+    
+    public static boolean ValidarIdentidad(String buscar){
+            String sql = ""; 
+            sql = "SELECT * FROM empleados WHERE identidad=?";
         
+        try{
+             Statement st = conexion.createStatement();
+            
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, buscar);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (SQLException ex){
+            Logger.getLogger(Empleados.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
         
-      
+    }
+    
         
  
     public static boolean Guardar(QuerysEmpleados qp){
@@ -108,8 +148,31 @@ public class Empleados {
         ps.setString(4, qp.getTelefono());
         ps.setString(5, qp.getNombreEmergencia());
         ps.setString(6, qp.getTelefonoemergencia());
-        ps.setString(7, qp.getDireccion());
+        ps.setString(7, qp.getEstado());
+        ps.setString(8, qp.getDireccion());
         
+        
+        ps.executeUpdate();
+        return true;
+        } catch (SQLException ex){
+            return false;
+//            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     public static boolean Editar(QuerysEmpleados qp){
+        String sql = QuerysEmpleados.ACTUALIZEmpleado;
+        
+        try{
+        ps = conexion.prepareStatement(sql);
+        ps.setString(1, qp.getNombre());
+        ps.setString(2, qp.getApellido());
+        ps.setString(3, qp.getIdentidad());
+        ps.setString(4, qp.getTelefono());
+        ps.setString(5, qp.getNombreEmergencia());
+        ps.setString(6, qp.getTelefonoemergencia());
+        ps.setString(7, qp.getDireccion());
+        ps.setString(8, qp.getEstado());
+        ps.setInt(9, qp.getId());
         
         ps.executeUpdate();
         return true;
