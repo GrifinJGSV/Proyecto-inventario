@@ -248,7 +248,8 @@ public class EmpleadosStore extends javax.swing.JFrame {
          
          
          if (nomEmp.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El nombre del empleado no puede estar vacio");
+             JOptionPane.showMessageDialog(null, " El nombre de el empleado no puede estar vacio.", "error al guardar",
+                    JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
         if (!nomEmp.matches("[a-zA-ZáéíóúñÁÉÍÓÚÑ][a-zA-Z áéíóúñÁÉÍÓÚÑ]+")) {
@@ -265,6 +266,7 @@ public class EmpleadosStore extends javax.swing.JFrame {
         if (!apeEmp.matches("[a-zA-Záéíóúñ][a-zA-Z áéíóúñ]+")) {
             JOptionPane.showMessageDialog(null, " El apellido solo puede contener letras.", "error al guardar",
                     JOptionPane.WARNING_MESSAGE);
+            return;
         }
        
         String ideEmp = fmt_identidad.getText().trim(); // Eliminar espacios en blanco al inicio y al final
@@ -274,40 +276,41 @@ public class EmpleadosStore extends javax.swing.JFrame {
         }
         if (!ideEmp.matches("[0-9][-0-9]+")) {
         JOptionPane.showMessageDialog(null, " la identidad no puede estar vacia.", "error al guardar",
-                    JOptionPane.WARNING_MESSAGE);    
+                    JOptionPane.WARNING_MESSAGE);  
+        return;
         }
-        if(ideEmp.equals("0000-0000-00000")){
+      /*  if(ideEmp.equals("0000-0000-00000")){
                JOptionPane.showMessageDialog(null, " la identidad no puede ser cero.", "error al guardar",
                     JOptionPane.WARNING_MESSAGE);
-        }
+               return;
+        }*/
            
         String telEmp = fmt_telefono.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (telEmp.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de telefono está vacío");
-            return; // Salir del método si el campo está vacío
+            JOptionPane.showMessageDialog(null, " El teléfono no puede estar vacio.", "error al guardar",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
         }
          if (!telEmp.matches("[0-9][-0-9]+")) {
             JOptionPane.showMessageDialog(null, " El teléfono no puede ser cero.", "error al guardar",
                     JOptionPane.WARNING_MESSAGE);
+            return;
         // Salir del método si el nombre contiene caracteres no válidos
         }
        
-       if (telEmp.equals("0000-0000")) {
-             JOptionPane.showMessageDialog(null, " El teléfono no puede ser cero.", "error al guardar",
-                    JOptionPane.WARNING_MESSAGE);
-        // Salir del método si el teléfono no es válido
-         }
+      
        
          String nomEme = txt_NomEme.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (nomEme.isEmpty()) {
-             JOptionPane.showMessageDialog(null, " El nombre del contacto de emergencia no"
-                     + "puede estar vacio.", "error al guardar",
+             JOptionPane.showMessageDialog(null, " El nombre del contacto de emergencia no puede estar vacio.", "error al guardar",
                     JOptionPane.WARNING_MESSAGE);
+             return;
         // Salir del método si el campo está vacío
         }
         if (!nomEme.matches("[a-zA-Záéíóúñ][a-zA-Z áéíóúñ]+")) {
              JOptionPane.showMessageDialog(null, " El nombre de contacto de emergencia solo puede contener letras.", "error al guardar",
                     JOptionPane.WARNING_MESSAGE);
+             return;
         // Salir del método si el nombre contiene caracteres no válidos
         }
         
@@ -315,19 +318,16 @@ public class EmpleadosStore extends javax.swing.JFrame {
         if (telEme.isEmpty()) {
              JOptionPane.showMessageDialog(null, " El teléfono de el contacto de emergencia no puede estar vacio.", "error al guardar",
                     JOptionPane.WARNING_MESSAGE);
+             return;
         // Salir del método si el campo está vacío
         }
          if (!telEme.matches("[0-9][-0-9]+")) {
              JOptionPane.showMessageDialog(null, " El teléfono de contacto de emergencia no puede ser cero.", "error al guardar",
                     JOptionPane.WARNING_MESSAGE);
+             return;
         // Salir del método si el nombre contiene caracteres no válidos
         }
        
-       if (telEme.equals("0000-0000")) {
-             JOptionPane.showMessageDialog(null, " El teléfono de contacto de emergencia no puede ser cero.", "error al guardar",
-                    JOptionPane.WARNING_MESSAGE);
-        // Salir del método si el teléfono no es válido
-         }
        
        String estaEmp = combo_estado.getSelectedItem().toString();
        
@@ -335,11 +335,13 @@ public class EmpleadosStore extends javax.swing.JFrame {
         if (texdire.isEmpty()) {
              JOptionPane.showMessageDialog(null, " La dirección no puede estar vacia.", "error al guardar",
                     JOptionPane.WARNING_MESSAGE);
+             return;
         // Salir del método si el campo está vacío
         }
         if (!texdire.matches("[a-zA-Záéíóúñü,-.;:,][a-zA-Záéíóúñü,;.:, 0-9]+")) {
              JOptionPane.showMessageDialog(null, " La dirección.", "error al guardar",
                     JOptionPane.WARNING_MESSAGE);
+             return;
         // Salir del método si el nombre contiene caracteres no válidos
         }
                         
@@ -434,6 +436,43 @@ public class EmpleadosStore extends javax.swing.JFrame {
         if(fmt_telefonoEmergencia.getText().equals("0000-0000")){
             JOptionPane.showMessageDialog(this, "No se acepta el telefono 0000-0000");
         }
+        if (fmt_telefonoEmergencia.getText().startsWith("0")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
+        if (fmt_telefonoEmergencia.getText().startsWith("1")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
+        if (fmt_telefonoEmergencia.getText().startsWith("4")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
+        if (fmt_telefonoEmergencia.getText().startsWith("5")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
+        if (fmt_telefonoEmergencia.getText().startsWith("6")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
+        if (fmt_telefonoEmergencia.getText().startsWith("7")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
+        
     }//GEN-LAST:event_fmt_telefonoEmergenciaKeyTyped
 
     private void fmt_identidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmt_identidadActionPerformed
@@ -445,11 +484,52 @@ public class EmpleadosStore extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nombreActionPerformed
 
     private void fmt_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmt_telefonoActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_fmt_telefonoActionPerformed
 
     private void fmt_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_telefonoKeyTyped
-        // TODO add your handling code here:
+       String Valor = fmt_telefono.getText();
+       
+       if(fmt_telefono.getText().equals("0000-0000")){
+            JOptionPane.showMessageDialog(this, "No se acepta el telefono 0000-0000");
+        }
+        
+        if (fmt_telefono.getText().startsWith("0")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
+        if (fmt_telefono.getText().startsWith("1")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
+        if (fmt_telefono.getText().startsWith("4")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
+        if (fmt_telefono.getText().startsWith("5")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
+        if (fmt_telefono.getText().startsWith("6")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
+        if (fmt_telefono.getText().startsWith("7")) {
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el cero
+            evt.consume();
+        }
     }//GEN-LAST:event_fmt_telefonoKeyTyped
 
     private void txt_NomEmeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_NomEmeKeyTyped

@@ -59,8 +59,8 @@ public class Empleados {
            
             int count = 1;
             while(rs.next()){
-                //datos[0] = count+"";
-                datos[0] = rs.getString( "id");
+                datos[0] = count+"";
+               // datos[0] = rs.getString( "id");
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("apellido");
                 datos[3] = rs.getString("identidad");
