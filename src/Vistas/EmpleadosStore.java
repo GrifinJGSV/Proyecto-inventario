@@ -106,6 +106,11 @@ public class EmpleadosStore extends javax.swing.JFrame {
                 fmt_identidadActionPerformed(evt);
             }
         });
+        fmt_identidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fmt_identidadKeyTyped(evt);
+            }
+        });
         jPanel1.add(fmt_identidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 240, -1));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -190,7 +195,9 @@ public class EmpleadosStore extends javax.swing.JFrame {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
         tex_direccion.setColumns(20);
+        tex_direccion.setLineWrap(true);
         tex_direccion.setRows(5);
+        tex_direccion.setWrapStyleWord(true);
         tex_direccion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 tex_direccionKeyTyped(evt);
@@ -338,7 +345,8 @@ public class EmpleadosStore extends javax.swing.JFrame {
              return;
         // Salir del método si el campo está vacío
         }
-        if (!texdire.matches("[a-zA-Záéíóúñü,-.;:,][a-zA-Záéíóúñü,;.:, 0-9]+")) {
+        if (!texdire.matches("[a-zA-Záéíóúñü,-.;:,]"
+                + "[a-zA-Záéíóúñü,;.:, 0-9]+")) {
              JOptionPane.showMessageDialog(null, " La dirección.", "error al guardar",
                     JOptionPane.WARNING_MESSAGE);
              return;
@@ -570,6 +578,12 @@ public class EmpleadosStore extends javax.swing.JFrame {
        evt.consume();
        }
     }//GEN-LAST:event_tex_direccionKeyTyped
+
+    private void fmt_identidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_identidadKeyTyped
+       
+
+
+    }//GEN-LAST:event_fmt_identidadKeyTyped
 
     /**
      * @param args the command line arguments
