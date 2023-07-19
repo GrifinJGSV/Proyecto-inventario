@@ -109,6 +109,26 @@ public class Empleados {
         
     }
     
+    public static boolean ValidarTelefonoEditar(String buscar, int idEditar) {
+    String sql = "SELECT * FROM empleados WHERE telefono=? AND id<>?";
+        
+    try {
+        PreparedStatement ps = conexion.prepareStatement(sql);
+        ps.setString(1, buscar);
+        ps.setInt(2, idEditar);
+        ResultSet rs = ps.executeQuery();
+        
+        if (rs.next()) {
+            return true; // Existe otro registro con el mismo número de teléfono (excluyendo el registro en edición)
+        } else {
+            return false; // No se encontraron otros registros con el mismo número de teléfono
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(Empleados.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    }
+}
+
     
     public static boolean ValidarIdentidad(String buscar){
             String sql = ""; 
@@ -132,7 +152,26 @@ public class Empleados {
         
     }
     
+     public static boolean ValidarIdentidadEditar(String buscar, int idEditar) {
+    String sql = "SELECT * FROM empleados WHERE identidad=? AND id<>?";
         
+    try {
+        PreparedStatement ps = conexion.prepareStatement(sql);
+        ps.setString(1, buscar);
+        ps.setInt(2, idEditar);
+        ResultSet rs = ps.executeQuery();
+        
+        if (rs.next()) {
+            return true; // Existe otro registro con la misma identidad (excluyendo el registro en edición)
+        } else {
+            return false; // No se encontraron otros registros con la misma identidad
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(Empleados.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    }
+}
+   
  
     public static boolean Guardar(QuerysEmpleados qp){
         String sql = QuerysEmpleados.RegistraEmpleado;

@@ -267,15 +267,17 @@ public class EditarEmpleados extends javax.swing.JFrame {
          String nomEmp = txt_nombre.getText().trim();
          String estado = cbxEstado.getSelectedItem().toString();
          int idText = Integer.parseInt(txt_Id.getText().trim());
-         /* if (Empleados.ValidarIdentidad(fmt_identidad.getText())) {
+         
+         if (Empleados.ValidarIdentidadEditar(fmt_identidad.getText(), Integer.parseInt(txt_Id.getText().trim()))) {
             JOptionPane.showMessageDialog(this, "La identidad ingresado ya existe.");
             return;
         }
           
-          if (Empleados.ValidarTelefono(fmt_telefono.getText())) {
-            JOptionPane.showMessageDialog(this, "El telefono ingresado ya existe.");
+        if (Empleados.ValidarTelefonoEditar(fmt_telefono.getText(), Integer.parseInt(txt_Id.getText().trim()))) {
+            JOptionPane.showMessageDialog(this, "El teléfono ingresado ya existe.");
             return;
-        }*/
+        }
+
         if (nomEmp.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre del empleado no puede estar vacio");
             return; // Salir del método si el campo está vacío
@@ -309,7 +311,7 @@ public class EditarEmpleados extends javax.swing.JFrame {
                         return;
             }
                   
-        String telEmp = fmt_telefonoEmergencia.getText().trim(); // Eliminar espacios en blanco al inicio y al final
+        String telEmp = fmt_telefono.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (telEmp.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El campo de telefono está vacío");
             return; // Salir del método si el campo está vacío
@@ -412,7 +414,8 @@ public class EditarEmpleados extends javax.swing.JFrame {
          
         
        if (Valor.startsWith(" ")){
-             JOptionPane.showMessageDialog(this, "el nombre no puede iniciar con espacios ");// no puede iniciar con  espacios
+           
+             //JOptionPane.showMessageDialog(this, "el nombre no puede iniciar con espacios ");// no puede iniciar con  espacios
           txt_nombre.setText(Valor);
           return;
         }
