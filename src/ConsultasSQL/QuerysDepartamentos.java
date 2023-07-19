@@ -61,6 +61,5 @@ public class QuerysDepartamentos {
     }
     
     // Consulta SQL para actualizar un producto en la base de datos
-    public static String ACTUALIZARDEPARTAMENTOS = "UPDATE departamento SET nombreDepartamento = ?,"
-            + " prefijo = ?, ubicacion = ? WHERE id = ?";
+    public static String ACTUALIZAR = "UPDATE departamentos SET nombreDepartamento = ?, prefijo = ?,ubicacion = ? WHERE id = ?";
 }

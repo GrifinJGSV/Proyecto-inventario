@@ -30,17 +30,19 @@ public class VerDepartamentos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblprefijo = new javax.swing.JLabel();
-        btnVolver = new javax.swing.JButton();
         lblnombreDepartamento = new javax.swing.JLabel();
         lblPrecioFijo = new javax.swing.JLabel();
         lblUbicacion = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblubicacion = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -53,55 +55,60 @@ public class VerDepartamentos extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.jpg"))); // NOI18N
+        jLabel5.setText("jLabel5");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 248));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
-        jLabel1.setText("Ver Departamentos");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 19, -1, 48));
+        jLabel1.setText("Datos del Departamento");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, 48));
 
         jLabel2.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jLabel2.setText("Nombre del Departamento:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 85, -1, -1));
+        jLabel2.setText("Nombre:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
 
         lblprefijo.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         lblprefijo.setText("Prefijo:");
-        jPanel2.add(lblprefijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 150, -1, -1));
+        jPanel2.add(lblprefijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
+
+        lblnombreDepartamento.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblnombreDepartamento.setText("Unidad Municipal de Informatica");
+        jPanel2.add(lblnombreDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
+
+        lblPrecioFijo.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblPrecioFijo.setText("UMI");
+        jPanel2.add(lblPrecioFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 50, -1));
+
+        lblUbicacion.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblUbicacion.setText("Alcaldia");
+        jPanel2.add(lblUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 212, -1, -1));
+
+        lblubicacion.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        lblubicacion.setText("Ubicación:");
+        jPanel2.add(lblubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
 
         btnVolver.setBackground(new java.awt.Color(255, 255, 248));
-        btnVolver.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(0, 0, 0));
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/volver.png"))); // NOI18N
         btnVolver.setText("Volver");
-        btnVolver.setBorder(null);
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 290, -1, -1));
+        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, -1, -1));
 
-        lblnombreDepartamento.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        lblnombreDepartamento.setText("Unidad Municipal de Informatica");
-        jPanel2.add(lblnombreDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 85, -1, -1));
-
-        lblPrecioFijo.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        lblPrecioFijo.setText("UMI");
-        jPanel2.add(lblPrecioFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 150, -1, -1));
-
-        lblUbicacion.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        lblUbicacion.setText("Alcaldia");
-        jPanel2.add(lblUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 212, -1, -1));
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 212, -1, -1));
-
-        lblubicacion.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        lblubicacion.setText("Ubicación");
-        jPanel2.add(lblubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 212, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.jpg"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 500, 360));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.jpg"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 470, 340));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,11 +164,13 @@ public class VerDepartamentos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVolver;
+    public static javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public static javax.swing.JLabel lblPrecioFijo;

@@ -279,6 +279,11 @@ public class IngresarCompra extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        CAI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CAIActionPerformed(evt);
+            }
+        });
         CAI.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 CAIKeyTyped(evt);
@@ -443,10 +448,13 @@ public class IngresarCompra extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarMouseEntered
 
     private void btnEliminarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPActionPerformed
-        // TODO add your handling code here:
-        //codigo para eliminar filas de las tablas 
+        
         
     }//GEN-LAST:event_btnEliminarPActionPerformed
+
+    private void CAIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CAIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CAIActionPerformed
 
     /** 
      * @param args the command line arguments

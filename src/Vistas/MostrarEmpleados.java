@@ -175,13 +175,13 @@ public class MostrarEmpleados extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(185, 185, 185)
+                .addGap(147, 147, 147)
                 .addComponent(btnImprimir)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(btnNuevo)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(btnEditar)
-                .addContainerGap(368, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -194,8 +194,8 @@ public class MostrarEmpleados extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 341, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

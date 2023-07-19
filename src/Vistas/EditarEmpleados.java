@@ -23,6 +23,9 @@ public class EditarEmpleados extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+       // initComponents();
+        //setLocationRelativeTo(null);
+        //setResizable(false);
     }
 
     /**

@@ -80,7 +80,6 @@ public class MostrarProveedores extends javax.swing.JPanel {
                 return true ;
             }
         };
-        tblMostrarProveedores.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         tblMostrarProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -102,8 +101,6 @@ public class MostrarProveedores extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 680, 350));
 
-        btnNuevo.setBackground(new java.awt.Color(255, 255, 255));
-        btnNuevo.setForeground(new java.awt.Color(0, 0, 0));
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nuevo.png"))); // NOI18N
         btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -113,8 +110,6 @@ public class MostrarProveedores extends javax.swing.JPanel {
         });
         add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 130, 50));
 
-        btnImprimir.setBackground(new java.awt.Color(255, 255, 255));
-        btnImprimir.setForeground(new java.awt.Color(0, 0, 0));
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprimir.png"))); // NOI18N
         btnImprimir.setText("Imprimir");
         add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, 130, 50));
@@ -123,8 +118,6 @@ public class MostrarProveedores extends javax.swing.JPanel {
         jLabel1.setText("Listado de provedores");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 206, -1));
 
-        btnEditar.setBackground(new java.awt.Color(255, 255, 255));
-        btnEditar.setForeground(new java.awt.Color(0, 0, 0));
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Editar.png"))); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
