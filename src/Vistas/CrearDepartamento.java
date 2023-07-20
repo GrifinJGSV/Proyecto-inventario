@@ -44,7 +44,7 @@ public class CrearDepartamento extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -76,7 +76,9 @@ public class CrearDepartamento extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 34, -1, -1));
 
         txtUbicacion.setColumns(20);
+        txtUbicacion.setLineWrap(true);
         txtUbicacion.setRows(5);
+        txtUbicacion.setWrapStyleWord(true);
         txtUbicacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtUbicacionKeyTyped(evt);
@@ -149,9 +151,9 @@ public class CrearDepartamento extends javax.swing.JFrame {
                     JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
-        if(!nombreDepartamento.matches("[a-zA-ZáéíóúñÁÉÍÓÚÑ][a-zA-Z áéíóúñÁÉÍÓÚÑ]+")) {//si el nombre del departamento contiene caracteres diferentes se muestra el siguiente mensaje
+        if(!nombreDepartamento.matches("[a-zA-ZáéíóúñÁÉÍÓÚÑ][a-zA-Z0-9 áéíóúñÁÉÍÓÚÑü]+")) {//si el nombre del departamento contiene caracteres diferentes se muestra el siguiente mensaje
             //mensaje de error 
-            JOptionPane.showMessageDialog(null, "alguno de los caracteres que ingresó no es valido", "Errror al guardar", 
+            JOptionPane.showMessageDialog(null, "alguno de los caracteres que ingresó en el nombre no es valido", "Errror al guardar", 
                     JOptionPane.WARNING_MESSAGE);
             return;//sale del método
         }
@@ -164,6 +166,12 @@ public class CrearDepartamento extends javax.swing.JFrame {
                     JOptionPane.WARNING_MESSAGE);
             return;//sale del método
         }
+        if(!prefijo.matches("[a-zA-ZáéíóúñÁÉÍÓÚÑ][a-zA-Z0-9 áéíóúñÁÉÍÓÚÑü]+")) {//si el prefijo del departamento contiene caracteres diferentes se muestra el siguiente mensaje
+            //mensaje de error 
+            JOptionPane.showMessageDialog(null, "alguno de los caracteres que ingresó en el prefijo no es valido", "Errror al guardar", 
+                    JOptionPane.WARNING_MESSAGE);
+            return;//sale del método
+        }
         
         //Validación para la ubicación
         String ubicacion = txtUbicacion.getText();
@@ -173,8 +181,8 @@ public class CrearDepartamento extends javax.swing.JFrame {
             return;//sale del método
          }     
          
-         if(!ubicacion.matches("[a-zA-ZáéíóúñÁÉÍÓÚÑ][a-zA-Z0-9 áéíóúñÁÉÍÓÚÑü.:;]+")){
-             JOptionPane.showMessageDialog(null, "alguno de los caracteres que ingresó no es valido", "Error al guardar", 
+         if(!ubicacion.matches("[a-zA-ZáéíóúñÁÉÍÓÚÑ][a-zA-Z0-9 áéíóúñÁÉÍÓÚÑü.:;,]+")){
+             JOptionPane.showMessageDialog(null, "alguno de los caracteres que ingresó en la ubicación no es valido", "Error al guardar", 
                     JOptionPane.WARNING_MESSAGE);
             return;//sale del método
          }
@@ -187,7 +195,8 @@ public class CrearDepartamento extends javax.swing.JFrame {
          querys.setUbicacion(ubicacion);
          
          if (Departamentos.Guardar(querys)){
-             JOptionPane.showMessageDialog(this, "Nuevo departamento ingresado exitosamente");
+             JOptionPane.showMessageDialog(null, "Nuevo departamento ingresado exitosamente","Guardado con éxito",
+                     JOptionPane.INFORMATION_MESSAGE);
                 Departamentos.MostrarDepartamentos("");
                 dispose();
          }else {
@@ -216,14 +225,7 @@ public class CrearDepartamento extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreDepartamentoKeyTyped
 
     private void txtPrefijoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrefijoKeyTyped
-        
-        //validación para que en el prefijo solo acepte letras 
-        char validar = evt.getKeyChar();
-        if(Character.isDigit(validar)){
-            getToolkit().beep();
-            JOptionPane.showMessageDialog(rootPane,"Ingrese solo letras");
-        }
-        
+
         //validación para que no acepte mas de 5 letras
         if(txtPrefijo.getText().length() >= 5){//cuando el prefijo llegue a las 5 letras
         evt.consume();//no permite que sigan escribiendo en el campo
@@ -231,9 +233,14 @@ public class CrearDepartamento extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPrefijoKeyTyped
 
     private void txtUbicacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUbicacionKeyTyped
-        if(txtUbicacion.getText().length() >= 50){//si la ubicación es mayor a 50 caracteres 
+        if(txtUbicacion.getText().length() >= 150){//si la ubicación es mayor a 50 caracteres 
         evt.consume();//no permite que sigan escribiendo en el campo
         }
+        char c = evt.getKeyChar();// esta validacion esta perfecta
+      /* if (!Character.isLetter(c) && !Character.isWhitespace(c) && c != ',' && c != '.') {
+           getToolkit().beep();
+            evt.consume();
+        }*/
     }//GEN-LAST:event_txtUbicacionKeyTyped
 
     /**
