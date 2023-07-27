@@ -47,12 +47,6 @@ public class EditarProductos extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
@@ -68,11 +62,6 @@ public class EditarProductos extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         txtNombreProducto.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        txtNombreProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreProductoActionPerformed(evt);
-            }
-        });
         txtNombreProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreProductoKeyTyped(evt);
@@ -85,11 +74,6 @@ public class EditarProductos extends javax.swing.JFrame {
         jPanel1.add(cbxTipoInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, 40));
 
         txtPrecio.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        txtPrecio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPrecioActionPerformed(evt);
-            }
-        });
         txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPrecioKeyTyped(evt);
@@ -144,14 +128,6 @@ public class EditarProductos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreProductoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreProductoActionPerformed
-
-    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPrecioActionPerformed
-
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         //String idText = txtId.getText().trim();
         int idText = Integer.parseInt(txtId.getText().trim());
@@ -160,11 +136,11 @@ public class EditarProductos extends javax.swing.JFrame {
         // Obtener el nombre del producto del campo de texto txtNombreProducto
         String nombreProducto = txtNombreProducto.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (nombreProducto.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El espacio de nombre de producto está vacío");
+            JOptionPane.showMessageDialog(null, "El espacio de nombre de producto está vacío.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
         if (!nombreProducto.matches("[a-zA-Z0-9 ]+")) {
-            JOptionPane.showMessageDialog(this, "El nombre de producto solo puede contener letras");
+            JOptionPane.showMessageDialog(null, "El nombre de producto solo puede contener letras.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
 
@@ -174,13 +150,13 @@ public class EditarProductos extends javax.swing.JFrame {
         // Obtener el precio del campo de texto txtPrecio y validar que sea un número válido
         String precioText = txtPrecio.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (precioText.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El espacio de precio está vacío");
+            JOptionPane.showMessageDialog(null, "El espacio de precio está vacío.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
         try {
             double precio = Double.parseDouble(precioText);
             if (precio <= 0) {
-                JOptionPane.showMessageDialog(this, "El precio debe ser un número mayor que cero");
+                JOptionPane.showMessageDialog(null, "El precio debe ser un número mayor que cero.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
                 return; // Salir del método si el precio no es válido
             }
             // Crear una instancia de QuerysProductos
@@ -192,14 +168,14 @@ public class EditarProductos extends javax.swing.JFrame {
 
             // Llamar al método Guardar de la clase Productos para guardar los datos
             if (Productos.Editar(querys)) {
-                JOptionPane.showMessageDialog(this, "Produto Editado Exitosamente");
+                JOptionPane.showMessageDialog(null, "Produto Editado Exitosamente.","Guardado con éxito",JOptionPane.INFORMATION_MESSAGE);
                 //Productos.MostrarProductos("");
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "Algo falló, consulte con el Administrador de sistema");
+                JOptionPane.showMessageDialog(null, "Algo falló, consulte con el administrador de sistema", "Error al guardar", JOptionPane.OK_OPTION);
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El valor del precio no es válido");
+            JOptionPane.showMessageDialog(null, "El valor del precio no es válido.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
         }
 
         // TODO add your handling code here:
@@ -236,10 +212,6 @@ public class EditarProductos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPrecioKeyTyped
 
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -265,6 +237,10 @@ public class EditarProductos extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(EditarProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

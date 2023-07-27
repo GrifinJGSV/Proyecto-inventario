@@ -4,10 +4,11 @@
  */
 package Vistas;
 
+import Clases.IdentidadValidator;
 import ConsultasSQL.QuerysEmpleados;
 import javax.swing.JOptionPane;
 import Controlador.Empleados;
-import java.awt.event.KeyEvent;
+
 
 
 /**
@@ -68,17 +69,6 @@ public class EditarEmpleados extends javax.swing.JFrame {
 
         jPanel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txt_Id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_IdActionPerformed(evt);
-            }
-        });
-        txt_Id.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_IdKeyTyped(evt);
-            }
-        });
         jPanel1.add(txt_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
@@ -86,11 +76,6 @@ public class EditarEmpleados extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 130, -1));
 
         txt_nombre.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nombreActionPerformed(evt);
-            }
-        });
         txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_nombreKeyTyped(evt);
@@ -119,11 +104,6 @@ public class EditarEmpleados extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        fmt_identidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fmt_identidadActionPerformed(evt);
-            }
-        });
         jPanel1.add(fmt_identidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 280, -1));
 
         jLabel4.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
@@ -135,11 +115,6 @@ public class EditarEmpleados extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        fmt_telefonoEmergencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fmt_telefonoEmergenciaActionPerformed(evt);
-            }
-        });
         fmt_telefonoEmergencia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fmt_telefonoEmergenciaKeyTyped(evt);
@@ -169,7 +144,7 @@ public class EditarEmpleados extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
         jLabel5.setText("Editar empleado");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 180, 32));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 190, 32));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
@@ -182,7 +157,7 @@ public class EditarEmpleados extends javax.swing.JFrame {
                 txt_NomEmeKeyTyped(evt);
             }
         });
-        jPanel1.add(txt_NomEme, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 230, 30));
+        jPanel1.add(txt_NomEme, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 210, 30));
 
         jLabel7.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         jLabel7.setText("Contacto de emergencia");
@@ -193,11 +168,6 @@ public class EditarEmpleados extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        fmt_telefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fmt_telefonoActionPerformed(evt);
-            }
-        });
         fmt_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fmt_telefonoKeyTyped(evt);
@@ -207,11 +177,6 @@ public class EditarEmpleados extends javax.swing.JFrame {
 
         cbxEstado.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "activo", "inactivo" }));
-        cbxEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxEstadoActionPerformed(evt);
-            }
-        });
         jPanel1.add(cbxEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 280, 30));
 
         jLabel10.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
@@ -238,7 +203,7 @@ public class EditarEmpleados extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alcaldiaDepto.png"))); // NOI18N
         jLabel9.setText("5555");
         jLabel9.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 520, 620));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 520, 620));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -259,107 +224,111 @@ public class EditarEmpleados extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fmt_telefonoEmergenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmt_telefonoEmergenciaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fmt_telefonoEmergenciaActionPerformed
-
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
          String nomEmp = txt_nombre.getText().trim();
          String estado = cbxEstado.getSelectedItem().toString();
          int idText = Integer.parseInt(txt_Id.getText().trim());
          
          if (Empleados.ValidarIdentidadEditar(fmt_identidad.getText(), Integer.parseInt(txt_Id.getText().trim()))) {
-            JOptionPane.showMessageDialog(this, "La identidad ingresado ya existe.");
+            JOptionPane.showMessageDialog(null, "La identidad ingresado ya existe.", "Error al guardar", JOptionPane.WARNING_MESSAGE);             
             return;
         }
           
         if (Empleados.ValidarTelefonoEditar(fmt_telefono.getText(), Integer.parseInt(txt_Id.getText().trim()))) {
-            JOptionPane.showMessageDialog(this, "El teléfono ingresado ya existe.");
+            JOptionPane.showMessageDialog(null, "La teléfono ingresado ya existe.", "Error al guardar", JOptionPane.WARNING_MESSAGE);             
             return;
         }
 
         if (nomEmp.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El nombre del empleado no puede estar vacio");
+            JOptionPane.showMessageDialog(null, "El nombre del empleado no puede estar vacio.", "Error al guardar", JOptionPane.WARNING_MESSAGE);             
+            JOptionPane.showMessageDialog(this, "");
             return; // Salir del método si el campo está vacío
         }
         if (!nomEmp.matches("[a-zA-Záéíóúñ][a-zA-Z áéíóúñ]+")) {
-            JOptionPane.showMessageDialog(this, "El nombre del empleado solo puede contener letras");
+            JOptionPane.showMessageDialog(null, "El nombre del empleado solo puede contener letras.", "Error al guardar", JOptionPane.WARNING_MESSAGE);             
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
         
          String apeEmp = txt_apellido.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (apeEmp.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El apellido del empleado no puede estar vacio");
+            JOptionPane.showMessageDialog(null, "El apellido del empleado no puede estar vacio.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
         if (!apeEmp.matches("[a-zA-Záéíóúñ][a-zA-Z áéíóúñ]+")) {
-            JOptionPane.showMessageDialog(this, "El apellido del empleado solo puede contener letras");
+            JOptionPane.showMessageDialog(null, "El apellido del empleado solo puede contener letras.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
        
         String ideEmp = fmt_identidad.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (ideEmp.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "el numero de identidad está vacío");
+            JOptionPane.showMessageDialog(null, "el numero de identidad está vacío.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
         if (!ideEmp.matches("[0-9][-0-9]+")) {
-            JOptionPane.showMessageDialog(this, "La identidad no puede estar vacio");
+            JOptionPane.showMessageDialog(null, "La identidad no puede estar vacio.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
         if(ideEmp.equals("0000-0000-00000")){
-                JOptionPane.showMessageDialog(this,"La identidad no puede ser cero");
+            JOptionPane.showMessageDialog(null, "La identidad no puede ser cero.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
                         return;
             }
-                  
+               
         String telEmp = fmt_telefono.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (telEmp.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de telefono está vacío");
+            JOptionPane.showMessageDialog(null, "El campo de telefono está vacío.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
          if (!telEmp.matches("[0-9][-0-9]+")) {
-            JOptionPane.showMessageDialog(this, "El telefono no debe estar vacio");
+            JOptionPane.showMessageDialog(null, "El telefono no debe estar vacio.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
        
        if (telEmp.equals("0000-0000")) {
-            JOptionPane.showMessageDialog(this, "El teléfono no debe ser cero");
-             return; // Salir del método si el teléfono no es válido
+           JOptionPane.showMessageDialog(null, "El teléfono no debe ser cero.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
+           return; // Salir del método si el teléfono no es válido
          }
        String nomEme = txt_NomEme.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (nomEme.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El nombre de contacto de emergencia del empleado no puede estar vacio");
+            JOptionPane.showMessageDialog(null, "El nombre de contacto de emergencia del empleado no puede estar vacio.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
         if (!nomEme.matches("[a-zA-Záéíóúñ][a-zA-Z áéíóúñ]+")) {
-            JOptionPane.showMessageDialog(this, "El nombre de contacto de emergencia del empleado solo puede contener letras");
+            JOptionPane.showMessageDialog(null, "El nombre de contacto de emergencia del empleado solo puede contener letras.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
         
         String telEme = fmt_telefonoEmergencia.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (telEme.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El campo de telefono está vacío");
+            JOptionPane.showMessageDialog(null, "El campo de telefono está vacío.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
          if (!telEme.matches("[0-9][-0-9]+")) {
-            JOptionPane.showMessageDialog(this, "El telefono no debe estar vacio");
+            JOptionPane.showMessageDialog(null, "El telefono no debe estar vacio.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
        
        if (telEme.equals("0000-0000")) {
-            JOptionPane.showMessageDialog(this, "El teléfono no debe ser cero");
-             return; // Salir del método si el teléfono no es válido
+           JOptionPane.showMessageDialog(null, "El teléfono no debe ser cero.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
+           return; // Salir del método si el teléfono no es válido
          }
        
         String texdire = tex_direccion.getText().trim(); // Eliminar espacios en blanco al inicio y al final
         if (texdire.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "La dirección es requerida ");
+            JOptionPane.showMessageDialog(null, "La dirección es requerida.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el campo está vacío
         }
         if (!texdire.matches("[a-zA-Záéíóúñ][a-zA-Záéíóúñ 0-9]+")) {
-            JOptionPane.showMessageDialog(this, "La dirección solo puede contener letras y numeros");
+            JOptionPane.showMessageDialog(null, "La dirección solo puede contener letras y numeros.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
             return; // Salir del método si el nombre contiene caracteres no válidos
         }
-                        
+        
+         String identidad = fmt_identidad.getText(); // Obtener el texto ingresado en el campo fmt_identidad
+
+        // Crear una instancia del validador de identidad
+        IdentidadValidator validator = new IdentidadValidator();
+
+        // Validar la identidad utilizando el método validarIdentidad del validador
+        if (validator.validarIdentidad(identidad)) {
             // Crear una instancia de QuerysProductos
             QuerysEmpleados querys = new QuerysEmpleados();
             querys.setNombre(nomEmp);
@@ -374,13 +343,17 @@ public class EditarEmpleados extends javax.swing.JFrame {
 
             // Llamar al método Guardar de la clase Productos para guardar los datos
             if (Empleados.Editar(querys)) {
-                JOptionPane.showMessageDialog(this, "Empleado editado exitosamente");
-                Empleados.MostrarEmpleados("");
+                JOptionPane.showMessageDialog(null, "Empleado editado exitosamente","Guardado con éxito", JOptionPane.INFORMATION_MESSAGE);
 
+                Empleados.MostrarEmpleados("");
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "El Telefono o la identidad ya estan ingresados");
+                JOptionPane.showMessageDialog(null, "El Telefono o la identidad ya estan ingresados", "Error al guardar", JOptionPane.OK_OPTION);               
             }
+        } else {
+            // La identidad no es válida, mostrar mensaje de error.
+            JOptionPane.showMessageDialog(null, "Identidad inválida: " + identidad, "Validación de Identidad",JOptionPane.ERROR_MESSAGE);
+        }   
     
 
     }//GEN-LAST:event_btn_guardarActionPerformed
@@ -402,16 +375,28 @@ public class EditarEmpleados extends javax.swing.JFrame {
     }//GEN-LAST:event_fmt_rtnKeyPressed
    
 
+    private int getCursorPositionNombre() {
+        return txt_nombre.getCaretPosition();   
+    }
+
+    // Método para establecer la posición del cursor
+    private void setCursorPositionNombre(int position) {
+        txt_nombre.setCaretPosition(position);
+    }
 
 
     private void txt_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyTyped
-          String Valor =txt_nombre.getText();
+      String Valor = txt_nombre.getText();
+
+            if (!Valor.isEmpty()) {
+                int cursorPosition = getCursorPositionNombre(); // Obtener posición actual del cursor
+
+                char primeraLetra = Character.toUpperCase(Valor.charAt(0));
+                txt_nombre.setText(primeraLetra + Valor.substring(1));
+
+                setCursorPositionNombre(cursorPosition); // Restaurar posición del cursor
+            }
         
-        if (!Valor.isEmpty()) {// que la primera letra sea mayuscula
-        char primeraLetra = Character.toUpperCase(Valor.charAt(0));
-         txt_nombre.setText(primeraLetra + Valor.substring(1));
-        }
-         
         
        if (Valor.startsWith(" ")){
            
@@ -426,13 +411,26 @@ public class EditarEmpleados extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txt_nombreKeyTyped
 
+        private int getCursorPositionApellido() {
+        return txt_apellido.getCaretPosition();   
+    }
+
+    // Método para establecer la posición del cursor
+    private void setCursorPositionApellido(int position) {
+        txt_apellido.setCaretPosition(position);
+    }
+    
     private void txt_apellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_apellidoKeyTyped
       String Valor =txt_apellido.getText();
         
         if (!Valor.isEmpty()) {// que la primera letra sea mayuscula
+            int cursorPosition = getCursorPositionApellido();
         char primeraLetra = Character.toUpperCase(Valor.charAt(0));
          txt_apellido.setText(primeraLetra + Valor.substring(1));
+         setCursorPositionApellido(cursorPosition); 
         }
+        
+        
                
        if (Valor.startsWith(" ")){
              JOptionPane.showMessageDialog(this, "el nombre de empresa no puede iniciar con espacios ");// no puede iniciar con  espacios
@@ -446,39 +444,59 @@ public class EditarEmpleados extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_apellidoKeyTyped
 
     private void fmt_telefonoEmergenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_telefonoEmergenciaKeyTyped
-        String Valor = fmt_telefonoEmergencia.getText();
-        
-        if(fmt_telefonoEmergencia.getText().equals("0000-0000")){
-            JOptionPane.showMessageDialog(this, "No se acepta el telefono 0000-0000");
+    String telefono = fmt_telefonoEmergencia.getText();
+        if(telefono.equals("0000-0000")){
+            JOptionPane.showMessageDialog(null, "No se acepta el telefono 0000-0000.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
         }
+
+
+        if (!telefono.isEmpty() && "014567".contains(telefono.substring(0, 1))) {
+            JOptionPane.showMessageDialog(null, "AL inicio solo se permiten los siguentes numeros: 3,9,8 y 2.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el dígito
+            evt.consume();
+        }
+        
     }//GEN-LAST:event_fmt_telefonoEmergenciaKeyTyped
 
-    private void fmt_identidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmt_identidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fmt_identidadActionPerformed
-
-    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nombreActionPerformed
-
-    private void fmt_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmt_telefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fmt_telefonoActionPerformed
-
     private void fmt_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fmt_telefonoKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fmt_telefonoKeyTyped
+        String telefono = fmt_telefono.getText();
 
+        if (!telefono.isEmpty() && "014567".contains(telefono.substring(0, 1))) {
+            JOptionPane.showMessageDialog(null, "AL inicio solo se permiten los siguentes numeros: 3,9,8 y 2.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
+            // Emitir un sonido de error
+            getToolkit().beep();
+            // Consumir el evento para evitar que se ingrese el dígito
+            evt.consume();
+        }
+        
+         if(telefono.equals("0000-0000")){
+             JOptionPane.showMessageDialog(null, "No se acepta el telefono 0000-0000.", "Error al guardar", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_fmt_telefonoKeyTyped
+    
+        private int getCursorPositionNombreEme() {
+        return txt_NomEme.getCaretPosition();   
+    }
+
+    // Método para establecer la posición del cursor
+    private void setCursorPositionNombreEme(int position) {
+        txt_NomEme.setCaretPosition(position);
+    }
+    
     private void txt_NomEmeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_NomEmeKeyTyped
         String Valor =txt_NomEme.getText();
         
         if (!Valor.isEmpty()) {// que la primera letra sea mayuscula
+            int cursorPosition = getCursorPositionNombreEme();
         char primeraLetra = Character.toUpperCase(Valor.charAt(0));
          txt_NomEme.setText(primeraLetra + Valor.substring(1));
+         setCursorPositionNombreEme(cursorPosition); 
         }
                
        if (Valor.startsWith(" ")){
-             JOptionPane.showMessageDialog(this, "el nombre de contacto de emergencia no puede iniciar con espacios ");// no puede iniciar con  espacios
+           JOptionPane.showMessageDialog(null, "El nombre de contacto de emergencia no puede iniciar con espacios.", "Error al guardar", JOptionPane.WARNING_MESSAGE);// no puede iniciar con  espacios
           txt_NomEme.setText(Valor);
           return;
         }
@@ -487,17 +505,28 @@ public class EditarEmpleados extends javax.swing.JFrame {
        evt.consume();
        }
     }//GEN-LAST:event_txt_NomEmeKeyTyped
+    
+        private int getCursorPositionDireccion() {
+        return tex_direccion.getCaretPosition();   
+    }
 
+    // Método para establecer la posición del cursor
+    private void setCursorPositionDireccion(int position) {
+        tex_direccion.setCaretPosition(position);
+    }
+    
     private void tex_direccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tex_direccionKeyTyped
         String Valor =tex_direccion.getText();
         
         if (!Valor.isEmpty()) {// que la primera letra sea mayuscula
+            int cursorPosition = getCursorPositionDireccion();
         char primeraLetra = Character.toUpperCase(Valor.charAt(0));
          tex_direccion.setText(primeraLetra + Valor.substring(1));
+         setCursorPositionDireccion(cursorPosition);
         }
                
        if (Valor.startsWith(" ")){
-             JOptionPane.showMessageDialog(this, "La direccion no puede iniciar con un espacio ");// no puede iniciar con  espacios
+           JOptionPane.showMessageDialog(null, "La direccion no puede iniciar con un espacio.", "Error al guardar", JOptionPane.WARNING_MESSAGE);// no puede iniciar con  espacios
           tex_direccion.setText(Valor);
           return;
         }
@@ -506,18 +535,6 @@ public class EditarEmpleados extends javax.swing.JFrame {
        evt.consume();
        }
     }//GEN-LAST:event_tex_direccionKeyTyped
-
-    private void cbxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxEstadoActionPerformed
-
-    private void txt_IdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_IdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_IdActionPerformed
-
-    private void txt_IdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_IdKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_IdKeyTyped
 
     /**
      * @param args the command line arguments
